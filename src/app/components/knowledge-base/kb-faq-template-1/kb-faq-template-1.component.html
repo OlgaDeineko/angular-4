@@ -1,0 +1,192 @@
+<div class="visitor-faq" *ngIf="ctrl.faq">
+  <div class="visitor-faq-bg-heading">
+    <div class="col-md-12">
+      <div class="row nomargin">
+        <div class="col-md-11 offset-md-left-1">
+          <button class="button pull-right editFAQ"
+                  maRoleAccess
+                  [visibleFor]="['admin', 'superAdmin', 'editor']"
+                  [routerLink]="['/admin/editFAQ', ctrl.faq.slug]"
+                  *ngIf="ctrl.$Auth.isLogin()">
+            {{'BUTTON.EDIT_FAQ' | translate}}
+          </button>
+          <button class="button pull-right button-primary adminPanel"
+                  maRoleAccess
+                  [invisibleFor]="['visitor']"
+                  [routerLink]="['/admin']"
+                  placement="bottom"
+                  ngbTooltip="Admin panel"
+                  *ngIf="ctrl.$Auth.isLogin()"
+                  (click)="ctrl.searchModel = ''">
+            Admin panel
+          </button>
+          <button ngbDropdown class="ma-select lang-drop-down pull-right" *ngIf="ctrl.languages.length > 1">
+            <div class="form-control ma-select-button visitor-lang-drop-down-color text-center"
+                 id="faqLanguageDropdown"
+                 ngbDropdownToggle>
+              <i class="fa fa-angle-down dropdown-angle pull-right"></i>
+
+              <i class="{{ctrl.kblang.code | iconClass:'flag'}}"></i>
+
+              {{('LANGUAGES.'+((ctrl.languages | find:'code':ctrl.kblang.code).name) | uppercase) | translate}}
+            </div>
+            <ul class="dropdown-menu lang-drop-down-menu">
+              <li *ngFor="let item of ctrl.languages"
+                  (click)="ctrl.onChangeLanguage(item)">
+                <i class="{{item.code | iconClass:'flag'}}"></i>
+                {{('LANGUAGES.'+item.name | uppercase )| translate}}
+              </li>
+            </ul>
+          </button>
+        </div>
+      </div>
+
+      <div class="row algolia-search-input">
+        <div class="col-md-10 offset-md-1">
+          <i class="fa fa-search"></i>
+          <input [focus]="true" class="form-control" placeholder="{{'FAQ.SEARCH_KB' | translate}}" [(ngModel)]="ctrl.searchModel">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content visitor-faq" *ngIf="!ctrl.searchModel.length">
+    <div class="col-md-12">
+      <div class="row nomargin">
+        <!--Content article-->
+        <div class="col-md-8 offset-md-2 faq-content">
+
+          <!--Question-->
+          <div class="faq-question">
+            <h2>
+                <span *ngFor="let translate of ctrl.faq.translation">
+               <i *ngIf="translate.lang.code !== ctrl.faq.lang.code"
+                  placement="top"
+                  ngbTooltip="{{('LANGUAGES.'+translate.lang.name | uppercase )| translate}}"
+                  (click)="ctrl.translateFaq(translate.id)"
+                  class="{{translate.lang.code | iconClass:'flag'}}"></i>
+            </span>
+              {{ctrl.faq.question}}</h2>
+            <ma-breadcrumbs [translates]="true"></ma-breadcrumbs>
+          </div><!--END: Question-->
+
+          <!--Counts views-->
+          <div class="faq-counts">
+            Updated by {{ctrl.faq.author}} on {{ctrl.faq.updated_at * 1000 | date : "dd/MM/yy"}}
+          </div><!--END: Counts views-->
+
+          <!--Tags-->
+          <div class="faq-tags">
+            <div class="faq-tag" *ngFor="let item of ctrl.faq.tags;trackBy:index">
+              {{item.name}}
+            </div>
+          </div><!--END: Tags-->
+
+          <!--Copy To Clipboard-->
+          <div class="container-fluid row">
+            <div class="col-md-12">
+              <!--faq analytics-->
+              <i class="pull-right fa fa-bar-chart faq-views">
+                <div class="faq-views-analytics">
+                  <h4>Analytics</h4>
+                  <p><i class="fa fa-eye"></i>{{ctrl.faq.hits_count}} view{{ctrl.faq.hits_count > 1 ? 's': ''}}</p>
+                  <p><i class="fa fa-smile-o"></i> {{ctrl.faq.likes}} like{{ctrl.faq.likes > 1 ? 's': ''}}</p>
+                  <p><i class="fa fa-frown-o"></i> {{ctrl.faq.dislikes}} dislike{{ctrl.faq.dislikes > 1 ? 's': ''}}</p>
+                </div>
+              </i><!--END: faq analytics-->
+                <clipboard-component [content]="faqAnswer.innerText"
+                                     [altText]="'copy to clipboard'"
+                                     [faIcon]="true"
+                                     class="pull-right faq-copy"
+                                     maRoleAccess
+                                     [visibleFor]="['superAdmin', 'admin', 'editor', 'contributor']"
+                                     ngbTooltip="Copy to clipboard"
+                                     placement="top"
+                                     (click)="ctrl.copyToClipboard()">
+                  <i class="fa fa-clipboard"></i>
+                </clipboard-component>
+            </div>
+          </div><!--END: Copy To Clipboard-->
+
+          <!--Counts word-->
+          <div class="faq-counts">
+            <p>
+              {{ctrl.faq | countFaqWords | async}}
+            </p>
+          </div><!--END: Counts word-->
+
+          <!--Answer-->
+          <div #faqAnswer class="faq-answer kb-faq-answer">
+            <div maCopySentences *ngIf="!ctrl.translatetrue" [innerHTML]="ctrl.faq.answer | convertHtml"></div>
+            <div maCopySentences *ngIf="ctrl.translatetrue" [innerHTML]="ctrl.faq.answer | convertHtml"></div>
+          </div>
+          <!--END: Answer-->
+
+          <div class="faq-remarks" *ngIf="!!ctrl.faq.remarks && ctrl.faq.remarks.length && ctrl.$Auth.isLogin()"
+               maRoleAccess
+               [visibleFor]="['superAdmin', 'admin', 'editor', 'contributor']">
+            <h4>Internal comment</h4>
+            <div class="one-remark">
+              {{ctrl.faq.remarks}}
+            </div>
+          </div>
+
+          <!--faq-attachment-->
+          <div class="faq-attachment" *ngIf="ctrl.faq.attachments.length">
+            <h4>Attachments:</h4>
+
+            <div class="files" *ngFor="let item of ctrl.faq.attachments">
+              <a [href]="item.attachment_url" target="_blank" class="files-name">
+                <i class="fa fa-file-{{item.type == 'pdf'? 'pdf': 'word'}}-o"></i>
+                <span>{{item.name}}</span>
+              </a>
+            </div>
+          </div><!--END: Attachments-->
+        </div>
+        <div class="col-md-2 tree-content">
+          <div class="kb-category-tree" *ngIf="ctrl.categoryTree === 'true' && ctrl.tree.categories.length >0">
+            <h3>{{'FAQ.CONTENTS' | translate}}</h3>
+            <div class="kb-category" *ngIf="ctrl.tree">
+              <div *ngFor="let category of ctrl.tree.categories | bigList | async; let i = index">
+                <div class="tree-item-title tree-item-type-category">
+                  <a class="tree-item-icon">
+                    <span>{{i+1}}</span>
+                  </a>
+                  <a [routerLink]="ctrl.generateLink(category)">
+                    {{category.name}}
+                  </a>
+                </div><!--END:title-->
+                <div>
+                  <div class="tree-row tree-sub"
+                       *ngFor="let subcat of category.categories; let j = index">
+                    <div class="tree-item-title tree-item-type-category">
+                      <a class="tree-item-icon">
+                        <span>{{i+1}}.{{j+1}}</span>
+                      </a>
+
+                      <a [routerLink]="ctrl.generateLink(subcat)">
+                        {{subcat.name}}
+                      </a>
+
+                    </div><!--END:title-->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--END: Content article-->
+    </div>
+  </div>
+  <!--</div>-->
+
+  <ma-algolia-search
+    *ngIf="ctrl.searchModel.length"
+    [searchModel]="ctrl.searchModel"
+    [category]="'Home'"
+  ></ma-algolia-search>
+
+  <footer class="powered-by" *ngIf="ctrl.powered_by">
+    Powered by <a href="https://www.myanswers.io/" target="_blank">MyAnswers.io</a>
+  </footer>
+</div>

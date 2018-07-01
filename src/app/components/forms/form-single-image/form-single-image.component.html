@@ -1,0 +1,47 @@
+<div class="form-group has-feedback"
+     [formGroup]="form">
+
+  <label *ngIf="label"
+         class="form-control-label"
+         [for]="name">
+    {{label | translate}}
+  </label>
+
+  <input
+    type="hidden"
+    [name]="name"
+    [id]="id"
+    [formControlName]="name"
+  >
+
+  <div class="upload-container">
+    <div>
+      <div class="upload-image text-center"
+           *ngIf="!newImage && !oldImage"
+           (click)="fileDialog.open()">
+        <i class="fa fa-cloud-upload fa-4x" aria-hidden="true"></i>
+        <span>{{'FORMS.APPEARANCE.UPLOAD_IMAGE' | translate}}</span>
+      </div>
+
+      <!--preview image-->
+      <div class="uploaded-image"
+           *ngIf="newImage || oldImage">
+
+        <img [src]="(newImage && newImage.base64) || oldImage"
+             (click)="fileDialog.open()">
+
+        <i class="fa fa-times-circle-o close"
+           (click)="removeImage()">
+        </i>
+      </div><!--END: preview image-->
+
+    </div>
+
+    <ma-upload-file
+      #fileDialog
+      [checkError]="checkError"
+      (onFileUploaded)="fileUploaded($event)"
+    ></ma-upload-file>
+  </div>
+
+</div>

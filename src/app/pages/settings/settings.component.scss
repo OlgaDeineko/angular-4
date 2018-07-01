@@ -1,0 +1,105 @@
+@import "../../../_variables.scss";
+
+.settings {
+  display: flex;
+
+  &-content {
+    min-height: 100%;
+
+    &:after {
+      content: " ";
+      border-left: 1px solid $dividerDarkColor;
+      position: absolute;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &-tree-title {
+    font-weight: bold;
+    font-size: $fontSize;
+    margin: 0;
+    h4 {
+      color: $darkTextColor;
+      font-weight: bold;
+    }
+
+  }
+
+  &-actions {
+    position: relative;
+    margin-bottom: 40px;
+
+  }
+  .list-group-item {
+    cursor: pointer;
+    border-radius: 0;
+    border: none;
+    background: none;
+    font-size: $fontSize;
+    font-weight: bold;
+    display: block;
+
+    &:hover {
+      background-color: rgba(#000, 0.1);
+    }
+    a {
+      text-decoration: none;
+      &, &:hover, &:visited {
+        color: $darkTextColor;
+      }
+    }
+
+  }
+  .list-group-item.active {
+    color: #4aa3df;
+  }
+  .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    z-index: 0;
+  }
+
+  .setting-description {
+    font-size: $fontSm;
+    font-weight: normal;
+    background: none;
+    color: $lightGreyTextColor;
+  }
+  &-title-active {
+    color: #4aa3df;
+  }
+  .content {
+    margin: 3% 0;
+  }
+  .footer {
+    margin: 3% 0;
+    clear: both;
+  }
+  .admin-myanswers-logo{
+    width: 37% !important;
+    height: auto;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-right: 20px;
+  }
+}
+.accessibility, .appearance, .myltiple-languages, .importData, .helpWidget, .advancedSettings{
+  .myanswers-logo {
+    width: 38% !important;
+    height: auto;
+    float: right;
+    margin-bottom: 15px;
+    margin-top: 5px;
+  }
+}
+
+.personalInfo, .changePassword, .chooseLanguage{
+  .myanswers-logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8.7%;
+    margin-right: 20px;
+    margin-top: 5px;
+  }
+}

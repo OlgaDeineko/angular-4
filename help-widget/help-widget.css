@@ -1,0 +1,259 @@
+.widget-container {
+  background-color: #fcfbfc;
+  width: 370px;
+  height: 350px;
+  z-index: 100;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin-right: 1.5%;
+  display: none;
+  border-radius: 15px;
+  margin-bottom: 1%;
+  box-shadow: 0px 1px 13px 1px #cfcfd2;
+}
+
+.widget-btn-help {
+  z-index: 90;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin-right: 2%;
+  margin-bottom: 1%;
+  background-color: #5fae8b;
+  color: white;
+  border-radius: 30px;
+  padding: 16px 20px;
+  font-size: 18px;
+  display: block;
+  font-weight: bold;
+  border: none;
+}
+
+.widget-help-tip {
+  border-radius: 15px;
+  border: 1px solid white;
+  margin-left: 15px;
+  padding: 1.5px 6px;
+  font-size: 16px;
+  color: #5fae8b;
+  background: white;
+}
+
+.widget-btn-close {
+  z-index: 101;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 1%;
+  margin-right: 1rem;
+  color: #b2b2b2;
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#widget-header {
+  background: #f8f8f8;
+  height: 100px;
+  border-radius: 15px 15px 0px 0px;
+  border-bottom: 1px solid #dddddd;
+}
+
+#widget-body {
+  height: 180px;
+  overflow: auto;
+}
+
+#widget-footer {
+  height: 70px;
+  position: relative;
+}
+
+#widget-search {
+  display: table;
+  margin: 0 auto;
+  padding: 10px 10px;
+  width: 90%;
+  height: 4rem;
+  border-radius: 5px;
+  background-image: url(https://skiba.myanswers.io/assets/images/search.png);
+  background-position: 95% 49%;
+  background-repeat: no-repeat;
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+.widget-title {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 16px;
+  color: #585858;
+  font-weight: bold;
+}
+
+.widget-top-results {
+  font-weight: bold;
+  font-size: 16px;
+  color: black;
+  margin-left: 1em;
+  margin-top: 15px;
+}
+
+#widget-body a {
+  color: #0589ff;
+}
+
+#widget-body li {
+  font-size: 14px;
+  margin: 5px 0;
+  color: #999999;
+}
+
+.widget-btn-view-more {
+  margin-left: 1em;
+  border-radius: 15px;
+  background-color: transparent;
+  border: 1px solid #b2b2b2;
+  color: #b2b2b2;
+  font-size: 14px;
+  padding: 4px 10px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.widget-btn-liveChat {
+  background-color: #0589ff;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  float: right;
+  margin-right: 20px;
+}
+
+.widget-iframe-close {
+  z-index: 101;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 1%;
+  color: white;
+  background: none;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+
+.widget-live-chat {
+  display: none;
+  width: 360px;
+  height: 470px;
+  z-index: 100;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin-right: 20px;
+  background-color: #4fa3dd;
+}
+
+.widget-iframe {
+  width: 340px;
+  height: 420px;
+  z-index: 100;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin-right: 30px;
+  margin-bottom: 10px;
+  border: none;
+  overflow: hidden;
+}
+
+.widget-divider {
+  display: table;
+  margin: 0 auto;
+  width: 330px;
+  height: 1px;
+  margin-bottom: 1%;
+  background-color: #b2b2b2;
+}
+
+.widget-tooltip {
+  display: inline-block;
+}
+
+.widget-tooltip .widget-tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  margin-bottom: -30px;
+  font-size: 12px;
+}
+
+.widget-tooltip:hover .widget-tooltiptext {
+  visibility: visible;
+}
+
+.poweredBy{
+  text-align:center;
+  clear:both;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+@media only screen and (max-width: 748px) {
+  .widget-live-chat{
+    width: 86%;
+    height: 63%;
+  }
+  .widget-iframe{
+    width: 80%;
+    height: 55%;
+  }
+
+  .widget-container{
+    width: 75%;
+    height: 55%;
+    margin: inherit;
+  }
+
+  #widget-header {
+    height:28%;
+  }
+
+  #widget-body {
+    height: 50%;
+  }
+
+  #widget-footer {
+    height: 22%;
+  }
+  .poweredBy{
+    margin: 0px auto;
+  }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 748px) {
+  .widget-live-chat{
+    width: 83%;
+    height: 65%;
+  }
+  .widget-container{
+    height: 85%;
+  }
+}
+

@@ -1,0 +1,58 @@
+<div class="container-fluid login">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <h1 class="text-center">
+        {{'REGISTRATION.SIGN_IN_TO_KB' | translate }} {{KBName || subdomain}}
+      </h1>
+
+      <form name="login"
+            [formGroup]="loginForm"
+            (submit)="loginForm.valid && login()"
+            #loginFormElement="ngForm"
+            novalidate>
+
+        <ma-form-input
+          [formElement]="loginFormElement"
+          [form]="loginForm"
+          [label]="'FORMS.LOGIN_FORM.EMAIL'"
+          [name]="'email'"
+          [messages]="{pattern: 'FORMS.VALIDATIONS.EMAIL_INVALID'}">
+        </ma-form-input>
+
+        <ma-form-input
+          [formElement]="loginFormElement"
+          [form]="loginForm"
+          [label]="'FORMS.LOGIN_FORM.PASSWORD'"
+          [name]="'password'"
+          [type]="'password'"
+          [messages]="{pattern: 'FORMS.VALIDATIONS.PASSWORD_INVALID'}">
+        </ma-form-input>
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> {{'FORMS.LOGIN_FORM.REMEMBER' | translate }}
+          </label>
+        </div>
+
+        <div class="login-actions">
+          <button type="submit"
+                  class="button button-primary button-full"
+                  [disabled]="loginForm.invalid">
+            {{"BUTTON.SIGNIN" | translate}}
+          </button>
+
+          <button class="button button-full"
+                  type="button"
+                  (click)="forgot()">
+            {{"BUTTON.FORGOT" | translate}}
+          </button>
+          <a class="button button-full"
+             [href]="REGISTRATION_URL">
+            {{"BUTTON.REGISTRATION" | translate}}
+          </a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,123 @@
+<div class="tree-item">
+  <!--drag icon-->
+  <div class="tree-item-drag">
+    <i class="fa fa-bars"
+       maRoleAccess
+       dnd-sortable-handle
+       [invisibleFor]="['contributor']"
+       *ngIf="dragIcon">
+    </i>
+  </div><!--END:drag icon-->
+
+  <!--title-->
+  <div class="tree-item-title tree-item-type-{{type}}">
+
+    <!--<a class="tree-item-icon"-->
+    <!--data-nodrag-->
+    <a class="tree-item-icon"
+       (click)="toggleChildren(item)">
+      <i class="tree-icon-folder fa {{icon + (item.expanded ? '-open':'')}}"
+         aria-hidden="true">
+      </i>
+    </a>
+
+    <a [routerLink]="generateLink(item)">
+      <span
+        *ngIf="item.status && item.status == 'draft'">{{'FAQ.STATUSES.DRAFT' | translate | uppercase}}</span>
+      <span *ngIf="item.status && item.status == 'review'">{{'FAQ.STATUSES.REVIEW' | translate | uppercase}}</span>
+      {{item[title]}}
+    </a>
+
+  </div><!--END:title-->
+
+  <!--created-->
+  <div class="tree-item-update"
+       placement="top"
+       ngbTooltip="{{item.created_at * 1000 | date : 'dd/MM/yy HH:mm:ss'}}">
+    <span>{{item.created_at * 1000 | date : "dd/MM/yy"}}</span>
+  </div><!--END: created-->
+
+  <!--lang-->
+  <div class="tree-item-lang" *ngFor=" let lang of transLang">
+    <!--lang-->
+    <span *ngIf="checkTranslation(lang, item) === false">
+      <button class="icon-button-little"
+              maRoleAccess
+              [disableFor]="['contributor']"
+              (click)="edit(item, lang.code)"
+              placement="top"
+              ngbTooltip="{{'BUTTON.EDIT_TRANSLATION' | translate}}">
+      <i class="fa fa-pencil" aria-hidden="true"
+         [class.disabled]=" item.status === 'trash'"></i>
+      </button>
+    </span>
+    <span *ngIf="checkTranslation(lang, item) === true">
+      <button class="icon-button-little"
+              maRoleAccess
+              [disableFor]="['contributor']"
+              (click)="createTranslation(item, lang.code)"
+              placement="top"
+              ngbTooltip="{{'BUTTON.ADD_TRANSLATION' | translate}}">
+        <i class="fa fa-plus" aria-hidden="true"
+           [class.disabled]="item.status == 'trash'" ></i>
+      </button>
+    </span>
+  </div><!--END:lang-->
+  <!--author-->
+  <div class="tree-item-author">
+    {{item.author}}
+  </div><!--END: author-->
+
+  <!--actions-->
+  <div class="tree-item-actions text-right">
+    <button class="icon-button"
+            (click)="edit(item)"
+            maRoleAccess
+            [disableFor]="['contributor']"
+            [disableIf]="item.status != 'draft' || !item.isOwner"
+            placement="top"
+            ngbTooltip="{{(type == 'faq' ? 'FAQ.EDIT' : ('CATEGORY.EDIT_'+item.type | uppercase)) | translate}}">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </button>
+
+    <button class="icon-button"
+            *ngIf="item.type == 'faq' && !item.isOwner"
+            maConfirmWindow
+            (onConfirmOk)="copy(item.id)"
+            [confirmMessage]="'FAQ.CONFIRM_COPY'"
+
+            maRoleAccess
+            [visibleFor]="['contributor']"
+
+            placement="top"
+            ngbTooltip="{{'FAQ.COPY_AND_SAVE_DRAFT'| translate}}">
+      <i class="fa fa-files-o" aria-hidden="true"></i>
+    </button>
+
+    <button class="icon-button"
+            *ngIf="item.status != 'trash'"
+            maConfirmWindow
+            (onConfirmOk)="remove(item.id)"
+            [confirmMessage]="type == 'faq' ? 'FAQ.CONFIRM' : 'CATEGORY.CONFIRM_'+item.type"
+
+            maRoleAccess
+            [disableFor]="['contributor']"
+            [disableIf]="item.status != 'draft' || !item.isOwner"
+
+            placement="top"
+            ngbTooltip="{{type == 'faq' ? ('FAQ.REMOVE' | translate) : ('CATEGORY.REMOVE_'+item.type | uppercase) | translate}}">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+
+    <button class="icon-button"
+            *ngIf="item.status == 'trash'"
+            [disabled]="true"
+
+            placement="top"
+            ngbTooltip="{{type == 'faq' ? ('FAQ.REMOVE' | translate) : ('CATEGORY.REMOVE_'+item.type | uppercase) | translate}}">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+  </div><!--END: actions-->
+</div>
+
+<div class="tree-item-divider"></div>

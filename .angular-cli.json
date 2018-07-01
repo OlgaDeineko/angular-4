@@ -1,0 +1,136 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "myanswers"
+  },
+  "apps": [
+    {
+      "name": "general",
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "ma",
+      "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "styles.scss"
+      ],
+      "scripts": [
+        "../node_modules/tinymce/tinymce.js",
+        "../node_modules/tinymce/themes/modern/theme.js",
+        "../node_modules/algoliasearch/dist/algoliasearch.js",
+        "../node_modules/algoliasearch-helper/dist/algoliasearch.helper.js"
+
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts",
+        "test": "environments/environment.test.ts"
+      }
+    },
+    {
+      "name": "login",
+      "root": "src/app/modules/login",
+      "outDir": "dist/login-app",
+      "assets": [
+        {
+          "glob": "**/*",
+          "input": "../../../assets/",
+          "output": "./assets/"
+        },
+        {
+          "glob": "favicon.ico",
+          "input": "../../../",
+          "output": "./"
+        }
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "../../../polyfills.ts",
+      "test": "../../../test.ts",
+      "tsconfig": "../../../tsconfig.app.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "ma",
+      "styles": [
+        "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../../../styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "../../../environments/environment.ts",
+      "environments": {
+        "dev": "../../../environments/environment.ts",
+        "prod": "../../../environments/environment.prod.ts",
+        "test": "../../../environments/environment.test.ts"
+      }
+    },
+    {
+      "name": "registration",
+      "root": "src/app/modules/registration",
+      "outDir": "dist/register-app",
+      "assets": [
+        {
+          "glob": "**/*",
+          "input": "../../../assets/",
+          "output": "./assets/"
+        },
+        {
+          "glob": "favicon.ico",
+          "input": "../../../",
+          "output": "./"
+        }
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "../../../polyfills.ts",
+      "test": "../../../test.ts",
+      "tsconfig": "../../../tsconfig.app.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "ma",
+      "styles": [
+        "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../../../styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "../../../environments/environment.ts",
+      "environments": {
+        "dev": "../../../environments/environment.ts",
+        "prod": "../../../environments/environment.prod.ts",
+        "test": "../../../environments/environment.test.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json"
+    },
+    {
+      "project": "src/tsconfig.spec.json"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "scss",
+    "component": {}
+  }
+}

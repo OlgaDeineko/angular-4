@@ -1,0 +1,55 @@
+@import '../../../_variables.scss';
+.subscription-plans{
+  padding: 20px;
+
+  .title{
+    padding: 10px 0;
+    font-weight: 600;
+  }
+  .content{
+    position: relative;
+    top: 0; left: 0; bottom: 0; right: 0;
+    margin:auto;
+    height: 400px;
+    width: 250px;
+    background-color: #f6f6f6;
+    color: #1f1f1f;
+  }
+  .price{
+    background-color: white;
+  }
+  .text-price{
+    font-weight: bolder;
+    color:#013237;
+  }
+  .text-price-small{
+    color: #d9d7d5 !important;
+    font-size: $fontSm;
+  }
+  .text-price-lg{
+    font-size: 30px;
+  }
+  .advantage{
+    padding: 10px;
+  }
+  .setplan{
+    position:absolute;
+    bottom: 50px;
+    left: 0%;
+    right: 0%;
+    text-align: center;
+  }
+  .account-owner{
+    margin-top: 10rem;
+  }
+  .account-owner h3{
+    font-weight: bold;
+  }
+  .btn-secondary{
+    border:2px solid $primaryColor;
+    background-color: transparent !important;
+    border-radius: 0;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}

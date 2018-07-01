@@ -1,0 +1,619 @@
+﻿{
+  "This subdomain name is already reserved":"Deze subdomeinnaam is niet beschikbaar",
+  "Sent invalid parameters":"De combinatie van het e-mailadres en het wachtwoord bestaat niet",
+
+  "Click to copy":"Klik om te kopiëren",
+  "Copied":"Gekopieerd naar klembord",
+
+  "first_name": "Voornaam",
+  "last_name": "Achternaam",
+  "email": "E-mailadres",
+  "password": "Wachtwoord",
+  "phone":"Telefoon",
+  "subdomain":"subdomein",
+
+  "Customer service":"Klantenservice",
+  "E-commerce":"E-commerce",
+  "Executive":"Directie",
+  "Founder":"Oprichter",
+  "IT":"IT",
+  "Marketing":"Marketing",
+  "Other":"Anders",
+
+  "SEARCH": "Zoeken",
+  "RESULT": "resultaat",
+  "RESULTS": "resultaten",
+  "SUCCESS": "Succes",
+  "ERROR": "Fout",
+
+  "Public":"Openbaar",
+  "Private":"Privé",
+  "Internal":"Intern",
+
+  "public":"openbaar",
+  "private":"privé",
+  "internal":"intern",
+
+  "draft": "concept",
+  "published": "gepubliceerd",
+  "trash": "weggegooid",
+  "review": "beoordeling",
+
+  "admin":"admin",
+  "contributor":"schrijver",
+  "editor":"redacteur",
+  "visitor":"bezoeker",
+
+  "Question":"Vraag",
+  "Answer":"Antwoord",
+  "Language":"Taal",
+  "Category":"Categorie",
+  "Visibility":"Zichtbaarheid",
+  "Status":"Status",
+
+  "BUTTON": {
+    "ADD": "Toevoegen",
+    "REGISTRATION": "Registratie",
+    "RESET_PASSWORD": "Wachtwoord opnieuw instellen",
+    "SIGNIN": "Aanmelden",
+    "FORGOT": "Wachtwoord vergeten?",
+    "CREATE": "Creëren",
+    "UPDATE": "Bijwerken",
+    "EDIT": "Bewerken",
+    "DELETE": "Verwijderen",
+    "CANCEL": "Annuleren",
+    "SAVE": "Opslaan",
+    "SEND": "Versturen",
+    "UPLOAD_ATTACHMENT": "Bijlage uploaden (max 20MB)",
+    "YES": "Ja",
+    "ADD_FAQ": "Voeg een FAQ toe aan de huidige categorie",
+    "EDIT_FAQ": "Bewerk deze FAQ",
+    "BACK_TOOLTIP": "Terug naar het FAQ overzicht",
+    "CONTACT_US":"Neem met ons contact op",
+    "LOG_IN":"Inloggen",
+    "LOG_OUT":"Uitloggen",
+    "CREATE_KB":"Kennisbank creëren",
+    "NEXT":"Volgende",
+    "IMPORT":"Importeren",
+    "HELP":"Help",
+    "CLICK_TO_CREATE":"Klik om te creëren",
+    "ADD_TRANSLATION":"Voeg de vertaling toe",
+    "EDIT_TRANSLATION":"Bewerk de vertaling"
+  },
+
+  "CATEGORY": {
+    "CREATE_CATEGORY": "Categorie creëren",
+    "CREATE_SUBCATEGORY": "Subcategorie creëren",
+    "UPDATE_CATEGORY": "Categorie bijwerken",
+    "UPDATE_SUBCATEGORY": "Subcategorie bijwerken",
+    "EDIT_CATEGORY": "Categorie bewerken",
+    "EDIT_SUBCATEGORY": "Subcategorie bewerken",
+    "REMOVE_CATEGORY": "Categorie verwijderen",
+    "REMOVE_SUBCATEGORY": "Subcategorie verwijderen",
+    "CONFIRM_CATEGORY": "Wil je deze categorie verwijderen?",
+    "CONFIRM_SUBCATEGORY": "Wil je deze subcategorie verwijderen?",
+    "SORT_BY": "Sorteren op:",
+    "NOT_FOUND": "Categorie niet gevonden",
+    "SORT_FILTER": {
+      "CUSTOM": "Aangepast",
+      "NAME_ASC": "Naam[A-Z]",
+      "NAME_DESC": "Naam[Z-A]",
+      "AUTHOR_ASC": "Auteur[A-Z]",
+      "AUTHOR_DESC": "Auteur[Z-A]",
+      "LAST_CREATED": "Laatst gecreëerd",
+      "LAST_UPDATED": "Laatst bewerkt"
+    },
+    "LANGUAGE": "Taal",
+    "AUTHOR": "Auteur",
+    "CREATED": "Gecreëerd",
+    "CATEGORY_TITLE": "Categorienaam",
+    "SUBCATEGORY_TITLE": "Subcategorie naam",
+    "CATEGORY_TRANSLATION": "Maak eerst de vertaling voor de (sub)categorie-vertaling aan"
+  },
+
+  "FAQ": {
+    "TITLE": "FAQ",
+    "CREATE": "FAQ creëren",
+    "EDIT": "FAQ bewerken",
+    "REMOVE": "FAQ verwijderen",
+    "WORD": "woord",
+    "WORDS": "woorden",
+    "CHARACTER": "karakter",
+    "CHARACTERS": "karakters",
+    "READING_TIME": "leestijd",
+    "INTERNAL_COMMENT": "Interne opmerking(en)",
+    "INTERNAL_COMMENT_PLACEHOLDER": "Voer hier je opmerkingen in",
+    "CATEGORIES": "Categorie:",
+    "AUTHOR": "Auteur:",
+    "VISIBILITY": "Zichtbaarheid:",
+    "LANGUAGE": "Taal:",
+    "ATTACHMENTS": "Bijlagen:",
+    "LABEL_TITLE": "Titel",
+    "LABEL_TITLE_SM": "titel",
+    "CONTENT": "Inhoud",
+    "KEYWORDS": "Trefwoorden",
+    "KEYWORDS_PLACEHOLDER": "Voer trefwoorden in gescheiden door komma's",
+    "ENTER_TAG":"Voer een nieuw trefwoord in",
+    "PUBLISH": "Publiceer in (sub)categorie:",
+    "CONFIRM": "Wil je deze FAQ verwijderen?",
+    "CONFIRM_COPY": "Wil je de FAQ kopiëren?",
+    "VISIBILITY_USER": "Zichtbaar voor deze gebruikers:",
+    "SEARCH_KB":"Zoek kennisbank",
+    "DISPLAY_ALL":"Toon alle",
+    "ARTICLES":"artikelen",
+    "NOT_FOUND": "FAQ niet gevonden",
+    "COPY_AND_SAVE_DRAFT": "Kopieer en sla de FAQ op als concept",
+    "ARTICLE_HELPFUL":"Was dit artikel nuttig?",
+    "POSTED_ON":"Geplaatst op",
+    "UPDATED_ON":"Bijgewerkt op",
+    "IMPROVE_PAGE":"Hoe kunnen we deze pagina verbeteren?",
+    "ATTACHMENT_TIP": "Dit is de bijlage van primaire veelgestelde vragen. Je kunt het niet verwijderen.",
+    "CONTENTS":"Inhoud",
+
+    "STATUSES": {
+      "DRAFT": "Concept",
+      "PUBLISHED": "Gepubliceerd",
+      "TRASH": "Weggegooid",
+      "REVIEW": "Beoordeling",
+      "ALL": "Alles"
+    },
+    "STATUSES_PAGE": {
+      "DRAFT": "Alle concept FAQ's",
+      "PUBLISHED": "Alle gepubliceerde FAQ's",
+      "TRASH": "Alle weggegooide FAQ's",
+      "REVIEW": "Alle beoordeling FAQ's",
+      "ALL": "Alle FAQ's"
+    }
+  },
+
+  "DASHBOARD": {
+    "TITLE": "Dashboard",
+    "HOME": "Home",
+    "CREATE_KB":"Kennisbank creëren",
+    "CREATE_KB_CUSTOM_DOMAIN":"Als je het wenst, kun je de kennisbank aan je domein toevoegen. Voer hier het aangepaste domein in.",
+    "UNTRANSLATED":"Onvertaald"
+  },
+
+  "USERS": {
+    "TITLE": "Gebruikers",
+    "TITLE_DESCRIPTION": "Voeg je gebruikers toe en beheer ze",
+    "GROUP_DESCRIPTION": "Beheer je groepen",
+    "EMAIL": "E-mailadres",
+    "ROLE": "Rol",
+    "EDIT_ACCESS":"Wijzig toegangsrechten",
+    "EDIT": "Gebruiker bewerken",
+    "EDIT_GROUP": "Groep bewerken",
+    "CHANGE_ACCOUNT_OWNER":"Verander eigenaar",
+    "DISABLE": "Gebruiker deactiveren",
+    "DISABLED": "Deze gebruiker is gedeactiveerd",
+    "ENABLE": "Gebruiker activeren",
+    "REMOVE": "Gebruiker verwijderen",
+    "REMOVE_GROUP": "Verwijder groep",
+    "UPDATE": "Gebruiker bijwerken",
+    "CREATE": "Gebruiker creëren ",
+    "CREATE_GROUP": "Groep creëren",
+    "UPDATE_GROUP": "Groep bijwerken",
+    "CONFIRM": "Wil je deze gebruiker verwijderen?",
+    "CONFIRM_GROUP": "Weet je het zeker? Als je de groep verwijdert, verwijder je daarmee ook alle gebruikers van deze groep",
+    "OWNER_CONFIRM": "Wil je account eigenaar veranderen?",
+    "GROUP":"Groep",
+    "GROUPS":"Groepen",
+    "ACCOUNT_OWNER":"Accounteigenaar",
+    "SORT_BY": "Sorteren op:",
+    "SORT_FILTER": {
+      "NAME_ASC": "Naam[A-z]",
+      "NAME_DESC": "Naam[Z-a]",
+      "ROLE_ASC": "Rol[A-z]",
+      "ROLE_DESC": "Rol[Z-a]",
+      "EMAIL_CREATED": "E-mail[A-z]",
+      "EMAIL_UPDATED": "E-mail[Z-a]"
+    },
+    "USERS_GROUP":"De gebruiker behoort tot de groep. Als u de gebruikersrechten wilt wijzigen, gaat u naar toegangsbeheer van de groep"
+  },
+
+  "SUBDOMAIN": {
+    "TITLE": "Kies subdomein",
+    "SUBDOMAIN": "Subdomein",
+    "NAME": "Naam subdomein",
+    "CHOOSE_YOUR_SUB":"Kies je subdomein"
+  },
+
+  "REGISTRATION": {
+    "TITLE": "Registratie",
+    "RESET_PASSWORD": "Wachtwoord opnieuw instellen",
+    "FORGOT_PASSWORD": "Wachtwoord vergeten",
+    "FORGOT_MY_PASSWORD": "Mijn wachtwoord vergeten",
+    "LOGIN": "Inloggen",
+    "SIGN_IN_TO_KB": "Inloggen",
+    "STAY_SIGNED_IN": "Ingelogd blijven",
+    "CREDENTIALS": "Je inloggegevens zullen via een beveiligde verbinding verzonden worden",
+    "GET_STARTED":"Laten we beginnen",
+    "REGISTER_WITH_YOUR_EMAIL":"Registreer met je zakelijke e-mailadres",
+    "TELL_US_ABOUT_YOURSELF":"Vertel ons over jezelf",
+    "CUSTOMIZE_YOUR_KB":"Geef je kennisbank een unieke URL",
+    "ACCESS_YOUR_KB":"Via deze URL zul je toegang hebben tot je nieuwe kennisbank. ",
+    "ACCESS_YOUR_KB_2":"Zorg ervoor dat je deze als bookmark opslaat als je binnen bent.",
+    "SETTING_UP_YOUR_KB":"Je nieuwe kennisbank is nu klaar voor gebruik",
+    "KB_HOSTED_IN":"Je MyAnswers kennisbank wordt gehost in",
+    "USE_KB":"Ik wil deze kennisbank gebruiken voor:",
+    "PRIVATE_KB":"alleen onze medewerkers of klanten (inloggen is vereist)",
+    "PUBLIC_KB":"alleen de bezoekers van onze website (inloggen is niet vereist)",
+    "BY_CLICKING_NEXT":"Door op 'Volgende' te klikken ga je akkoord met onze",
+    "TERMS_OF_USE":"Gebruiksvoorwaarden",
+    "MEET_YOUR_KB":"Ontmoet je nieuwe kennisbank",
+    "TERMS_CONDITIONS":"Algemene voorwaarden"
+  },
+
+  "REGISTRATION_MESSAGE":{
+    "REGISTRATION_ACTIVATION_LINK_SENT":"Activatielink is verstuurd",
+    "FOLLOW_INSTRUCTIONS":"Jouw subdomein is aangemaakt. Op het adres ",
+    "CHECK_SPAM":"heb je van ons activatie-instructies ontvangen. Vergeet niet je spamfolder te controleren indien je de e-mail niet gelijk kunt vinden.",
+    "HAVE_ISSUES":"Mocht je problemen ervaren of kun je niet inloggen,",
+    "CONTACT_US":"neem dan met ons contact op"
+  },
+
+  "LEFT_SIDEBAR_NAV": {
+    "VIEW": "Bekijk de kennisbank",
+    "DASHBOARD": "Dashboard",
+    "USERS": "Gebruikers",
+    "CHOOSE_SUBDOMAIN": "Kies subdomein",
+    "SETTINGS": "Instellingen",
+    "LOG_OUT": "Uitloggen"
+  },
+
+  "LANGUAGES": {
+    "TITLE": "Taal",
+    "ENGLISH": "Engels",
+    "DUTCH": "Nederlands",
+    "FRENCH": "Frans",
+    "GERMAN": "Duits",
+    "SPANISH":"Spaans",
+    "ITALIAN":"Italiaans",
+    "POLISH":"Pools",
+    "SWEDISH":"Zweeds",
+    "DANISH":"Deens",
+    "FINNISH":"Fins",
+    "English": "Engels",
+    "Dutch": "Nederlands",
+    "French": "Frans",
+    "German": "Duits",
+    "Spanish":"Spaans",
+    "Italian":"Italiaans",
+    "Polish":"Pools",
+    "Swedish":"Zweeds",
+    "Danish":"Deens",
+    "Finnish":"Fins"
+  },
+
+  "SETTINGS": {
+    "TITLE": "Profielinstellingen",
+    "KNOWLEDGE_BASE": "Kennisbankinstellingen",
+    "ADMINISTRATIVE": "Administratieve Instellingen"
+  },
+
+  "APPEARANCE": {
+    "TITLE": "Uiterlijk",
+    "DESCRIPTION": "Pas de look en feel aan",
+    "INVALID_URL":"Ongeldige link. Gebruik bijv.: http(s)://www.mijnwebsite.nl",
+    "TITLE_HEADER":"HEADER",
+    "TITLE_HOME_BANNER":"HOME BANNER",
+    "TITLE_BODY":"BODY",
+    "TITLE_FOOTER":"FOOTER",
+    "TITLE_OTHER":"OVERIGE ELEMENTEN",
+    "TITLE_TRANSLATIONS_OF_ELEMENTS":"VERTALINGEN VAN ELEMENTEN"
+  },
+
+  "ACCESSIBILITY": {
+    "TITLE": "Toegankelijkheid",
+    "DESCRIPTION_SHORT": "Beheer de toegankelijkheid",
+    "DESCRIPTION": "Beheer de toegankelijkheid van je kennisbank"
+  },
+
+  "PERSONAL_INFO": {
+    "TITLE": "Persoonlijke informatie",
+    "DESCRIPTION": "Verander je persoonlijke gegevens",
+    "CONFIRM_PASSWORD":"Bevestig het wachtwoord!",
+    "CHOOSE_ROLE":"Kies jouw functie in je organisatie",
+    "DO_NOT_CONFIRM_PASSWORD":"Je bevestigt jouw wachtwoord niet",
+    "EMAIL_REGISTERED":"Dit e-mailadres is al geregistreerd. Controleer het opnieuw.",
+    "CHOOSE_A_ROLE":"Kies alstublieft een rol"
+  },
+
+  "CHANGE_LANGUAGE": {
+    "TITLE": "Taal",
+    "DESCRIPTION": "Verander de taal van de gebruikersinterface"
+  },
+
+  "CHANGE_PASSWORD": {
+    "TITLE": "Wachtwoord",
+    "DESCRIPTION_SHORT": "Verander je wachtwoord",
+    "DESCRIPTION": "Stel een nieuw wachtwoord in voor je account"
+  },
+
+  "IMPORT_DATA":{
+    "TITLE": "Data importeren",
+    "DESCRIPTION": "Importeer je gegevens uit andere bronnen",
+    "DESCRIPTION_PAGE":"Importeer jouw gegevens in MyAnswers.io",
+    "FILE_IMPORT":"Bestandsimport",
+    "IMPORT_XLS_CSV":"Importeer jouw gegevens uit XLS- of CSV-bestanden",
+    "IMPORT_ONLINE_FAQS":"Voer je online FAQ's in",
+    "EXISTING_KB":"Laat ons jouw bestaande online kennisbank doorzoeken",
+    "UPLOAD_FILE":"Kies bestand om te uploaden",
+    "OUR_STR":"Onze bestandsstructuur",
+    "YOUR_STR":"Jouw bestandsstructuur",
+    "DEFAULT_VALUES":"Standaardwaarden",
+    "ALLOW_COMMENTS":"Wil je commentaar toelaten?",
+    "SPLIT_BY":"Categorieën worden gescheiden door het opgegeven symbool",
+    "DEFAULT_LANGUAGE":"tip: deze taal zal standaard worden geselecteerd als jouw FAQ's geen taalattribuut in het bestand bevatten"
+  },
+
+  "HELP_WIDGET":{
+    "TITLE":"Help Widget",
+    "DESCRIPTION":"Configureer de Help Widget",
+    "PLACE_CODE":"Plaats deze code op elke pagina van jouw website voor de </body> tag.",
+    "ADD_LINK":"Voeg jouw Live Chat link toe aan je Help Widget",
+    "INVALID_LIVE_CHAT_URL": "Ongeldige link naar LiveChat Inc. Gebruik bijv.: https://lc.chat/now/1111111/"
+  },
+
+  "ADVANCED_SETTINGS":{
+    "TITLE": "Geavanceerde instellingen",
+    "DESCRIPTION": "Configureer je kennisbank nog verder",
+    "HEAD_TAG":"Google Analytics-code of een andere code voor de tag </head>",
+    "BODY_TAG":"Code voor </body> tag"
+  },
+
+  "MULTIPLE_LANGUAGES":{
+    "TITLE":"Taal",
+    "DESCRIPTION_SHORT":"Talen toevoegen aan je kennisbank",
+    "SET_LANGUAGE_TRUE":"Schakel deze taal in",
+    "SET_LANGUAGE_FALSE":"Schakel deze taal uit",
+    "DEFAULT_LANGUAGE":"Standaard taal",
+    "CONFIRM_MESSAGE":"Weet je het zeker? Als je deze taal uitschakelt, verlies je al je vertalingen in deze taal.",
+    "IS_VISIBLE":"Taal zichtbaar in de kennisbank?",
+    "ENABLED":"Ingeschakeld?",
+    "INVISIBLE":"Verberg deze taal",
+    "VISIBLE":"Toon deze taal",
+    "TOOLTIP":"Gebruik deze switcher voor het in- of uitschakelen van de taal.",
+    "TOOLTIP_TIP":"Gebruik deze switcher om de taal in de kennisbank te tonen of verbergen."
+  },
+
+  "VALIDATION_ERRORS": {
+    "INVALID_TYPE": "Invalid type, expected {{schema.type}}",
+    "ENUM_MISMATCH": "No enum match for: {{viewValue}}",
+    "ANY_OF_MISSING": "Data does not match any schemas from \"anyOf\"",
+    "ONE_OF_MISSING": "Data does not match any schemas from \"oneOf\"",
+    "ONE_OF_MULTIPLE": "Data is valid against more than one schema from \"oneOf\"",
+    "NOT_PASSED": "Data matches schema from \"not\"",
+    "NUMBER_MULTIPLE_OF": "Value is not a multiple of {{schema.multipleOf}}",
+    "NUMBER_MINIMUM": "{{viewValue}} is less than the allowed minimum of {{schema.minimum}}",
+    "NUMBER_MINIMUM_EXCLUSIVE": "{{viewValue}} is equal to the exclusive minimum {{schema.minimum}}",
+    "NUMBER_MAXIMUM": "{{viewValue}} is greater than the allowed maximum of {{schema.maximum}}",
+    "NUMBER_MAXIMUM_EXCLUSIVE": "{{viewValue}} is equal to the exclusive maximum {{schema.maximum}}",
+    "NUMBER_NOT_A_NUMBER": "Dit is geen geldig getal",
+    "STRING_LENGTH_SHORT": "Te kort ({{viewValue.length}} karakters), minimaal {{schema.minLength}}",
+    "STRING_LENGTH_LONG": "Te lang ({{viewValue.length}} karakters), maximaal {{schema.maxLength}}",
+    "STRING_PATTERN": "String does not match pattern: {{schema.pattern}}",
+    "OBJECT_PROPERTIES_MINIMUM": "Too few properties defined, minimum {{schema.minProperties}}",
+    "OBJECT_PROPERTIES_MAXIMUM": "Too many properties defined, maximum {{schema.maxProperties}}",
+    "OBJECT_REQUIRED": "Required",
+    "OBJECT_ADDITIONAL_PROPERTIES": "Additional properties not allowed",
+    "OBJECT_DEPENDENCY_KEY": "Dependency failed - key must exist",
+    "ARRAY_LENGTH_SHORT": "Array is too short ({{value.length}}), minimum {{schema.minItems}}",
+    "ARRAY_LENGTH_LONG": "Array is too long ({{value.length}}), maximum {{schema.maxItems}}",
+    "ARRAY_UNIQUE": "Array items are not unique",
+    "ARRAY_ADDITIONAL_ITEMS": "Additional items not allowed",
+    "FORMAT_CUSTOM": "Format validation failed",
+    "KEYWORD_CUSTOM": "Keyword failed: \"{{title}}\"",
+    "CIRCULAR_REFERENCE": "Circular $refs",
+    "UNKNOWN_PROPERTY": "Unknown property (not in schema)",
+    "NOT_QUESTION": "Vraag kan niet leeg zijn.",
+    "NOT_ANSWER": "Antwoord kan niet leeg zijn.",
+    "NOT_CATEGORY_NAME":"Categorienaam mag niet leeg zijn.",
+    "NOT_SUBCATEGORY_NAME":"Subcategorie mag niet leeg zijn.",
+    "GROUP_NO_USERS":"Voeg gebruikers toe aan de groep.",
+    "GROUP_NO_NAME":"Groepsnaam mag niet leeg zijn."
+  },
+
+  "CONTROL_ACCESS":{
+    "TITLE": "Toegangsrechten",
+    "VISIBILITY":"Je kunt alleen privécategorieën kiezen. Categorieën met zichtbaarheid 'Intern' staan niet hier.",
+    "SELECT_ALL": "selecteer alles"
+  },
+
+  "MESSAGES": {
+    "VALIDATION_ERROR": "Validatiefout:",
+    "ACCOUNT_ACTIVATED": "Account is geactiveerd!",
+    "PASSWORD_CHANGED": "Wachtwoord met succes gewijzigd",
+    "PASSWORD_INVALID": "Wachtwoord moet minstens 1 hoofdletter, 1 kleine letter en 1 cijfer bevatten",
+    "PASSWORD_MISMATCH": "Wachtwoorden komen niet overeen",
+    "PASSWORD_LENGTH_SHORT": "Wachtwoord is te kort, minimaal",
+    "EMAIL_INVALID": "Ongeldig e-mailadres",
+    "EMAIL_LENGTH_SHORT": "E-mail is te kort, minimaal ",
+    "REGISTRATION_DONE": "Dank voor je aanmelding. \nActiveer je account. \nDe link is gestuurd naar",
+    "REGISTRATION_DONE_ACTIVATE":"Uw account is al aangemaakt. Activeer het alsjeblieft",
+    "REGISTRATION_DONE_MSG": "Registratie voltooid",
+    "USER_REMOVED": "Gebruiker met succes verwijderd",
+    "USER_STATUS_CHANGED": "Gebruikersstatus met succes gewijzigd",
+    "ERROR_IMAGE_TYPE": "Bestand moet een afbeelding zijn (*.jpeg, *.jpg, *.png)",
+    "ERROR_IMAGE_SIZE":"Beeldformaat mag niet groter zijn dan 100 KB",
+    "ERROR_DOCUMENT_TYPE": "Bestand moet een document zijn (*.doc, *.docx, *.pdf)",
+    "ERROR_FILE_TYPE": "Ongeldig bestandstype",
+    "ERROR_IMPORT_TYPE":"Ongeldig bestandstype. Het moet *.xls, *.xlsx, *.csv zijn",
+    "FAQ_UPDATE": "FAQ met succes bijgewerkt",
+    "FAQ_CREATE": "FAQ met succes aangemaakt",
+    "FAQ_REMOVE": "FAQ met succes verwijderd",
+    "CATEGORY_CREATE": "Categorie met succes aangemaakt",
+    "SUBCATEGORY_CREATE": "Subcategorie met succes aangemaakt",
+    "CATEGORY_UPDATE": "Categorie met succes bijgewerkt",
+    "SUBCATEGORY_UPDATE": "Subcategorie met succes bijgewerkt",
+    "USER_UPDATE": "Gebruiker met succes bijgewerkt",
+    "USER_CREATE": "Gebruiker met succes aangemaakt",
+    "EMAIL_SENT": "E-mail verstuurd",
+    "AUTHORIZATION_ERROR": "Autorisatiefout:",
+    "LOGIN_AGAIN": "Graag opnieuw inloggen",
+    "NOT_LOGIN": "Je bent onbevoegd. Log eerst in",
+    "KB_PRIVATE_LOGIN": "Deze kennisbank is privé. Log in om toegang te verkrijgen",
+    "NOT_ACCESS": "Je hebt geen toegang tot deze functies",
+    "LANGUAGE_CHANGED": "Taal gewijzigd",
+    "NOT_FOUND": "Resource niet gevonden",
+    "ANSWER_COPIED": "Antwoord gekopieerd naar klembord",
+    "PERSONAL_INFO_CHANGED": "Persoonlijke gegevens veranderd",
+    "KB_CREATE": "Kennisbank is succesvol aangemaakt",
+    "CONTROL_ACCESS_CHANGED": "Toegangsrechten zijn gewijzigd",
+    "ACCOUNT_OWNER_CHANGED":"Accounteigenaar is succesvol gewijzigd",
+    "KB_DONT_HAVE_DATA": "De kennisbank heeft geen privé categorieën of FAQ!",
+    "DONT_HAVE_DATA": "Er zijn geen privé categorieën of FAQ in deze taal!",
+    "KB_ISNT_SHARED": "Deze kennisbank wordt niet gedeeld voor de huidige gebruiker!",
+    "KB_DONT_EXIST": "Deze kennisbank bestaat niet",
+    "APPEARANCE_SAVED": "Uiterlijk met succes opgeslagen",
+    "ACCESSIBILITY_SAVED": "Toegankelijkheid met succes opgeslagen",
+    "ADVANCED_SAVED": "Geavanceerde instellingen zijn succesvol opgeslagen. Wacht als de pagina opnieuw wordt geladen.",
+    "FAQ_COPIED_AND_SAVE_DRAFT": "FAQ gekopieerd en opgeslagen als concept",
+    "FILE_STRUCTURE_SAVED":"Bestandsstructuur is succesvol opgeslagen",
+    "SELECT_REQUIRED_VALUES":"Selecteer alle verplichte velden",
+    "LOGOUT":"Je wijzigingen worden niet opgeslagen. Als je wilt uitloggen, klik op 'ja'",
+    "HELP_WIDGET_DATA_SAVED": "Configuratie van de Help Widget is succesvol opgeslagen",
+    "LANGUAGES_SAVED":"Talen succesvol opgeslagen",
+    "FAQ_FEEDBACK":"Bedankt voor het verzenden van uw feedback over dit artikel",
+    "LOSE_CHANGES":"Weet je het zeker? Als je doorgaat, gaan jouw wijzigingen verloren als je ze niet opslaat",
+    "NOT_AVAILABLE_LANG":"Deze taal is niet beschikbaar in deze kennisbank. Schakel deze taal in op de pagina Instellingen.",
+    "IS_TOO_BIG_SIZE":"Deze FAQ is te groot en wordt niet opgeslagen. Maak de FAQ kleiner of deel het in twee FAQ's.",
+    "GROUP_UPDATE":"Groep met succes bijgewerkt",
+    "GROUP_REMOVED":"Groep met succes verwijderd",
+    "GROUP_CREATE":"Groep met succes aangemaakt",
+    "CANNOT_CREATE_GROUP":"Je kunt geen groep aanmaken omdat alle gebruikers al in groepen zitten",
+    "CHECK_USER":"Als je een privé FAQ of categorie wilt maken, selecteer eerst de gebruiker(s)"
+  },
+
+  "FORMS": {
+    "VALIDATIONS": {
+      "OBJECT_REQUIRED": "{{field}} is benodigd",
+      "STRING_LENGTH_SHORT": "Te kort ({{actualLength}} karakters), minimaal {{requiredLength}} nodig",
+      "STRING_LENGTH_LONG": "Te lang ({{actualLength}} karakters), maximaal {{requiredLength}}",
+      "STRING_PATTERN": "String komt niet overeen met het volgende patroon: {{requiredPattern}}",
+      "EMAIL_INVALID": "Ongeldig e-mailadres",
+      "PASSWORD_INVALID": "Jouw wachtwoord dient minstens 1 hoofdletter, 1 kleine letter en 1 cijfer bevatten",
+      "PASSWORD_MISMATCH": "De wachtwoorden komen niet overeen"
+    },
+    "LOGIN_FORM": {
+      "EMAIL": "E-mailadres",
+      "PASSWORD": "Wachtwoord",
+      "REMEMBER": "Onthoud mij"
+    },
+    "FORGOT_PASSWORD_FORM": {
+      "EMAIL": "E-mailadres"
+    },
+    "PERSONAL_INFO_FORM": {
+      "EMAIL": "E-mailadres",
+      "FIRST_NAME": "Voornaam",
+      "LAST_NAME": "Achternaam",
+      "DEPARTMENT": "Jouw rol"
+    },
+    "CHANGE_PASSWORD_FORM": {
+      "CURRENT_PASSWORD": "Huidig wachtwoord",
+      "PASSWORD": "Nieuw Wachtwoord",
+      "PASSWORD_CONFIRM": "Bevestig het wachtwoord"
+    },
+    "CHANGE_LANGUAGE_FORM": {
+      "FOR_KB": "Taal van de Kennisbank",
+      "FOR_ADMIN": "Taal van de Admin Panel"
+    },
+    "ACCESSIBILITY": {
+      "PRIVATE_SITE": "Is dit een privé site?",
+      "PRIVATE_SITE_DESCRIPT": "Een privé site vereist een inlog, terwijl een publieke site door iedereen kan worden bekeken.",
+      "VISIT_KNOWLEDGE_BASE": "Bezoek je kennisbank",
+      "CHOOSE_SUBDOMAIN": "Kies je subdomein",
+      "YOUR_SUBDOMAIN": "jouwsubdomein",
+      "CUSTOM_DOMAIN": "Wil je je domeinnaam die je bij een externe provider hebt geregistreerd koppelen aan je MyAnswers kennisbank? Voer hier het aangepaste domein in.",
+      "SET_CUSTOM_DOMAIN": "",
+      "INSTRUCTIONS": "Volg deze instructies om een aangepast domein aan MyAnswers te koppelen.",
+      "FOR_EXAMPLE": "Bijvoorbeeld help.jouwbedrijf.nl",
+      "TOOLTIP_STATUS_PRIVATE": "Maak de kennisbank privé",
+      "TOOLTIP_STATUS_PUBLIC": "Maak de kennisbank openbaar"
+    },
+    "CATEGORY": {
+      "LABEL_TITLE": "Categorienaam",
+      "AUTHOR": "Auteur",
+      "PARENT_CATEGORY": "Hoofdcategorie",
+      "LANGUAGE": "Taal",
+      "VISIBILITY": "Zichtbaarheid:",
+      "VISIBILITY_USER": "Zichtbaar voor deze gebruikers"
+    },
+    "RESET_PASSWORD_FORM": {
+      "PASSWORD": "Wachtwoord",
+      "PASSWORD_CONFIRM": "Wachtwoordbevestiging"
+    },
+    "USER": {
+      "EMAIL": "E-mailadres",
+      "FIRST_NAME": "Voornaam",
+      "LAST_NAME": "Achternaam",
+      "PHONE":"Telefoon",
+      "PASSWORD": "Wachtwoord",
+      "REPEAT_PASSWORD": "Wachtwoord herhalen",
+      "FORGOT_PASSWORD": "Wachtwoord vergeten",
+      "FORGOT_MY_PASSWORD": "Mijn wachtwoord vergeten",
+      "ACCESS_ROLE": "Toegangsrol",
+      "KB_ACCESS":"Toegang tot kennisbank",
+      "GROUP_NAME":"Groepsnaam"
+    },
+    "REGISTRATION": {
+      "EMAIL": "E-mailadres",
+      "PASSWORD": "Wachtwoord",
+      "REPEAT_PASSWORD": "Herhaal wachtwoord",
+      "FIRST_NAME": "Voornaam",
+      "LAST_NAME": "Achternaam",
+      "PHONE":"Telefoon",
+      "SUBDOMAIN": "Subdomein"
+    },
+    "APPEARANCE": {
+      "LOGO": "Upload hier je bedrijfslogo",
+      "FAVICON": "Upload hier je favicon",
+      "UPLOAD_IMAGE": "Upload een afbeelding",
+      "KNOWLEDGE_BASE_NAME": "Geef je kennisbank een naam",
+      "KNOWLEDGE_BASE_SUBTITLE": "Geef je kennisbank een ondertitel",
+      "HEADER_COLOR": "Geef de header een mooie kleur",
+      "HEADER_IMAGE": "Of upload een afbeelding voor de header",
+      "LINK_COLOR": "Welke kleur moeten de hyperlinks hebben?",
+      "KB_TITLE_COLOR": "Welke kleur moet de titel in de header hebben?",
+      "KB_SUBTITLE_COLOR": "Welke kleur moet de ondertitel in de header hebben?",
+      "FOOTER_COLOR": "Geef de footer een mooie kleur",
+      "FOOTER_TITLE_COLOR": "Geef de tekst in de footer een mooie kleur",
+      "FONT": "Geef de tekst een mooi lettertype om te lezen",
+      "FONT_TITLE": "En welk lettertype zou de titel moeten hebben?",
+      "FOOTER_TITLE_DEFAULT": "Kun je niet vinden waar je naar op zoek bent?",
+      "LOGO_URL": "Naar welke URL moet het logo verwijzen?",
+      "FE_LOGO_URL": "Bijvoorbeeld https://www.mijnwebsite.nl",
+      "FOOTER_TITLE": "Welke tekst moet er in de footer staan?",
+      "FOOTER_FONT": "Geef de footertekst een leuk lettertype om te lezen",
+      "CONTACT_US_URL": "Naar welke URL moet de link ‘Neem met ons contact op’ verwijzen?",
+      "FE_CONTACT_US_URL": "Bijvoorbeeld https://www.mijnwebsite.nl/contact",
+      "SEARCH_BAR_TEXT": "Tot slot, wat moet er in de zoekbalk staan?",
+      "SEARCHING": "Wat zoek je?",
+      "MENU_BAR_COLOR":"De kleur van de menubalk",
+      "BUTTON_COLOR":"De kleur van de knoppen",
+      "BUTTON_TEXT_COLOR":"De kleur van de tekst in de knoppen",
+      "HELP_WIDGET":{
+        "WIDGET_COLOR":"Geef de Help Widget een mooie kleur",
+        "WIDGET_BUTTON_COLOR":"Kleur van de Help Widget knop",
+        "WIDGET_LIVECHAT_COLOR":"Geef een kleur aan de Live Chat rand"
+      },
+      "CATEGORY_TREE":"Boomlijst van (sub)categorieën op FAQ pagina's weergeven/verbergen",
+      "CATEGORY_TREE_SHOW":"Boomlijst weergeven",
+      "CATEGORY_TREE_HIDE":"Boomlijst verbergen"
+    },
+    "MULTIPLE_LANGUAGES":{
+      "KNOWLEDGE_BASE_NAME": "Naam van de kennisbank",
+      "KNOWLEDGE_BASE_SUBTITLE": "Ondertitel",
+      "FOOTER_TITLE":"Footertekst",
+      "SEARCH_BAR_TEXT":"Tekst in de zoekbalk"
+    }
+  },
+
+  "NOT_FOUND_PAGE":{
+    "GO_TO_ADMIN":"Ga naar Admin Panel",
+    "GO_TO_KB":"Ga naar de Kennisbank",
+    "PAGE_NOT_FOUND":"Pagina niet gevonden",
+    "KB_NOT_FOUND":"Kennisbank niet gevonden",
+    "CHOOSE_SUBDOMAIN":"Kies een subdomein"
+  }
+}

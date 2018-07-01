@@ -1,0 +1,146 @@
+<!--search-->
+<div class="form-group">
+  <input type="text"
+         class="form-control"
+         [(ngModel)]="searchModel"
+         (input)="search()"
+         placeholder="{{'SEARCH' | translate}}">
+</div><!--END: search-->
+
+<!-- tree header -->
+<div class="tree-header" *ngIf="tree">
+  <div class="tree-header-title">
+    <span class="title" *ngIf="!searchModel.length">
+      {{tree.categories.length + tree.faqs.length}}
+      {{((tree.categories.length + tree.faqs.length)>1 ? 'RESULTS' : 'RESULT') | translate}}
+    </span>
+    <span class="title" *ngIf="searchModel.length">
+      {{categoryResults.length + faqResults.length}}
+      {{((categoryResults.length + faqResults.length)>1 ? 'RESULTS' : 'RESULT') | translate}}
+    </span>
+  </div>
+
+  <div class="tree-header-update">
+    {{'CATEGORY.CREATED' | translate}}
+  </div>
+
+    <div class="tree-header-lang" *ngFor=" let lang of transLang">
+      <i class="{{lang.code | iconClass:'flag'}}"
+         placement="top"
+         ngbTooltip="{{('LANGUAGES.'+lang.name | uppercase )| translate}}">
+      </i>
+    </div>
+
+  <div class="tree-header-author">
+    {{'CATEGORY.AUTHOR' | translate}}
+  </div>
+  <div class="tree-header-actions">
+    <div ngbDropdown
+         class="pull-right select d-inline-block"
+         maRoleAccess
+         [visibleFor]="['admin', 'superAdmin']">
+      <div id="dropdownBasic1" ngbDropdownToggle>
+        <i class="fa fa-angle-down pull-right"></i>
+        {{'CATEGORY.SORT_BY' | translate}}
+        <span class="sort">{{'CATEGORY.SORT_FILTER.'+order.name | translate}}</span>
+      </div>
+
+      <ul class="dropdown-menu">
+        <li *ngFor="let item of orderList" (click)="changeOrder(item)">
+          {{'CATEGORY.SORT_FILTER.'+item.name | translate}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> <!--END: tree header-->
+
+<!--tree-->
+<div class="tree" *ngIf="!searchModel.length && !!tree">
+
+  <!--categories-->
+  <div dnd-sortable-container
+       [sortableData]="tree.categories"
+       [dropZones]="['catwgories']">
+    <div *ngFor="let category of tree.categories | orderBy: order.cat | bigList | async; let i = index"
+         dnd-sortable
+         [sortableIndex]="i"
+         [dragEnabled]="order.name == 'CUSTOM'"
+         [dragData]="category"
+         (onDropSuccess)="movedCategory($event)"
+    >
+
+      <ma-tree-item [item]="category"
+                    [type]="'category'"
+                    [dragIcon]="order.name == 'CUSTOM'"
+                    [translates]="translates">
+      </ma-tree-item>
+
+      <div *ngIf="category.expanded">
+        <div class="tree-row"
+             *ngFor="let subcat of category.categories">
+          <ma-tree-item [item]="subcat"
+                        [type]="'category'"
+                        [translates]="translates">
+          </ma-tree-item>
+        </div>
+      </div>
+    </div>
+  </div><!--END: categories-->
+
+  <!--faqs-->
+  <div dnd-sortable-container
+       [sortableData]="tree.faqs"
+       [dropZones]="['faqs']">
+    <div *ngFor="let faq of tree.faqs | orderBy: order.faq  | bigList | async; let i = index"
+         dnd-sortable
+         [sortableIndex]="i"
+         [dragEnabled]="order.name == 'CUSTOM'"
+         [dragData]="faq"
+         (onDropSuccess)="movedFaq($event)"
+    >
+      <div>
+        <ma-tree-item [item]="faq"
+                      [type]="'faq'"
+                      [dragIcon]="order.name == 'CUSTOM'"
+                      [translates]="translates">
+        </ma-tree-item>
+      </div>
+    </div>
+  </div><!--END: faqs-->
+
+</div><!--END:tree-->
+
+<!--tree search result-->
+<div class="tree" *ngIf="searchModel.length && !!tree">
+  <!--categories-->
+  <div>
+    <div *ngFor="let category of categoryResults | orderBy: order.cat | bigList | async">
+      <ma-tree-item [item]="category"
+                    [type]="'category'"
+                    [translates]="translates">
+      </ma-tree-item>
+
+      <!--subcategories-->
+      <div *ngIf="category.expanded">
+        <div class="tree-row"
+             *ngFor="let subcat of category.categories">
+          <ma-tree-item [item]="subcat"
+                        [type]="'category'"
+                        [translates]="translates">
+          </ma-tree-item>
+        </div>
+      </div><!--END: subcategories-->
+    </div>
+  </div><!--END: categories-->
+
+  <!--faqs-->
+  <div *ngFor="let faq of faqResults | orderBy: order.faq | bigList | async">
+    <div>
+      <ma-tree-item [item]="faq"
+                    [type]="'faq'"
+                    [translates]="translates">
+      </ma-tree-item>
+    </div>
+  </div><!--END: faqs-->
+
+</div><!--END:tree search result-->

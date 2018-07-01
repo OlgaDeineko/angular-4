@@ -1,0 +1,18 @@
+{
+  "0": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > Kroftman\"]]",
+    "lang": "nl"
+  },
+  "6": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > ABC\"]]",
+    "lang": "nl"
+  },
+  "7": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > ABC\"]]",
+    "lang": "en"
+  },
+  "8": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > NL-Kofman\"]]",
+    "lang": ""
+  }
+}

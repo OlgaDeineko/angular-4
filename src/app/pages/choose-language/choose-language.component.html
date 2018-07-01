@@ -1,0 +1,44 @@
+<div class="container-fluid chooseLanguage">
+  <img class="myanswers-logo" src="../../../assets/images/logo.png" alt="">
+  <div class="row">
+    <div class="col-md-6">
+      <!--Header-->
+      <div class="header">
+        <h3 class="settings-title-active">{{'CHANGE_LANGUAGE.TITLE' | translate}}</h3>
+        <p class="setting-description">{{'CHANGE_LANGUAGE.DESCRIPTION' | translate}}</p>
+      </div><!--END: Header-->
+
+      <!--Content-->
+      <div class="content">
+        <form name="chooseLang"
+              [formGroup]="chooseLangForm"
+              (submit)="chooseLangForm.valid && submit()"
+              #chooseLangFormElement="ngForm"
+              novalidate>
+
+          <!--lang-->
+          <ma-form-select
+            [formElement]="chooseLangFormElement"
+            [form]="chooseLangForm"
+            [label]="'FORMS.CHANGE_LANGUAGE_FORM.FOR_ADMIN'"
+            [name]="'admin'"
+            [options]="languages | toFormOptions: 'code': 'name'"
+            [translatePrefix]="'LANGUAGES.'"
+            [icon]="'flag'"
+          ></ma-form-select><!--END: lang-->
+
+          <!--actions-->
+          <div class="footer">
+            <button type="submit"
+                    class="button button-primary"
+                    [disabled]="chooseLangForm.invalid">
+              {{"BUTTON.SAVE" | translate}}
+            </button>
+          </div><!--END: actions-->
+
+        </form>
+      </div><!--END: Content-->
+
+    </div>
+  </div>
+</div>

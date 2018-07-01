@@ -1,0 +1,72 @@
+@import "../../../../_variables.scss";
+
+.ma-form-switch {
+  display: inline-block;
+
+  .ma-form-switch-button {
+    vertical-align: middle;
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    position: relative;
+    display: inline-block;
+    box-sizing: content-box;
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    box-shadow: rgb(223, 223, 223) 0 0 0 0 inset;
+    transition: 0.3s ease-out all;
+    -webkit-transition: 0.3s ease-out all;
+
+    border-radius: $switchHeight/2;
+
+    width: $switchWidth;
+    height: $switchHeight;
+
+    &.checked {
+      .ma-form-switch-toggle {
+        left: $switchWidth/2;
+      }
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      background: $switchBorder !important;
+      border: 1px solid #dfdfdf !important;
+    }
+
+    &.checked.primary {
+      background: $switchPrimaryBg;
+      border-color: $switchPrimaryBorder;
+    }
+
+    &.checked.success {
+      background: $switchSuccessBg;
+      border-color: $switchSuccessBorder;
+    }
+
+    &.checked.danger {
+      background: $switchDangerBg;
+      border-color: $switchDangerBorder;
+    }
+
+    &.checked.warn {
+      background: $switchWarnBg;
+      border-color: $switchWarnBorder;
+    }
+
+    .ma-form-switch-toggle {
+      background: white;
+      border-radius: 100%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: 0.3s ease-out all;
+      -webkit-transition: 0.3s ease-out all;
+
+      width: $switchHeight;
+      height: $switchHeight;
+    }
+  }
+}

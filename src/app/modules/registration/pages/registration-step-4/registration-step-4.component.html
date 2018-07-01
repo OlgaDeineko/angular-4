@@ -1,0 +1,63 @@
+<div class="container-fluid new-registration">
+  <img class="logo">
+  <div class="row"><!--Titles-->
+    <div class="col-md-12" >
+      <div class="registr-meet-kb-title text-center">{{'REGISTRATION.SETTING_UP_YOUR_KB' | translate}}
+      </div>
+    </div>
+  </div><!--Titles-->
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+          <!--confirm-->
+          <div class="confirm">
+            <div class="form-group row ">
+              <div class="col-md-1"></div>
+              <div class="col-md-10">
+                <input class="form-control form-control-lg" type="text" disabled [(ngModel)]="userURL">
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+            <!--<div class="row">-->
+            <p class="registr-meet-kb-subtitle text-center">
+              {{'REGISTRATION.ACCESS_YOUR_KB' | translate}}{{'REGISTRATION.ACCESS_YOUR_KB_2' | translate}}
+            </p>
+            <!--</div>-->
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <button (click)="registerstep4()" type="submit"
+                        class="button button-primary button-full button-lg next">
+                  {{'REGISTRATION.MEET_YOUR_KB' | translate}}
+                </button>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          </div>
+          <!--confirm-->
+        </div>
+      </div>
+
+      <p class="copyright text-center">&copy; Myanswers 2017
+        <a href="https://www.myanswers.io/terms-conditions" target="_blank">
+          {{'REGISTRATION.TERMS_CONDITIONS' | translate}}</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="message" *ngIf="messageRegisterDone">
+  <button class="close" (click)="closeMessageRegisterDone()">x</button>
+  <div class="title">{{'REGISTRATION_MESSAGE.REGISTRATION_ACTIVATION_LINK_SENT' | translate}}</div>
+  <div class="content">{{'REGISTRATION_MESSAGE.FOLLOW_INSTRUCTIONS' | translate}} {{registremail}}
+    {{'REGISTRATION_MESSAGE.CHECK_SPAM' | translate}}
+    <br>
+    {{'REGISTRATION_MESSAGE.HAVE_ISSUES' | translate}}
+    <a href="https://myanswers.io/support" target="_blank">
+      {{'REGISTRATION_MESSAGE.CONTACT_US' | translate}}</a>.
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<textarea #faqTinyMce>{{model}}</textarea>
+
+<ma-upload-file
+  #fileUpload
+  [checkError]="checkError"
+  (onFileUploaded)="fileChange($event)"
+></ma-upload-file>

@@ -1,0 +1,73 @@
+<div class="form-group has-feedback ma-select"
+     [class.has-danger]="(form.controls[name].touched || formElement.submitted) && form.controls[name].invalid"
+     [class.has-success]="(form.controls[name].touched || formElement.submitted) && form.controls[name].valid"
+     [class.ma-select-opened]="isOpen"
+     [formGroup]="form">
+
+  <!--select label-->
+  <label *ngIf="label"
+         class="form-control-label"
+         [for]="name">
+    {{label | translate}}<span *ngIf="comingSoon" class="coming-soon"></span>
+  </label>
+  <!--END: select label-->
+
+  <!--real select(invisible)-->
+  <select class="form-control"
+          [name]="name"
+          [id]="id"
+          [attr.disabled]="disabled"
+          [formControlName]="name">
+
+    <option *ngFor="let option of (options|async)" [value]="option.value">{{option.label}}</option>
+
+  </select>
+  <!--END: real select-->
+
+  <!--select button-->
+  <div class="form-control form-control-lg ma-select-button"
+       #selectButton
+       [attr.disabled]="disabled"
+       [class.disabled]="disabled"
+       (click)="!disabled && openSelect()">
+    <span class="ma-select-placeholder" *ngIf="placeholder.length && form.controls[name].value === ''"
+          contenteditable="true" [textContent]="placeholder | translate"></span>
+    <i *ngIf="icon" class="{{currentChanged.value | iconClass:icon}}"></i>
+    {{(translatePrefix + currentChanged.label + translateSuffix) | translate}}
+    <i class="fa fa-angle-down ma-select-arrow"></i>
+
+  </div>
+  <!--END: select button-->
+
+  <!--select menu-->
+  <ul>
+    <li *ngFor="let option of (options|async)" (click)="change(option)">
+      <span>
+        <i *ngIf="icon" class="{{option.value | iconClass:icon}}"></i>
+        {{(translatePrefix + option.label + translateSuffix) | translate}}
+      </span>
+      <span *ngIf="withActionButton">
+        <button
+          class="add-translation pull-right"
+          type="button"
+          *ngIf="isShowActionButton(option)"
+          maConfirmWindow
+          (onConfirmOk)="clickActionButton(option)"
+          [confirmMessage]="confirmMessageText"
+        >{{actionButtonLabel | translate}}</button>
+      </span>
+    </li>
+  </ul>
+  <!--END: select menu-->
+
+  <!--select error-->
+  <div class="errors form-control-feedback"
+       *ngIf="form.controls[name].errors && (form.controls[name].touched || formElement.submitted)">
+
+    <span translate>
+      {{(form.controls[name].errors | formValidationErrors:(label || name): messages) | async}}
+    </span>
+
+  </div>
+  <!--END: select error-->
+</div>

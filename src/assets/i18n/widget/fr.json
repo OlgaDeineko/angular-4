@@ -1,0 +1,11 @@
+{
+  "WIDGET":{
+    "TOP_RESULTS": "Meilleurs résultats",
+    "NO_RESULTS": "Aucun résultat",
+    "SEARCH": "Chercher",
+    "VIEW_MORE": "Afficher plus",
+    "HIDE": "Cacher",
+    "CLOSE_WIDGET":"Fermez le widget",
+    "CLOSE_LIVE_CHAT":"Fermer le chat en direct"
+  }
+}

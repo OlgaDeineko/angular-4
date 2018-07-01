@@ -1,0 +1,95 @@
+<div class="createknowledgebase">
+  <!--Header-->
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-title">{{name | translate}}</h3>
+  </div>
+  <!--End: Header-->
+
+  <!--Content-->
+  <div class="modal-body" id="modal-body">
+
+    <form name="createKB"
+          [formGroup]="createKBForm"
+          (submit)="createKBForm.valid && submit()"
+          #createKBFormElement="ngForm"
+          novalidate>
+
+      <div class="form-group row">
+        <div class="col-md-12">
+          <label class="font-weight-bold">{{'FORMS.ACCESSIBILITY.PRIVATE_SITE'| translate}}</label>
+          <p class="small"><b>{{'FORMS.ACCESSIBILITY.PRIVATE_SITE_DESCRIPT'| translate}}</b></p>
+        </div>
+
+
+        <div class="col-md-12" [formGroup]="createKBForm">
+          <ma-form-switch
+            [formElement]="createKBFormElement"
+            [form]="createKBForm"
+            [label]="false"
+            [name]="'accessibility'"
+            [values]="{on: 'private', off: 'public'}"
+            [status]="(createKBForm.controls['accessibility'].value == 'true')"
+          ></ma-form-switch>
+        </div>
+
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-6">
+          <ma-form-input
+            [formElement]="createKBFormElement"
+            [form]="createKBForm"
+            [label]="'FORMS.ACCESSIBILITY.CHOOSE_SUBDOMAIN'"
+            [placeholder]="'FORMS.ACCESSIBILITY.YOUR_SUBDOMAIN'"
+            [name]="'subdomain'"
+            [addon]="'.myanswers.io'"
+          >
+          </ma-form-input>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-12">
+          <label class="form-control-label" [for]="'custom_domain'">
+            {{'DASHBOARD.CREATE_KB_CUSTOM_DOMAIN' | translate}}
+          </label>
+        </div>
+        <div class="col-md-6">
+          <ma-form-input
+            [formElement]="createKBFormElement"
+            [form]="createKBForm"
+            [label]="false"
+            [placeholder]="'FORMS.ACCESSIBILITY.FOR_EXAMPLE'"
+            [name]="'custom_domain'"
+          >
+          </ma-form-input>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-md-12">
+          <a href="#">{{'FORMS.ACCESSIBILITY.INSTRUCTIONS'| translate}}</a> <span class="coming-soon"></span>
+        </div>
+        <br>
+      </div>
+      <!--End: Content-->
+
+      <!--Footer-->
+      <div class="modal-footer">
+        <button class="button" type="button" (click)="$Modal.dismiss()">
+          {{'BUTTON.CANCEL' | translate}}
+        </button>
+
+        <button class="button button-primary" type="submit">
+          {{'BUTTON.SAVE' | translate}}
+        </button>
+      </div><!--End: Footer-->
+
+    </form>
+  </div>
+
+</div>

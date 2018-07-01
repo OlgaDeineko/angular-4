@@ -1,0 +1,66 @@
+{
+  "Click to copy":"Cliquez pour copier",
+  "Copied":"Copié",
+
+  "BUTTON": {
+    "SIGNIN": "Se connecter",
+    "CANCEL": "Annuler",
+    "SEND": "Envoyer",
+    "CONTACT_US": "Contactez-nous",
+    "LOG_IN": "Se connecter",
+    "LOG_OUT": "Se déconnecter",
+    "EDIT_FAQ": "Modifier cette FAQ"
+  },
+  "FAQ": {
+    "WORD": "mot",
+    "WORDS": "mots",
+    "CHARACTER": "caractère",
+    "CHARACTERS": "caractères",
+    "READING_TIME": "temps de lecture",
+    "INTERNAL_COMMENT": "Commentaire(s) interne(s)",
+    "ATTACHMENTS": "Pièces jointes:",
+    "ARTICLES": "des articles",
+    "ARTICLE_HELPFUL": "Cet article vous a-t-il été utile?",
+    "POSTED_ON": "Publié le",
+    "UPDATED_ON": "Mis à jour le",
+    "IMPROVE_PAGE": "Comment pouvons nous améliorer cette page?",
+    "CONTENTS":"Contenu"
+  },
+  "REGISTRATION": {
+    "FORGOT_MY_PASSWORD": "J'ai oublié mon mot de passe",
+    "LOGIN": "Se connecter",
+    "SIGN_IN_TO_KB": "Se connecter à",
+    "STAY_SIGNED_IN": "Rester connecté",
+    "CREDENTIALS": "Vos informations d'identification seront envoyées via une connexion sécurisée"
+  },
+  "LANGUAGES": {
+    "TITLE": "La langue",
+    "ENGLISH": "Anglais",
+    "DUTCH": "Néerlandais",
+    "FRENCH": "Français",
+    "GERMAN": "Allemand",
+    "SPANISH":"Espagnol",
+    "ITALIAN":"Italien",
+    "POLISH":"Polonais",
+    "SWEDISH":"Suédois",
+    "DANISH":"Danois",
+    "FINNISH":"Finnois",
+    "English": "Anglais",
+    "Dutch": "Néerlandais",
+    "French": "Français",
+    "German": "Allemand",
+    "Spanish":"Espagnol",
+    "Italian":"Italien",
+    "Polish":"Polonais",
+    "Swedish":"Suédois",
+    "Danish":"Danois",
+    "Finnish":"Finnois"
+  },
+  "FORMS": {
+    "LOGIN_FORM": {
+      "EMAIL": "Adresse e-mail",
+      "PASSWORD": "Mot de passe",
+      "REMEMBER": "Souviens-toi de moi"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div *ngFor="let item of usersArray">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"
+             [checked]="selected.indexOf(item.id) > -1"
+             [disabled]="item.disabled || disabledAll"
+             (click)="checkUser(item.id)">
+      <ng-template #ToolTipTemplate>{{'USERS.USERS_GROUP' | translate}}</ng-template>
+      <span [ngbTooltip]="(item.group_id) ? ToolTipTemplate : ''" placement="right">{{item.first_name}} {{item.last_name}}</span>
+      <span class="member-to-group" *ngIf="item.group_id && item.group">{{'USERS.GROUP' | translate}}:{{item.group.name}}</span>
+    </label>
+  </div>
+</div>
+

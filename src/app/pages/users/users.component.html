@@ -1,0 +1,211 @@
+<ma-sidebar-menu></ma-sidebar-menu>
+
+<div class="content-wrapper users" *ngIf="users && groups">
+  <img class="admin-myanswers-logo" src="../../../assets/images/logo.png" alt="">
+  <div class="content">
+    <div class="col-md-12">
+      <div class="row">
+        <!--Left sidebar-->
+        <div class="col-md-2">
+          <div ngbDropdown class="d-inline-block">
+            <button class="button button-primary" id="dropdownBasic2" ngbDropdownToggle>
+              <i class="fa fa-plus"></i>
+              {{'BUTTON.ADD' | translate}}
+            </button>
+
+            <ul class="dropdown-menu">
+              <li>
+                <a (click)="$event.preventDefault();createUser()">
+                  {{'USERS.CREATE' | translate}}
+                </a>
+              </li>
+              <li>
+                <a
+                  (click)="$event.preventDefault(); createGroup()">
+                  {{'USERS.CREATE_GROUP' | translate}}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div><!--END: Left sidebar-->
+
+        <!--Content-->
+        <div class="col-md-10">
+          <ngb-tabset>
+            <ngb-tab title="{{name | translate}}">
+              <ng-template ngbTabContent>
+                <!--Title-->
+                <div class="row">
+                  <!--<h3 class="users-title col-md-12">{{name | translate}}</h3>-->
+                  <p class="users-subtitle col-md-12">{{'USERS.TITLE_DESCRIPTION' | translate}}</p>
+                </div><!--END: Title-->
+
+                <!--Users list-->
+                <div class="users-list">
+                  <div class="users-list-header">
+                    <div class="users-list-header-name">
+                      <div ngbDropdown
+                           class="float-left select d-inline-block"
+                           maRoleAccess
+                           [invisibleFor]="['contributor']">
+                        <div id="dropdownBasic1" ngbDropdownToggle>
+                          <i class="fa fa-angle-down pull-right"></i>
+                          {{'USERS.SORT_BY' | translate}}
+                          <span class="sort">{{'USERS.SORT_FILTER.'+order.name | translate}}</span>
+                        </div>
+
+                        <ul class="dropdown-menu">
+                          <li *ngFor="let item of orderList" (click)="changeOrder(item)">
+                            {{'USERS.SORT_FILTER.'+item.name | translate}}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="users-list-header-email">
+                      {{'USERS.EMAIL' | translate}}
+                    </div>
+                    <div class="users-list-header-role">
+                      {{'USERS.ROLE' | translate}}
+                    </div>
+                    <div class="users-list-header-actions"></div>
+                  </div>
+
+                  <div class="users-list-row" *ngFor="let user of users | orderBy: order.attr">
+
+                    <div class="users-list-name">{{user.fullName}}<span class="owner" *ngIf="ownerId == user.id">({{'USERS.ACCOUNT_OWNER' | translate}})</span>
+                      <span class="owner" *ngIf="user.group_id && user.group">{{'USERS.GROUP' | translate}}: {{user.group.name}}</span>
+                    </div>
+                    <div class="users-list-email">{{user.email}}</div>
+                    <div class="users-list-role">{{user.roleName | translate}}</div>
+                    <!--Actions buttons-->
+                    <div class="users-list-actions">
+                      <button class="icon-button"
+                              (click)="edit(user)"
+                              placement="top"
+                              ngbTooltip="{{'USERS.EDIT' | translate}}">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                      </button>
+
+                      <button class="icon-button"
+                              *ngIf="user.status =='ACTIVE'"
+                              (click)="changeStatus(user, 0)"
+                              placement="top"
+                              ngbTooltip="{{'USERS.DISABLE' | translate}}"
+                              [disabled]="ownerId == user.id && !isSuperAdmin || user.id == authUserID">
+                        <i class="fa fa-user-times" aria-hidden="true"></i>
+                      </button>
+
+                      <button class="icon-button"
+                              *ngIf="user.status == 'SUSPENDED' || user.status =='PROVISIONED'"
+                              (click)="changeStatus(user, 1)"
+                              placement="top"
+                              ngbTooltip="{{'USERS.ENABLE' | translate}}">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                      </button>
+
+                      <button class="icon-button"
+                              maConfirmWindow
+                              (onConfirmOk)="remove(user.id)"
+                              [confirmMessage]="'USERS.CONFIRM'"
+                              [disabled]="ownerId == user.id || (user.role == 'admin' && disablebtnforAdmin) || user.group_id !== null"
+                              placement="top"
+                              ngbTooltip="{{'USERS.REMOVE' | translate}}">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </button>
+
+                      <button class="icon-button"
+                              (click)="control_access(user)"
+                              placement="top"
+                              ngbTooltip="{{'USERS.EDIT_ACCESS' | translate}}"
+                              [disabled]="user.role == 'admin' || user.group_id !== null">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                      </button>
+
+                      <button class="icon-button"
+                              maConfirmWindow
+                              (onConfirmOk)="changeOwner(user.id)"
+                              [confirmMessage]="'USERS.OWNER_CONFIRM'"
+                              placement="top"
+                              ngbTooltip="{{'USERS.CHANGE_ACCOUNT_OWNER' | translate}}"
+                              *ngIf="ownerId != user.id && user.role == 'admin' && enablebtnforOwner">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                      </button>
+                    </div><!--END: Actions buttons-->
+
+                  </div>
+                </div><!--END: Users list-->
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle>{{'USERS.GROUPS' | translate}}</ng-template>
+              <ng-template ngbTabContent>
+                <div class="row">
+                  <p class="users-subtitle col-md-12">{{'USERS.GROUP_DESCRIPTION' | translate}}</p>
+                </div>
+
+                <!--Users list-->
+                <div class="users-list">
+                  <div class="users-list-header">
+                    <div class="users-list-header-name">
+                      <div ngbDropdown
+                           class="float-left select d-inline-block">
+                        <div id="dropdownBasic3" ngbDropdownToggle>
+                          <i class="fa fa-angle-down pull-right"></i>
+                          {{'USERS.SORT_BY' | translate}}
+                          <span class="sort">{{'USERS.SORT_FILTER.'+order.name | translate}}</span>
+                        </div>
+
+                        <ul class="dropdown-menu">
+                          <li *ngFor="let item of orderList" (click)="changeOrder(item)">
+                            {{'USERS.SORT_FILTER.'+item.name | translate}}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="users-list-header-actions"></div>
+                  </div>
+
+                  <!--<div class="users-list-row" *ngFor="let user of users | orderBy: order.attr">-->
+                  <div class="users-list-row" *ngFor="let group of groups">
+
+                    <div class="users-list-name">
+                      {{group.name}}
+                    </div>
+                    <!--Actions buttons-->
+                    <div class="users-list-actions">
+                      <button class="icon-button"
+                              (click)="editGroup(group)"
+                              placement="top"
+                              ngbTooltip="{{'USERS.EDIT_GROUP' | translate}}">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                      </button>
+
+                      <button class="icon-button"
+                              maConfirmWindow
+                              (onConfirmOk)="removeGroup(group.id)"
+                              [confirmMessage]="'USERS.CONFIRM_GROUP'"
+                              placement="top"
+                              ngbTooltip="{{'USERS.REMOVE_GROUP' | translate}}">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </button>
+
+                      <button class="icon-button"
+                              (click)="control_access_group(group)"
+                              placement="top"
+                              ngbTooltip="{{'USERS.EDIT_ACCESS' | translate}}">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                      </button>
+                    </div><!--END: Actions buttons-->
+
+                  </div>
+                </div><!--END: Users list-->
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+        <!--END: Content-->
+      </div>
+    </div>
+  </div>
+</div>

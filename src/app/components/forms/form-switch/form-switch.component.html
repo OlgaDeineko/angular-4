@@ -1,0 +1,15 @@
+<div class="ma-form-switch" [formGroup]="form">
+
+  <label *ngIf="label"
+         [for]="name">
+    {{label | translate}}
+  </label>
+
+  <div class="ma-form-switch-button"
+       [ngClass]="type"
+       [class.checked]="status"
+       [class.disabled]="disabled"
+       (click)="change()">
+    <span class="ma-form-switch-toggle"></span>
+  </div>
+</div>

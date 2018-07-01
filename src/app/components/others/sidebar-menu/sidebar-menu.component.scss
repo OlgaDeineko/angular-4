@@ -1,0 +1,99 @@
+@import "../../../../_variables.scss";
+
+.ma-navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: $navbar-width;
+  border-radius: 0;
+  margin: 0;
+  background-color: $navbarBg;
+  z-index: 1;
+  border: none;
+
+  &-item {
+    color: $lightTextColor;
+    text-align: center;
+    cursor: pointer;
+
+    a {
+      color: $navbarColor;
+      display: block;
+      padding: $navbar-width/4;
+      font-size: $navbar-width/2;
+      line-height: 1;
+
+      &.active {
+        color: white;
+        background-color: $navbarActive;
+
+        &:hover {
+          color: white;
+          background: none;
+        }
+      }
+
+      &:hover {
+        color: white;
+        background: none;
+      }
+    }
+
+    &.logout {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    &.forImport{
+      color: #bab9ba;
+      display: block;
+      padding: 15px;
+      font-size: 30px;
+      line-height: 1;
+
+    }
+  }
+
+  .dropdown-menu {
+    top: -1px !important;
+    left: 59px !important;
+    margin: 0;
+    position: absolute;
+    z-index: 1080;
+  }
+  .dropdown-menu li {
+    font-size: 14px !important;
+    color: $darkTextColor;
+  }
+  .dropdown-menu li:hover {
+    color: #bab9ba;
+    text-decoration: none;
+  }
+  .dropdown-toggle::after {
+    content: none !important;
+  }
+
+  // TODO: for quick check current user  remove on production
+  .onlyforlocal {
+    &-block {
+      display: none;
+      position: absolute;
+      background: #fff;
+      color: #000;
+
+    }
+
+    &:hover {
+      .onlyforlocal-block {
+        display: block;
+      }
+    }
+  }
+  //END quick check
+  a.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+
+  }
+}

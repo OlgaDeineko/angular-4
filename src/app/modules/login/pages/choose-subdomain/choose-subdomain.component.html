@@ -1,0 +1,43 @@
+<div class="container-fluid choose-subdomain">
+  <!--Title-->
+
+  <div class="row">
+    <img class="logo">
+  </div>
+
+  <form name="registrEmail"
+        [formGroup]="subdomainForm"
+        (submit)="subdomainForm.valid && submit()"
+        #subdomainFormElement="ngForm"
+        novalidate
+        class="subdomain-form">
+    <div class="subdomain-form-title text-center">
+      {{'SUBDOMAIN.CHOOSE_YOUR_SUB' | translate}}
+    </div>
+
+    <div class="subdomain-form-input">
+      <ma-form-input
+        [formElement]="subdomainFormElement"
+        [form]="subdomainForm"
+        [name]="'subdomain'"
+        [placeholder]="'FORMS.REGISTRATION.SUBDOMAIN'"
+        [addon]="'.myanswers.io'">
+      </ma-form-input>
+      <div class="subdomain-form-actions">
+        <button type="submit"
+                class="button button-primary button-full"
+                [disabled]="subdomainForm.invalid">
+          {{'BUTTON.NEXT' | translate}}
+        </button>
+        <p class="text-bold agree">
+          {{'REGISTRATION.BY_CLICKING_NEXT' | translate}}
+          <a href="https://www.myanswers.io/terms-conditions" target="_blank">{{'REGISTRATION.TERMS_OF_USE' | translate}}</a>
+        </p>
+      </div>
+    </div>
+  </form>
+
+  <div class="row copyright justify-content-center">
+    &copy; Myanswers 2017 <a href="#">{{'REGISTRATION.TERMS_CONDITIONS' | translate}}</a>
+  </div>
+</div>

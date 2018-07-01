@@ -1,0 +1,77 @@
+@import '../../../../../_variables.scss';
+
+.new-registration {
+  padding-top: 2%;
+  .registr-title {
+    font-size: 41px;
+    margin-bottom: 45px;
+  }
+  .registr-meet-kb-title {
+    font-size: 41px;
+    margin-bottom: 20px;
+  }
+  .lang-title {
+    line-height: 3;
+  }
+  .registr-subtitle {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .registr-meet-kb-subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+  }
+
+  .copyright {
+    color: $lightGreyTextColor;
+    font-weight: 600;
+    margin-top: 40px;
+  }
+
+  .next {
+    margin-top: 10px;
+  }
+
+  a {
+    color: $lightGreyTextColor;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: $darkGreyTextColor;
+  }
+  .nopadding {
+    padding: 0 !important;
+  }
+
+  .padding-right {
+    padding-right: 5px !important;
+  }
+  .padding-left {
+    padding-left: 5px !important;
+  }
+
+  .text-bold {
+    font-weight: 600;
+  }
+  .agree {
+    color: $darkGreyTextColor;
+    margin-top: 5px;
+  }
+  .agree a {
+    color: $darkGreyTextColor;
+  }
+  .agree a:hover {
+    color: $lightGreyTextColor;
+  }
+  .input-lg {
+    font-size: 16px !important;
+  }
+  .form-control:focus {
+    border-color: $lightGreyTextColor !important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 10px rgba(200, 200, 200, 1) !important;
+  }
+}

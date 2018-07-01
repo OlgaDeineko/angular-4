@@ -1,0 +1,72 @@
+<div class="container-fluid myltiple-languages">
+  <div class="row">
+    <div class="col-md-12">
+      <!--Header-->
+      <div class="header">
+        <div class="row">
+          <div class="col-md-9">
+            <h3 class="settings-title-active">{{'MULTIPLE_LANGUAGES.TITLE' | translate}}</h3>
+            <p class="setting-description">{{'MULTIPLE_LANGUAGES.DESCRIPTION_SHORT' | translate}}</p>
+          </div>
+          <div class="col-md-3">
+            <div class="row">
+              <div class="col-md-12">
+                <img class="myanswers-logo" src="../../../assets/images/logo.png" alt="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group"
+                     ngbDropdown>
+                  <ma-my-kb-list (onChangeKB)="switchKB($event)" [withButton]="true"></ma-my-kb-list>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--End: Header-->
+      <form name="personal"
+            [formGroup]="myltiplelangForm"
+            (submit)="myltiplelangForm.valid && submit()"
+            #myltiplelangFormElement="ngForm"
+            novalidate>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <p class="lang-tooltip">
+              <span placement="bottom" ngbTooltip="{{'MULTIPLE_LANGUAGES.TOOLTIP' | translate}}"><i
+                class="fa fa-info-circle" aria-hidden="true"></i></span>
+              {{'MULTIPLE_LANGUAGES.ENABLED' | translate}}
+            </p>
+          </div>
+          <div class="col-md-2">
+            <p class="lang-tooltip">
+              <span placement="bottom" ngbTooltip="{{'MULTIPLE_LANGUAGES.TOOLTIP_TIP' | translate}}"><i
+                class="fa fa-info-circle" aria-hidden="true"></i></span>
+              {{'MULTIPLE_LANGUAGES.IS_VISIBLE' | translate}}
+            </p>
+          </div>
+        </div>
+        <!--Content-->
+        <div class="row">
+          <div class="col-md-12" *ngFor="let lang of available_languages" [hidden]="lang.code === defaultSystemLang">
+            <ma-form-multi-lang
+              [title]="lang.name.toUpperCase()"
+              [name]="lang.code"
+              [langData]="languages"
+              [form]="myltiplelangForm"
+            ></ma-form-multi-lang>
+          </div>
+        </div>
+        <!--Footer-->
+        <div class="footer">
+          <button class="button button-primary"
+                  type="submit">
+            {{'BUTTON.SAVE' | translate}}
+          </button>
+        </div><!--End: Footer-->
+      </form>
+
+    </div>
+  </div>
+</div>

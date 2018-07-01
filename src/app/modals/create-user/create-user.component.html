@@ -1,0 +1,75 @@
+<div class="modal-header">
+  <h3 class="modal-title" id="modal-title">{{'USERS.CREATE' | uppercase | translate}}</h3>
+</div>
+
+<form name="createuser"
+      [formGroup]="createUserForm"
+      (submit)="createUserForm.valid && save()"
+      #createuserFormElement="ngForm"
+      novalidate>
+
+  <div class="modal-body" id="modal-body">
+    <!--email-->
+    <ma-form-input
+      (change)="checkuser(createUserForm.controls['email'].value)"
+      [formElement]="createuserFormElement"
+      [form]="createUserForm"
+      [label]="'FORMS.USER.EMAIL'"
+      [name]="'email'"
+      [disabled]="isDisabledFeild"
+      [messages]="{pattern: 'MESSAGES.EMAIL_INVALID'}"
+    ></ma-form-input><!--END: email-->
+
+    <!--first name-->
+    <ma-form-input
+      [formElement]="createuserFormElement"
+      [form]="createUserForm"
+      [label]="'FORMS.USER.FIRST_NAME'"
+      [name]="'first_name'"
+      [disabled]="isDisabledFeild"
+    ></ma-form-input><!--END: first name-->
+
+    <!--last name-->
+    <ma-form-input
+      [formElement]="createuserFormElement"
+      [form]="createUserForm"
+      [label]="'FORMS.USER.LAST_NAME'"
+      [name]="'last_name'"
+      [disabled]="isDisabledFeild"
+    ></ma-form-input><!--END: last name-->
+
+    <!--role-->
+    <ma-form-select
+      [formElement]="createuserFormElement"
+      [form]="createUserForm"
+      [label]="'FORMS.USER.ACCESS_ROLE'"
+      [name]="'role'"
+      [options]="roles | toFormOptions:'code':'name'"
+    ></ma-form-select><!--END: role-->
+
+    <!--KB-->
+    <ma-form-checkbox-group
+      *ngIf="(subdomains | async).length > 1"
+      [formElement]="createuserFormElement"
+      [form]="createUserForm"
+      [label]="'FORMS.USER.KB_ACCESS'"
+      [name]="'shared_subdomains'"
+      [checkAll]="true"
+      [data]="subdomains | toFormOptions:'db_index':'subdomain':isDisabledSubdomains.bind(this)"
+    ></ma-form-checkbox-group><!--END: KB-->
+  </div>
+
+  <!--actions-->
+  <div class="modal-footer">
+    <button class="button"
+            type="button"
+            (click)="$Modal.dismiss()">
+      {{'BUTTON.CANCEL' | translate}}
+    </button>
+
+    <button class="button button-primary"
+            type="submit">
+      {{'BUTTON.SAVE' | translate}}
+    </button>
+  </div><!--END: actions-->
+</form>

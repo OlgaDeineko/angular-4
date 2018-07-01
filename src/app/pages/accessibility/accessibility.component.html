@@ -1,0 +1,120 @@
+<div class="container-fluid accessibility">
+  <div class="row">
+    <div class="col-md-12">
+      <!--Header-->
+      <div class="header">
+        <div class="row">
+          <div class="col-md-9">
+            <h3 class="settings-title-active">{{'ACCESSIBILITY.TITLE' | translate}}</h3>
+            <p class="setting-description">{{'ACCESSIBILITY.DESCRIPTION' | translate}}</p>
+          </div>
+          <div class="col-md-3">
+            <div class="row">
+              <div class="col-md-12">
+                <img class="myanswers-logo" src="../../../assets/images/logo.png" alt="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group"
+                     ngbDropdown>
+                  <ma-my-kb-list (onChangeKB)="switchKB($event)" [withButton]="true"></ma-my-kb-list>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--End: Header-->
+
+      <!--Content-->
+      <div class="content">
+
+        <form name="personal"
+              [formGroup]="accessibilityForm"
+              (submit)="accessibilityForm.valid && submit()"
+              #accessibilityFormElement="ngForm"
+              novalidate>
+
+          <div class="form-group row">
+            <div class="col-md-12">
+              <label class="font-weight-bold">{{'FORMS.ACCESSIBILITY.PRIVATE_SITE'| translate}}</label>
+              <p class="small"><b>{{'FORMS.ACCESSIBILITY.PRIVATE_SITE_DESCRIPT'| translate}}</b></p>
+            </div>
+
+
+            <div class="col-md-12">
+              <ma-form-switch
+                [formElement]="accessibilityFormElement"
+                [form]="accessibilityForm"
+                [label]="false"
+                [name]="'status'"
+                [values]="{on: 'private', off: 'public'}"
+                [status]="(accessibilityForm.controls['status'].value == 'true')"
+                placement="top"
+                #t="ngbTooltip"
+                (click)="t.close(); t.open()"
+                ngbTooltip="{{'FORMS.ACCESSIBILITY.TOOLTIP_STATUS_'+(accessibilityForm.controls['status'].value == 'public' ? 'PRIVATE' : 'PUBLIC') | translate}}"
+              ></ma-form-switch>
+              <a class="visitKnowledge" [href]="goToKB" target="_blank">
+                {{'FORMS.ACCESSIBILITY.VISIT_KNOWLEDGE_BASE'| translate}}
+              </a>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row">
+            <div class="col-md-6">
+              <ma-form-input
+                [formElement]="accessibilityFormElement"
+                [form]="accessibilityForm"
+                [label]="'FORMS.ACCESSIBILITY.CHOOSE_SUBDOMAIN'"
+                [placeholder]="'FORMS.ACCESSIBILITY.YOUR_SUBDOMAIN'"
+                [name]="'subdomain'"
+                [addon]="'.myanswers.io'"
+              ></ma-form-input>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row">
+            <div class="col-md-12">
+              <label class="form-control-label" [for]="'custom_domain'">
+                {{'FORMS.ACCESSIBILITY.CUSTOM_DOMAIN' | translate}}
+              </label>
+            </div>
+            <div class="col-md-6">
+              <ma-form-input
+                [formElement]="accessibilityFormElement"
+                [form]="accessibilityForm"
+                [label]="false"
+                [placeholder]="'FORMS.ACCESSIBILITY.FOR_EXAMPLE'"
+                [name]="'custom_domain'"
+              ></ma-form-input>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12">
+              <a href="#">{{'FORMS.ACCESSIBILITY.INSTRUCTIONS'| translate}}</a> <span
+              class="coming-soon"></span>
+            </div>
+            <br>
+          </div>
+
+
+          <!--Footer-->
+          <div class="footer">
+            <button class="button button-primary"
+                    type="submit">
+              {{'BUTTON.SAVE' | translate}}
+            </button>
+          </div><!--End: Footer-->
+
+        </form>
+      </div>
+      <!--End: Accessibility Content-->
+    </div>
+  </div>
+</div>

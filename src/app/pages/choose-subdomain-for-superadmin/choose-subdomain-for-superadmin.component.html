@@ -1,0 +1,25 @@
+<ma-sidebar-menu></ma-sidebar-menu>
+
+<div class="content-wrapper choose-subdomain-admin">
+  <div class="col-md-2 choose-subdomain-admin-sidebar">
+
+    <div class="choose-subdomain-admin-actions">
+      <div>
+        <div class="choose-subdomain-admin-title">
+          <h4>Choose sub-domain</h4>
+        </div>
+        <ul class="list-group">
+          <li *ngFor="let item of subdomains" class="list-group-item"
+              [routerLink]="['/admin/choosesubdomain/subscriptionPlans', item.code]" routerLinkActive="active">
+            <p>{{item.name}}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-10 choose-subdomain-admin-content">
+    <img class="admin-myanswers-logo" src="../../../assets/images/logo.png" alt="">
+    <router-outlet></router-outlet>
+  </div>
+</div>

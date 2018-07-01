@@ -1,0 +1,16 @@
+<div class="modal-body confirm-modal">
+  <div class="text-center title">
+    {{answer | uppercase | translate}}
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button class="button" (click)="cancel()">
+    {{'BUTTON.CANCEL' | translate}}
+  </button>
+
+  <button class="button button-primary"
+          (click)="ok()">
+    {{'BUTTON.YES' | translate}}
+  </button>
+</div>

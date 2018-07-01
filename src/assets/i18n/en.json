@@ -1,0 +1,619 @@
+{
+  "This subdomain name is already reserved":"This subdomain name is already reserved",
+  "Sent invalid parameters":"The combination of the email address and password does not exist",
+
+  "Click to copy":"Click to copy",
+  "Copied":"Copied to clipboard",
+
+  "first_name": "First name",
+  "last_name": "Last name",
+  "email": "Email address",
+  "password": "Password",
+  "phone":"Phone",
+  "subdomain":"Subdomain",
+
+  "Customer service":"Customer service",
+  "E-commerce":"E-commerce",
+  "Executive":"Executive",
+  "Founder":"Founder",
+  "IT":"IT",
+  "Marketing":"Marketing",
+  "Other":"Other",
+
+  "SEARCH": "Search",
+  "RESULT": "result",
+  "RESULTS": "results",
+  "SUCCESS": "Success",
+  "ERROR": "Error",
+
+  "Public":"Public",
+  "Private":"Private",
+  "Internal":"Internal",
+
+  "public":"public",
+  "private":"private",
+  "internal":"internal",
+
+  "draft": "draft",
+  "published": "published",
+  "trash": "trash",
+  "review": "review",
+
+  "admin":"admin",
+  "contributor":"contributor",
+  "editor":"editor",
+  "visitor":"visitor",
+
+  "Question":"Question",
+  "Answer":"Answer",
+  "Language":"Language",
+  "Category":"Category",
+  "Visibility":"Visibility",
+  "Status":"Status",
+
+  "BUTTON": {
+    "ADD": "Add",
+    "REGISTRATION": "Registration",
+    "RESET_PASSWORD": "Reset password",
+    "SIGNIN": "Sign in",
+    "FORGOT": "Forgot password?",
+    "CREATE": "Create",
+    "UPDATE": "Update",
+    "EDIT": "Edit",
+    "DELETE": "Delete",
+    "CANCEL": "Cancel",
+    "SAVE": "Save",
+    "SEND": "Send",
+    "UPLOAD_ATTACHMENT": "Upload attachment (max 20MB)",
+    "YES": "Yes",
+    "ADD_FAQ": "Add an FAQ to the current category",
+    "EDIT_FAQ": "Edit this FAQ",
+    "BACK_TOOLTIP": "Go back to the FAQ list",
+    "CONTACT_US":"Contact us",
+    "LOG_IN":"Log in",
+    "LOG_OUT":"Log out",
+    "CREATE_KB":"Create Knowledge base",
+    "NEXT":"Next",
+    "IMPORT":"Import",
+    "HELP":"Help",
+    "CLICK_TO_CREATE":"Click to create",
+    "ADD_TRANSLATION":"Add the translation",
+    "EDIT_TRANSLATION":"Edit the translation"
+  },
+
+  "CATEGORY": {
+    "CREATE_CATEGORY": "Create category",
+    "CREATE_SUBCATEGORY": "Create subcategory",
+    "UPDATE_CATEGORY": "Update category",
+    "UPDATE_SUBCATEGORY": "Update subcategory",
+    "EDIT_CATEGORY": "Edit category",
+    "EDIT_SUBCATEGORY": "Edit subcategory",
+    "REMOVE_CATEGORY": "Remove category",
+    "REMOVE_SUBCATEGORY": "Remove subcategory",
+    "CONFIRM_CATEGORY": "Do you want to delete this category?",
+    "CONFIRM_SUBCATEGORY": "Do you want to delete this subcategory?",
+    "SORT_BY": "Sort by:",
+    "NOT_FOUND": "Category not found",
+    "SORT_FILTER": {
+      "CUSTOM": "Custom",
+      "NAME_ASC": "Name[A-Z]",
+      "NAME_DESC": "Name[Z-A]",
+      "AUTHOR_ASC": "Author[A-Z]",
+      "AUTHOR_DESC": "Author[Z-A]",
+      "LAST_CREATED": "Last created",
+      "LAST_UPDATED": "Last updated"
+    },
+    "LANGUAGE": "Language",
+    "AUTHOR": "Author",
+    "CREATED": "Created",
+    "CATEGORY_TITLE": "Category name",
+    "SUBCATEGORY_TITLE": "Subcategory name",
+    "CATEGORY_TRANSLATION": "Please create first the translation for the (sub)category"
+  },
+
+  "FAQ": {
+    "TITLE": "FAQ",
+    "CREATE": "Create FAQ",
+    "EDIT": "Edit FAQ",
+    "REMOVE": "Remove FAQ",
+    "WORD": "word",
+    "WORDS": "words",
+    "CHARACTER": "character",
+    "CHARACTERS": "characters",
+    "READING_TIME": "reading time",
+    "INTERNAL_COMMENT": "Internal comment(s)",
+    "INTERNAL_COMMENT_PLACEHOLDER": "Add your comments here",
+    "CATEGORIES": "Category:",
+    "AUTHOR": "Author:",
+    "VISIBILITY": "Visibility:",
+    "LANGUAGE": "Language:",
+    "ATTACHMENTS": "Attachments:",
+    "LABEL_TITLE": "Title",
+    "LABEL_TITLE_SM": "Title",
+    "CONTENT": "Content",
+    "KEYWORDS": "Keywords",
+    "KEYWORDS_PLACEHOLDER": "Add keywords separated by comma",
+    "ENTER_TAG":"Enter a new tag",
+    "PUBLISH": "Publish in (sub)category:",
+    "CONFIRM": "Do you want to delete this FAQ?",
+    "CONFIRM_COPY": "Do you want to copy FAQ?",
+    "VISIBILITY_USER": "Visible to these users:",
+    "SEARCH_KB":"Search knowledge base",
+    "DISPLAY_ALL":"Display all",
+    "ARTICLES":"articles",
+    "NOT_FOUND": "FAQ not found",
+    "COPY_AND_SAVE_DRAFT": "Copy FAQ and save as draft",
+    "ARTICLE_HELPFUL":"Was this article helpful?",
+    "POSTED_ON":"Posted on",
+    "UPDATED_ON":"Updated on",
+    "IMPROVE_PAGE":"How can we improve this page?",
+    "ATTACHMENT_TIP": "This is the attachment of primary FAQ. You can't delete it.",
+    "CONTENTS":"Contents",
+
+    "STATUSES": {
+      "DRAFT": "Draft",
+      "PUBLISHED": "Published",
+      "TRASH": "Trash",
+      "REVIEW": "Review",
+      "ALL": "All"
+    },
+    "STATUSES_PAGE": {
+      "DRAFT": "All drafts FAQ",
+      "PUBLISHED": "All published FAQ",
+      "TRASH": "All trash FAQ",
+      "REVIEW": "All review FAQ",
+      "ALL": "All FAQ"
+    }
+  },
+
+  "DASHBOARD": {
+    "TITLE": "Dashboard",
+    "HOME": "Home",
+    "CREATE_KB":"Create Knowledge base",
+    "CREATE_KB_CUSTOM_DOMAIN":"If you wish, you can use add the knowledge base to your domain. Type here the custom domain.",
+    "UNTRANSLATED":"Untranslated"
+  },
+
+  "USERS": {
+    "TITLE": "Users",
+    "TITLE_DESCRIPTION": "Add and manage your users",
+    "GROUP_DESCRIPTION": "Manage your group",
+    "EMAIL": "Email address",
+    "ROLE": "Role",
+    "EDIT_ACCESS":"Edit access rights",
+    "EDIT": "Edit user",
+    "EDIT_GROUP": "Edit group",
+    "CHANGE_ACCOUNT_OWNER":"Change owner",
+    "DISABLE": "Disable user",
+    "DISABLED": "This user disabled",
+    "ENABLE": "Enable user",
+    "REMOVE": "Remove user",
+    "REMOVE_GROUP": "Remove group",
+    "UPDATE": "Update user",
+    "CREATE": "Create user",
+    "CREATE_GROUP": "Create group",
+    "UPDATE_GROUP": "Update group",
+    "CONFIRM": "Do you want to delete this user?",
+    "CONFIRM_GROUP": "Are you sure? If you delete the group, you will delete also all users of this group",
+    "OWNER_CONFIRM": "Do you want to change account owner?",
+    "GROUP":"Group",
+    "GROUPS":"Groups",
+    "ACCOUNT_OWNER":"Account owner",
+    "SORT_BY": "Sort by:",
+    "SORT_FILTER": {
+      "NAME_ASC": "Name[A-z]",
+      "NAME_DESC": "Name[Z-A]",
+      "ROLE_ASC": "Role[A-Z]",
+      "ROLE_DESC": "Role[Z-A]",
+      "EMAIL_CREATED": "Email[A-Z]",
+      "EMAIL_UPDATED": "Email[Z-A]"
+    },
+    "USERS_GROUP":"The user is belong to group. If you want to change user's rights, please go to access control of group."
+  },
+
+  "SUBDOMAIN": {
+    "TITLE": "Choose subdomain",
+    "SUBDOMAIN": "Subdomain",
+    "NAME": "Subdomain name",
+    "CHOOSE_YOUR_SUB":"Choose your sub-domain"
+  },
+
+  "REGISTRATION": {
+    "TITLE": "Registration",
+    "RESET_PASSWORD": "Reset password",
+    "FORGOT_PASSWORD": "Forgot password",
+    "FORGOT_MY_PASSWORD": "Forgot my password",
+    "LOGIN": "Login",
+    "SIGN_IN_TO_KB": "Sign in to",
+    "STAY_SIGNED_IN": "Stay signed in",
+    "CREDENTIALS": "Your credentials will be sent over a secure connection",
+    "GET_STARTED":"Let's get started",
+    "REGISTER_WITH_YOUR_EMAIL":"Register with your business email address",
+    "TELL_US_ABOUT_YOURSELF":"Tell us about yourself",
+    "CUSTOMIZE_YOUR_KB":"Customize your knowledge base",
+    "ACCESS_YOUR_KB":"This is where you will access your new knowledge base.",
+    "ACCESS_YOUR_KB_2":"Make sure to bookmark it once you're inside.",
+    "SETTING_UP_YOUR_KB":"Your new knowledge base is now ready for use",
+    "KB_HOSTED_IN":"Your MyAnswers knowledge base will be hosted in",
+    "USE_KB":"I want to use this knowledge base for:",
+    "PRIVATE_KB":"our employees or customers only (require signing in)",
+    "PUBLIC_KB":"our website visitors only (no signing in required)",
+    "BY_CLICKING_NEXT":"By clicking 'Next' you agree to our",
+    "TERMS_OF_USE":"Terms of Use",
+    "MEET_YOUR_KB":"Meet your new knowledge base",
+    "TERMS_CONDITIONS":"Terms & Conditions"
+  },
+
+  "REGISTRATION_MESSAGE":{
+    "REGISTRATION_ACTIVATION_LINK_SENT":"Activation link sent",
+    "FOLLOW_INSTRUCTIONS":"Please follow the sign-up instructions that were sent to",
+    "CHECK_SPAM":"Remember to check your spam folders if you cannot find the email instantly.",
+    "HAVE_ISSUES":"If you have any issues or cannot log in, ",
+    "CONTACT_US":"contact us"
+  },
+
+  "LEFT_SIDEBAR_NAV": {
+    "VIEW": "View the knowledge base",
+    "DASHBOARD": "Dashboard",
+    "USERS": "Users",
+    "CHOOSE_SUBDOMAIN": "Choose subdomain",
+    "SETTINGS": "Settings",
+    "LOG_OUT": "Log Out"
+  },
+
+  "LANGUAGES": {
+    "TITLE": "Language",
+    "ENGLISH": "English",
+    "DUTCH": "Dutch",
+    "FRENCH": "French",
+    "GERMAN": "German",
+    "SPANISH":"Spanish",
+    "ITALIAN":"Italian",
+    "POLISH":"Polish",
+    "SWEDISH":"Swedish",
+    "DANISH":"Danish",
+    "FINNISH":"Finnish",
+    "English": "English",
+    "Dutch": "Dutch",
+    "French": "French",
+    "German": "German",
+    "Spanish":"Spanish",
+    "Italian":"Italian",
+    "Polish":"Polish",
+    "Swedish":"Swedish",
+    "Danish":"Danish",
+    "Finnish":"Finnish"
+  },
+
+  "SETTINGS": {
+    "TITLE": "Profile Settings",
+    "KNOWLEDGE_BASE": "Knowledge Base Settings",
+    "ADMINISTRATIVE": "Administrative Settings"
+  },
+
+  "APPEARANCE": {
+    "TITLE": "Appearance",
+    "DESCRIPTION": "Customise the look and feel",
+    "INVALID_URL":"Invalid link, ex.: http(s)://www.mywebsite.com",
+    "TITLE_HEADER":"HEADER",
+    "TITLE_HOME_BANNER":"HOME BANNER",
+    "TITLE_BODY":"BODY",
+    "TITLE_FOOTER":"FOOTER",
+    "TITLE_OTHER":"OTHER",
+    "TITLE_TRANSLATIONS_OF_ELEMENTS":"TRANSLATIONS OF ELEMENTS"
+  },
+
+  "ACCESSIBILITY": {
+    "TITLE": "Accessibility",
+    "DESCRIPTION_SHORT": "Control the accessibility",
+    "DESCRIPTION": "Control the accessibility of your knowledge base"
+  },
+
+  "PERSONAL_INFO": {
+    "TITLE": "Personal info",
+    "DESCRIPTION": "Change your personal info",
+    "CONFIRM_PASSWORD":"Confirm the password!",
+    "CHOOSE_ROLE":"Please choose a role",
+    "DO_NOT_CONFIRM_PASSWORD":"You don't confirm your password",
+    "EMAIL_REGISTERED":"This email address has been already registered. Please check it again.",
+    "CHOOSE_A_ROLE":"Please choose a role"
+  },
+
+  "CHANGE_LANGUAGE": {
+    "TITLE": "Language",
+    "DESCRIPTION": "Change the language of the user interface"
+  },
+
+  "CHANGE_PASSWORD": {
+    "TITLE": "Password",
+    "DESCRIPTION_SHORT": "Change your password",
+    "DESCRIPTION": "Set new password for your account"
+  },
+
+  "IMPORT_DATA":{
+    "TITLE": "Import Data",
+    "DESCRIPTION": "Import your data from other sources",
+    "DESCRIPTION_PAGE":"Import your data into MyAnswers.io",
+    "FILE_IMPORT":"File Import",
+    "IMPORT_XLS_CSV":"Import your data from XLS or CSV files",
+    "IMPORT_ONLINE_FAQS":"Import your online FAQs",
+    "EXISTING_KB":"Let us crawl your existing web-based knowledge base",
+    "UPLOAD_FILE":"Choose file to upload",
+    "OUR_STR":"Our file structure",
+    "YOUR_STR":"Your file structure",
+    "DEFAULT_VALUES":"Default values",
+    "ALLOW_COMMENTS":"Do you want to allow comments?",
+    "SPLIT_BY":"Categories will be separated by the specified symbol",
+    "DEFAULT_LANGUAGE":"tip: this language will be selected as default if your FAQs don't have a language attribute in the file"
+  },
+
+  "HELP_WIDGET":{
+    "TITLE":"Help Widget",
+    "DESCRIPTION":"Configure Help Widget",
+    "PLACE_CODE":"Place this code on every page of your website before the </body> tag.",
+    "ADD_LINK":"Add your Live Chat link to the Help Widget",
+    "INVALID_LIVE_CHAT_URL": "Invalid link to LiveChat, ex.: https://lc.chat/now/1111111/"
+  },
+
+  "ADVANCED_SETTINGS":{
+    "TITLE": "Advanced Settings",
+    "DESCRIPTION": "Configure your knowledge base even further",
+    "HEAD_TAG":"Google Analytics code or any other code before the </head> tag",
+    "BODY_TAG":"Any code before </body> tag"
+  },
+
+  "MULTIPLE_LANGUAGES":{
+    "TITLE":"Language",
+    "DESCRIPTION_SHORT":"Add languages to your knowledge base",
+    "SET_LANGUAGE_TRUE":"Enable this language",
+    "SET_LANGUAGE_FALSE":"Disable this language",
+    "DEFAULT_LANGUAGE":"Default language",
+    "CONFIRM_MESSAGE":"Are you sure? If you disable this language, you will lose all your translations in this language.",
+    "IS_VISIBLE":"Language visible in knowledge base?",
+    "ENABLED":"Enabled?",
+    "INVISIBLE":"Hide this language",
+    "VISIBLE":"Show this language",
+    "TOOLTIP":"Use this switcher to enable or disable each language.",
+    "TOOLTIP_TIP":"Use this switcher to show or hide each language in your knowledge base."
+  },
+
+  "VALIDATION_ERRORS": {
+    "INVALID_TYPE": "Invalid type, expected {{schema.type}}",
+    "ENUM_MISMATCH": "No enum match for: {{viewValue}}",
+    "ANY_OF_MISSING": "Data does not match any schemas from \"anyOf\"",
+    "ONE_OF_MISSING": "Data does not match any schemas from \"oneOf\"",
+    "ONE_OF_MULTIPLE": "Data is valid against more than one schema from \"oneOf\"",
+    "NOT_PASSED": "Data matches schema from \"not\"",
+    "NUMBER_MULTIPLE_OF": "Value is not a multiple of {{schema.multipleOf}}",
+    "NUMBER_MINIMUM": "{{viewValue}} is less than the allowed minimum of {{schema.minimum}}",
+    "NUMBER_MINIMUM_EXCLUSIVE": "{{viewValue}} is equal to the exclusive minimum {{schema.minimum}}",
+    "NUMBER_MAXIMUM": "{{viewValue}} is greater than the allowed maximum of {{schema.maximum}}",
+    "NUMBER_MAXIMUM_EXCLUSIVE": "{{viewValue}} is equal to the exclusive maximum {{schema.maximum}}",
+    "NUMBER_NOT_A_NUMBER": "Value is not a valid number",
+    "STRING_LENGTH_SHORT": "String is too short ({{viewValue.length}} characters), minimum {{schema.minLength}}",
+    "STRING_LENGTH_LONG": "String is too long ({{viewValue.length}} characters), maximum {{schema.maxLength}}",
+    "STRING_PATTERN": "String does not match pattern: {{schema.pattern}}",
+    "OBJECT_PROPERTIES_MINIMUM": "Too few properties defined, minimum {{schema.minProperties}}",
+    "OBJECT_PROPERTIES_MAXIMUM": "Too many properties defined, maximum {{schema.maxProperties}}",
+    "OBJECT_REQUIRED": "Required",
+    "OBJECT_ADDITIONAL_PROPERTIES": "Additional properties not allowed",
+    "OBJECT_DEPENDENCY_KEY": "Dependency failed - key must exist",
+    "ARRAY_LENGTH_SHORT": "Array is too short ({{value.length}}), minimum {{schema.minItems}}",
+    "ARRAY_LENGTH_LONG": "Array is too long ({{value.length}}), maximum {{schema.maxItems}}",
+    "ARRAY_UNIQUE": "Array items are not unique",
+    "ARRAY_ADDITIONAL_ITEMS": "Additional items not allowed",
+    "FORMAT_CUSTOM": "Format validation failed",
+    "KEYWORD_CUSTOM": "Keyword failed: \"{{title}}\"",
+    "CIRCULAR_REFERENCE": "Circular $refs",
+    "UNKNOWN_PROPERTY": "Unknown property (not in schema)",
+    "NOT_QUESTION": "Question cannot be blank.",
+    "NOT_ANSWER": "Answer cannot be blank.",
+    "NOT_CATEGORY_NAME":"Category name cannot be blank.",
+    "NOT_SUBCATEGORY_NAME":"Subcategory name cannot be blank.",
+    "GROUP_NO_USERS":"Please add users to the group.",
+    "GROUP_NO_NAME":"Group name cannot be blank."
+  },
+
+  "CONTROL_ACCESS":{
+    "TITLE": "Control Access",
+    "VISIBILITY":"You can choose only private categories. Categories with visbility 'Internal' are not on this list.",
+    "SELECT_ALL": "select all"
+  },
+
+  "MESSAGES": {
+    "VALIDATION_ERROR": "Validation error:",
+    "ACCOUNT_ACTIVATED": "Account has been activated!",
+    "PASSWORD_CHANGED": "Password changed successfully",
+    "PASSWORD_INVALID": "Password must contain 1 uppercase letter, 1 lowercase letter and 1 number",
+    "PASSWORD_MISMATCH": "Passwords do not match",
+    "PASSWORD_LENGTH_SHORT": "Password is too short, minimum ",
+    "EMAIL_INVALID": "Invalid email address",
+    "EMAIL_LENGTH_SHORT": "Email is too short, minimum ",
+    "REGISTRATION_DONE": "Thank you for registration. \nPlease activate your account. \nThe link has been sent to",
+    "REGISTRATION_DONE_ACTIVATE":"Your account has been already created. Please activate it",
+    "REGISTRATION_DONE_MSG": "Registration done",
+    "USER_REMOVED": "User removed successfully",
+    "USER_STATUS_CHANGED": "User status changed successfully",
+    "ERROR_IMAGE_TYPE": "File must be image *.jpeg, *.jpg, *.png",
+    "ERROR_IMAGE_SIZE":"Image size should not exceed 100 KB",
+    "ERROR_DOCUMENT_TYPE": "File must be document (*.doc, *.docx, *.pdf)",
+    "ERROR_FILE_TYPE": "Invalid file type",
+    "ERROR_IMPORT_TYPE":"Invalid file type. It must be *.xls, *.xlsx, *.csv ",
+    "FAQ_UPDATE": "FAQ updated successfully",
+    "FAQ_CREATE": "FAQ created successfully",
+    "FAQ_REMOVE": "FAQ removed successfully",
+    "CATEGORY_CREATE": "Category created successfully",
+    "SUBCATEGORY_CREATE": "Subcategory created successfully",
+    "CATEGORY_UPDATE": "Category updated successfully",
+    "SUBCATEGORY_UPDATE": "Subcategory updated successfully",
+    "USER_UPDATE": "User updated successfully",
+    "USER_CREATE": "User created successfully",
+    "EMAIL_SENT": "Email sent",
+    "AUTHORIZATION_ERROR": "Authorisation error:",
+    "LOGIN_AGAIN": "Please login again",
+    "NOT_LOGIN": "You are unauthorised. Please login",
+    "KB_PRIVATE_LOGIN": "This KB is private. Please login",
+    "NOT_ACCESS": "You don't have access to these actions",
+    "LANGUAGE_CHANGED": "Language changed",
+    "NOT_FOUND": "Resource not found",
+    "ANSWER_COPIED": "Answer copied to clipboard",
+    "PERSONAL_INFO_CHANGED": "Personal info changed",
+    "KB_CREATE": "Knowledge base created successfully",
+    "CONTROL_ACCESS_CHANGED": "Control access changed",
+    "ACCOUNT_OWNER_CHANGED":"Account owner changed successfully",
+    "KB_DONT_HAVE_DATA": "The Knowledge Base does not have any private categories or faq!",
+    "DONT_HAVE_DATA": "There are no any private categories or faq for this language!",
+    "KB_ISNT_SHARED": "This Knowledge Base is not shared for current user!",
+    "KB_DONT_EXIST": "Knowledge Base does not exist",
+    "APPEARANCE_SAVED": "Appearance saved successfully",
+    "ACCESSIBILITY_SAVED": "Accessibility saved successfully",
+    "ADVANCED_SAVED": "Advanced settings saved successfully. Please, wait while the page reloads.",
+    "FAQ_COPIED_AND_SAVE_DRAFT": "FAQ a copied and saved as draft",
+    "FILE_STRUCTURE_SAVED":"File structure saved successfully",
+    "SELECT_REQUIRED_VALUES":"Please select all required fields",
+    "LOGOUT":"You changes won't be saved. If you want to logout, click 'yes'",
+    "HELP_WIDGET_DATA_SAVED": "Configuration of Help Widget is saved successfully",
+    "LANGUAGES_SAVED":"Languages saved successfully",
+    "FAQ_FEEDBACK":"Thank you for submitting your feedback about this article",
+    "LOSE_CHANGES":"Are you sure? If you continue, you will lose your changes if you don't save them",
+    "NOT_AVAILABLE_LANG":"This language is not available in KB. Please enable it on Setting page.",
+    "IS_TOO_BIG_SIZE":"This FAQ is too large and will not be saved. Please make the FAQ smaller or divide it into two FAQs.",
+    "GROUP_UPDATE":"Group updated successfully",
+    "GROUP_REMOVED":"Group removed successfully",
+    "GROUP_CREATE":"Group created successfully",
+    "CANNOT_CREATE_GROUP":"You cannot create a group because all users are already in groups",
+    "CHECK_USER":"If you want to create a private resource, please select the users."
+  },
+
+  "FORMS": {
+    "VALIDATIONS": {
+      "OBJECT_REQUIRED": "{{field}} is required",
+      "STRING_LENGTH_SHORT": "String is too short ({{actualLength}} characters), minimum {{requiredLength}}",
+      "STRING_LENGTH_LONG": "String is too long ({{actualLength}} characters), maximum {{requiredLength}}",
+      "STRING_PATTERN": "String does not match pattern: {{requiredPattern}}",
+      "EMAIL_INVALID": "Invalid email address",
+      "PASSWORD_INVALID": "Password must contain 1 uppercase letter, 1 lowercase letter and 1 number",
+      "PASSWORD_MISMATCH": "Passwords do not match"
+    },
+    "LOGIN_FORM": {
+      "EMAIL": "Email address",
+      "PASSWORD": "Password",
+      "REMEMBER": "Remember me"
+    },
+    "FORGOT_PASSWORD_FORM": {
+      "EMAIL": "Email address"
+    },
+    "PERSONAL_INFO_FORM": {
+      "EMAIL": "Email address",
+      "FIRST_NAME": "First name",
+      "LAST_NAME": "Last name",
+      "DEPARTMENT": "Your role"
+    },
+    "CHANGE_PASSWORD_FORM": {
+      "CURRENT_PASSWORD": "Current password",
+      "PASSWORD": "New password",
+      "PASSWORD_CONFIRM": "Password Confirmation"
+    },
+    "CHANGE_LANGUAGE_FORM": {
+      "FOR_KB": "Language of the Knowledge Base",
+      "FOR_ADMIN": "Language of the Admin Panel"
+    },
+    "ACCESSIBILITY": {
+      "PRIVATE_SITE": "Is this a private site?",
+      "PRIVATE_SITE_DESCRIPT": "A private site requires a user login, while a public site can be accessed by anyone.",
+      "VISIT_KNOWLEDGE_BASE": "Visit your knowledge base",
+      "CHOOSE_SUBDOMAIN": "Choose your subdomain",
+      "YOUR_SUBDOMAIN": "yoursubdomain",
+      "CUSTOM_DOMAIN": "Do you wish to point your domain name that you have registered with an external provider to your MyAnswers knowledge base? Type here the custom domain.",
+      "SET_CUSTOM_DOMAIN": "",
+      "INSTRUCTIONS": "Follow these instructions to point a custom domain to MyAnswer.",
+      "FOR_EXAMPLE": "For example help.yourcompany.com",
+      "TOOLTIP_STATUS_PRIVATE": "Set knowledge base to private",
+      "TOOLTIP_STATUS_PUBLIC": "Set knowledge base to public"
+    },
+    "CATEGORY": {
+      "LABEL_TITLE": "Category title",
+      "AUTHOR": "Author",
+      "PARENT_CATEGORY": "Parent category",
+      "LANGUAGE": "Language",
+      "VISIBILITY": "Visibility:",
+      "VISIBILITY_USER": "Visible to these users"
+    },
+    "RESET_PASSWORD_FORM": {
+      "PASSWORD": "Password",
+      "PASSWORD_CONFIRM": "Password Confirmation"
+    },
+    "USER": {
+      "EMAIL": "Email address",
+      "FIRST_NAME": "First name",
+      "LAST_NAME": "Last name",
+      "PHONE":"Phone",
+      "PASSWORD": "Password",
+      "REPEAT_PASSWORD": "Repeat password",
+      "FORGOT_PASSWORD": "Forgot password",
+      "FORGOT_MY_PASSWORD": "Forgot my password",
+      "ACCESS_ROLE": "Access role",
+      "KB_ACCESS":"Knowledge base access",
+      "GROUP_NAME":"Group name"
+    },
+    "REGISTRATION": {
+      "EMAIL": "Email address",
+      "PASSWORD": "Password",
+      "REPEAT_PASSWORD": "Repeat password",
+      "FIRST_NAME": "First name",
+      "LAST_NAME": "Last name",
+      "PHONE":"Phone",
+      "SUBDOMAIN": "Subdomain"
+    },
+    "APPEARANCE": {
+      "LOGO": "Upload here your company logo",
+      "FAVICON": "Upload here your favicon",
+      "UPLOAD_IMAGE": "Upload an image",
+      "KNOWLEDGE_BASE_NAME": "Give your knowledge base a name",
+      "KNOWLEDGE_BASE_SUBTITLE": "Give your knowledge base a subtitle",
+      "HEADER_COLOR": "Give the header a nice colour",
+      "HEADER_IMAGE": "Or, upload an image for the header",
+      "LINK_COLOR": "What colour should your hyperlinks have?",
+      "KB_TITLE_COLOR": "Add color to the knowledge base title",
+      "KB_SUBTITLE_COLOR": "Add color to the knowledge base subtitle",
+      "FOOTER_COLOR": "Give the footer a nice colour",
+      "FOOTER_TITLE_COLOR": "Add color to the footer title",
+      "FONT": "Give the body a nice font to read",
+      "FONT_TITLE": "And how should the title look like?",
+      "FOOTER_TITLE_DEFAULT": "Can't find what you're looking for?",
+      "LOGO_URL": "To which URL should the logo be pointing?",
+      "FE_LOGO_URL": "For example https://www.mywebsite.com",
+      "FOOTER_TITLE": "What should the footer title be?",
+      "FOOTER_FONT": "Give the footer title a nice font to read",
+      "CONTACT_US_URL": "To which URL should the 'Contact us' link be pointing?",
+      "FE_CONTACT_US_URL": "For example https://www.mywebsite.com/contact",
+      "SEARCH_BAR_TEXT": "Finally, what should be written in the search bar?",
+      "SEARCHING": "What are you searching?",
+      "MENU_BAR_COLOR":"Menu Bar Color",
+      "BUTTON_COLOR":"Button Color",
+      "BUTTON_TEXT_COLOR":"Button text color",
+      "HELP_WIDGET":{
+        "WIDGET_COLOR":"Give the Help Widget a nice color",
+        "WIDGET_BUTTON_COLOR":"Help Widget button Color",
+        "WIDGET_LIVECHAT_COLOR":"Add color to the Live Chat border"
+      },
+      "CATEGORY_TREE":"Show/hide tree list of (sub)categories on FAQ pages",
+      "CATEGORY_TREE_SHOW":"Show tree list",
+      "CATEGORY_TREE_HIDE":"Hide tree list"
+    },
+    "MULTIPLE_LANGUAGES":{
+      "KNOWLEDGE_BASE_NAME": "Name of knowledge base",
+      "KNOWLEDGE_BASE_SUBTITLE": "Subtitle",
+      "FOOTER_TITLE":"Footer text",
+      "SEARCH_BAR_TEXT":"Search bar placeholder text"
+    }
+  },
+
+  "NOT_FOUND_PAGE":{
+    "GO_TO_ADMIN":"Go to Admin Panel",
+    "GO_TO_KB":"Go to Knowledge Base",
+    "PAGE_NOT_FOUND":"Page not found",
+    "KB_NOT_FOUND":"Knowledge Base not found",
+    "CHOOSE_SUBDOMAIN":"Choose subdomain"
+  }
+}

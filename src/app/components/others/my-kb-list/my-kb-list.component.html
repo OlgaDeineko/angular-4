@@ -1,0 +1,26 @@
+<div class="my-kb-list">
+  <div ngbDropdownToggle
+       *ngIf="withButton && ((subdomains && subdomains.length>1)||((allSubdomains | async)?.subdomains.length > 1))"
+       class="form-control form-control-lg ma-select-button">
+    <i class="fa fa-angle-down pull-right"></i>
+    {{currentSubdomain}}
+  </div>
+
+  <ul class="dropdown-menu"
+      *ngIf="(allSubdomains | async)?.subdomains.length > 1"
+      maRoleAccess
+      [visibleFor]="['superAdmin']">
+    <li class="dropdown-item" (click)="onClick(item)"
+        *ngFor="let item of (allSubdomains | async)?.subdomains">{{item.subdomain}}
+    </li>
+  </ul>
+
+  <ul class="dropdown-menu"
+      *ngIf="subdomains && subdomains.length>1"
+      maRoleAccess
+      [invisibleFor]="['superAdmin']">
+    <li class="dropdown-item" (click)="onClick(item)"
+        *ngFor="let item of subdomains">{{item.subdomain}}
+    </li>
+  </ul>
+</div>

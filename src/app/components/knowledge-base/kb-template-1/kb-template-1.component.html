@@ -1,0 +1,129 @@
+<div class="visitor" *ngIf="ctrl.tree">
+  <div class="visitor-bg-heading">
+    <!--actions-->
+        <div class="visitor-actions float-right">
+            <button ngbDropdown class="ma-select lang-drop-down" *ngIf="ctrl.languages && ctrl.languages.length > 1">
+              <div class="form-control ma-select-button visitor-lang-drop-down-color text-center"
+                   id="faqLanguageDropdown"
+                   ngbDropdownToggle>
+                <i class="fa fa-angle-down dropdown-angle pull-right"></i>
+
+                <i class="{{ctrl.kblang.code | iconClass:'flag'}}"></i>
+
+                {{('LANGUAGES.'+((ctrl.languages | find:'code':ctrl.kblang.code).name) | uppercase) | translate}}
+              </div>
+              <ul class="dropdown-menu lang-drop-down-menu">
+                <li *ngFor="let item of ctrl.languages"
+                    (click)="ctrl.onChangeLanguage(item)">
+                  <i class="{{item.code | iconClass:'flag'}}"></i>
+                  {{('LANGUAGES.'+item.name | uppercase )| translate}}
+                </li>
+              </ul>
+            </button>
+
+          <button class="button button-primary"
+                  [routerLink]="['/admin']"
+                  placement="bottom"
+                  ngbTooltip="Admin panel"
+                  (click)="ctrl.searchModel = ''">
+            Admin panel
+          </button>
+          <button class="button button-primary"
+                  [routerLink]="['/']"
+                  placement="bottom"
+                  ngbTooltip="Go to home"
+                  (click)="ctrl.searchModel = ''">
+            Home
+          </button>
+          <button class="icon-button"
+                  (click)="ctrl.logout()"
+                  placement="bottom"
+                  ngbTooltip="Log Out">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+          </button>
+        </div>
+<!--END:actions-->
+    <div class="col-md-12">
+      <!--title-->
+      <div class="visitor-title text-center row">
+        <div class="col-md-12">
+          <h1>{{ ctrl.name }}</h1>
+        </div>
+      </div><!--END:title-->
+
+      <!--search form-->
+      <div class="row algolia-search-input">
+        <div class="col-md-10 offset-md-1">
+          <i class=" fa fa-search"></i>
+          <input class="form-control" [focus]="true"
+                 placeholder="{{'FAQ.SEARCH_KB' | translate}}"
+                 [(ngModel)]="ctrl.searchModel">
+        </div>
+      </div><!--END:search form-->
+    </div>
+  </div>
+
+  <div class="container-fluid" *ngIf="!ctrl.searchModel.length">
+    <div class="col-md-12">
+      <div class="row">
+        <!--tree-->
+        <div class="col-md-7 offset-md-1 visitor-tree">
+          <!--parent category-->
+
+          <a class="visitor-tree-prev"
+             [routerLink]="ctrl.generateLink(ctrl.tree.parent)"
+             *ngIf="ctrl.currentCategory !== ctrl.homeSlug">
+            <i class="fa fa-folder-open"></i>
+            {{ctrl.tree.name}}
+          </a><!--END: parent category-->
+
+          <!--categories-->
+          <div class="visitor-tree-item visitor-tree-item-category"
+               [class.item-colum]="ctrl.currentCategory === ctrl.homeSlug"
+               *ngFor="let cat of ctrl.tree.categories | orderBy: ctrl.order.cat">
+            <a [routerLink]="ctrl.generateLink(cat)">
+              <i class="fa fa-folder"></i>
+              {{cat.name}}</a>
+          </div><!--END:categories-->
+
+          <!--articles-->
+          <div class="visitor-tree-item visitor-tree-item-category"
+               *ngFor="let faq of ctrl.tree.faqs | orderBy: ctrl.order.faq">
+            <a [routerLink]="ctrl.generateLink(faq)">
+              <i class="fa fa-question-circle"></i>
+              {{faq.question}}
+            </a>
+          </div><!--END:articles-->
+
+          <!--data is empty-->
+          <div *ngIf="!ctrl.tree.categories && !ctrl.tree.faqs && !ctrl.tree.categories.length && !ctrl.tree.faqs.length">
+            <h3 class="text-center">Empty</h3>
+          </div><!--END: data is empty-->
+        </div><!--END:tree-->
+
+        <!--Most viewed FAQs-->
+        <div class="col-md-3 visitor-last-created" *ngIf="ctrl.mostViewed && ctrl.mostViewed.length">
+          <h2>Most viewed FAQs within {{ctrl.tree.type == 'subcategory' ? ctrl.tree.parent.name : ctrl.tree.name}}:</h2>
+          <div class="visitor-last-created-item"
+               *ngFor="let item of ctrl.mostViewed | orderBy: '-hits_count' | slice:0:10">
+            <a [routerLink]="ctrl.generateLink(item)">
+              <i class="fa fa-question-circle"></i>
+              {{item.question}}
+            </a>
+          </div>
+        </div>
+        <!--END: Most viewed FAQs-->
+      </div>
+    </div>
+  </div>
+
+  <!--search result from algolia-->
+  <ma-algolia-search
+    *ngIf="ctrl.searchModel.length"
+    [searchModel]="ctrl.searchModel"
+    [category]="ctrl.tree.hierarchical.lvl2 || ctrl.tree.hierarchical.lvl1 || ctrl.tree.hierarchical.lvl0"
+  ></ma-algolia-search><!--END:search result from algolia-->
+  <footer class="powered-by" *ngIf="ctrl.powered_by">
+    Powered by <a href="https://www.myanswers.io/" target="_blank">MyAnswers.io</a>
+  </footer>
+</div>

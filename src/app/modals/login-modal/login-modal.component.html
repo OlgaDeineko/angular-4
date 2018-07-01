@@ -1,0 +1,65 @@
+<div class="row login">
+  <div class="col-md-8 offset-md-2">
+
+    <div class="modal-header">
+      <h3 class="modal-title" id="modal-title">{{'REGISTRATION.SIGN_IN_TO_KB' | translate }} {{KBName ||
+        subdomain}}</h3>
+    </div>
+
+    <div class="modal-body" id="modal-body">
+      <form name="login"
+            [formGroup]="loginForm"
+            (submit)="loginForm.valid && login()"
+            #loginFormElement="ngForm"
+            novalidate>
+
+        <ma-form-input
+          [formElement]="loginFormElement"
+          [form]="loginForm"
+          [label]="'FORMS.LOGIN_FORM.EMAIL'"
+          [name]="'email'"
+          [messages]="{pattern: 'FORMS.VALIDATIONS.EMAIL_INVALID'}">
+        </ma-form-input>
+
+        <ma-form-input
+          [formElement]="loginFormElement"
+          [form]="loginForm"
+          [label]="'FORMS.LOGIN_FORM.PASSWORD'"
+          [name]="'password'"
+          [type]="'password'"
+          [messages]="{pattern: 'FORMS.VALIDATIONS.PASSWORD_INVALID'}">
+        </ma-form-input>
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> {{'REGISTRATION.STAY_SIGNED_IN' | translate }}
+          </label>
+        </div>
+
+        <div class="login-actions">
+          <button type="submit"
+                  class="button button-primary button-full button-lg"
+                  [disabled]="loginForm.invalid">
+            {{"BUTTON.SIGNIN" | translate}}
+          </button>
+          <p>{{'REGISTRATION.CREDENTIALS' | translate }}</p>
+
+          <button type="button"
+                  class="button button-full button-default button-lg"
+                  (click)="$ActiveModal.dismiss()">
+            {{"BUTTON.CANCEL" | translate}}
+          </button>
+
+          <button type="button"
+                  class="button button-full button-default button-lg"
+                  (click)="forgot()">
+            {{"REGISTRATION.FORGOT_MY_PASSWORD" | translate}}
+          </button>
+
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>

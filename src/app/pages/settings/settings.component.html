@@ -1,0 +1,101 @@
+<ma-sidebar-menu></ma-sidebar-menu>
+<div class="content-wrapper settings">
+  <div class="col-md-2 settings-left-sidebar">
+
+    <div class="settings-actions">
+      <div>
+        <div class="settings-tree-title">
+          <h4>{{'SETTINGS.TITLE' | translate}}</h4>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item"
+              [routerLink]="['/admin/settings/personalInfo']"
+              routerLinkActive="active">
+            <p>{{'PERSONAL_INFO.TITLE' | translate }}</p>
+            <p class="setting-description">{{'PERSONAL_INFO.DESCRIPTION' | translate}}</p>
+          </li>
+          <li class="list-group-item"
+              [routerLink]="['/admin/settings/changePassword']"
+              routerLinkActive="active">
+            <p>{{'CHANGE_PASSWORD.TITLE' | translate }}</p>
+            <p class="setting-description">{{'CHANGE_PASSWORD.DESCRIPTION_SHORT' | translate}}</p>
+          </li>
+          <li class="list-group-item"
+              [routerLink]="['/admin/settings/chooseLanguage']"
+              routerLinkActive="active">
+            <p>{{'CHANGE_LANGUAGE.TITLE' | translate }}</p>
+            <p class="setting-description">{{'CHANGE_LANGUAGE.DESCRIPTION' | translate}}</p>
+          </li>
+        </ul>
+      </div>
+
+      <div maRoleAccess
+           [visibleFor]="['admin', 'superAdmin']">
+        <div class="settings-tree-title">
+          <h4>{{'SETTINGS.KNOWLEDGE_BASE' | translate}}</h4>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item"
+              [routerLink]="['/admin/settings/appearance']"
+              routerLinkActive="active">
+            <p>{{'APPEARANCE.TITLE' | translate }}</p>
+            <p class="setting-description">{{'APPEARANCE.DESCRIPTION' | translate}}</p>
+          </li>
+          <li class="list-group-item"
+              [routerLink]="['/admin/settings/accessibility']"
+              routerLinkActive="active">
+            <p>{{'ACCESSIBILITY.TITLE' | translate }}</p>
+            <p class="setting-description">{{'ACCESSIBILITY.DESCRIPTION_SHORT' | translate}}</p>
+          </li>
+          <li class="list-group-item"
+              [routerLink]="['/admin/settings/multipleLanguages']"
+              routerLinkActive="active">
+            <p>{{'MULTIPLE_LANGUAGES.TITLE' | translate }}</p>
+            <p class="setting-description">{{'MULTIPLE_LANGUAGES.DESCRIPTION_SHORT' | translate}}</p>
+          </li>
+          <li class="list-group-item"
+              [routerLink]="['/admin/settings/importData']"
+              routerLinkActive="active">
+            <p>{{'IMPORT_DATA.TITLE' | translate }}</p>
+            <p class="setting-description">{{'IMPORT_DATA.DESCRIPTION' | translate}}</p>
+          </li>
+          <li class="list-group-item"
+              [routerLink]="['/admin/settings/helpWidget']"
+              routerLinkActive="active">
+            <p>{{'HELP_WIDGET.TITLE' | translate }}</p>
+            <p class="setting-description">{{'HELP_WIDGET.DESCRIPTION' | translate }}</p>
+          </li>
+          <li class="list-group-item"
+              [routerLink]="['/admin/settings/advancedSettings']"
+              routerLinkActive="active">
+            <p>{{'ADVANCED_SETTINGS.TITLE' | translate }}</p>
+            <p class="setting-description">{{'ADVANCED_SETTINGS.DESCRIPTION' | translate }}</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- TODO: uncomment in next phases -->
+      <!--<div role-accesses-->
+      <!--visible-for="['admin','superAdmin']">-->
+      <!--<div class="settings-tree-title">-->
+      <!--<h4>{{'SETTINGS.ADMINISTRATIVE' | translate}}</h4>-->
+      <!--</div>-->
+      <!--<ul class="list-group">-->
+      <!--<li class="list-group-item">-->
+      <!--</li>-->
+      <!--</ul>-->
+      <!--</div>-->
+    </div>
+
+  </div>
+
+  <div class="col-md-10 settings-content">
+    <div class="row" *ngIf="settingspath">
+      <div class="col-md-9"></div>
+      <div class="col-md-3 text-right">
+        <img class="admin-myanswers-logo" src="../../../assets/images/logo.png" alt="">
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

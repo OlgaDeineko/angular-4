@@ -1,0 +1,39 @@
+@import '../../../_variables.scss';
+
+.login {
+  .modal-title {
+    text-transform: none !important;
+  }
+
+  .modal-content {
+    border: 7px solid rgba(0, 0, 0, 0.1) !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .modal-backdrop {
+    background-color: transparent !important;
+  }
+
+  .modal-header,
+  .login-actions {
+    border: none !important;
+    text-align: center;
+  }
+
+  .modal-content,
+  .login-actions {
+    color: $lightGreyTextColor;
+  }
+
+  .modal-header {
+    color: $darkTextColor;
+    padding-top: 5em;
+    text-align: center;
+  }
+
+  .login-actions {
+    padding-bottom: 5em;
+    padding-top: 3em;
+  }
+}

@@ -1,0 +1,167 @@
+<!--header-->
+<div class="modal-header">
+  <h3 class="modal-title" id="modal-title">{{'CONTROL_ACCESS.TITLE' | translate}}</h3>
+
+  <!--choose subdomain-->
+  <!--<div ngbDropdown class="ma-select domains-dropdown">-->
+    <!--<div class="form-control ma-select-button"-->
+         <!--id="domainsDropdown"-->
+         <!--ngbDropdownToggle>-->
+      <!--<i class="fa fa-angle-down dropdown-angle"></i>-->
+      <!--{{(changedSubdomain|async)?.subdomain}}-->
+    <!--</div>-->
+
+    <!--<ul class="dropdown-menu">-->
+      <!--<li *ngFor="let item of (subdomains)"-->
+          <!--(click)="changeSubdomain(item)">-->
+        <!--{{item.subdomain}}-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>&lt;!&ndash;choose subdomain&ndash;&gt;-->
+</div><!--END: header-->
+
+<ngb-tabset type="pills">
+
+  <ngb-tab *ngFor=" let lang of languages">
+    <ng-template ngbTabTitle>
+      <div class="tree-header-lang">
+        <i class="{{lang.code | iconClass:'flag'}}"
+           placement="top"
+           ngbTooltip="{{('LANGUAGES.'+lang.name | uppercase )| translate}}">
+        </i>
+      </div>
+    </ng-template>
+    <ng-template ngbTabContent>
+      <!--Body-->
+      <div class="modal-body"
+           *ngIf="categories && faqs && !isKBNotShared && !isKBNotPrivate && (categories.length || faqs.length)">
+        <!--check all-->
+        <div class="check-all" *ngIf="checkResource(lang.code)">
+          <input type="checkbox"
+                 (change)="$event.preventDefault(); checkAll(lang.code)"
+                 [indeterminate]="isCheckAll('indeterminate',lang.code)"
+                 [checked]="!isCheckAll('check', lang.code)"><!--END:check all-->
+          <span>{{'CONTROL_ACCESS.SELECT_ALL' | translate}}</span>
+        </div>
+        <div class="check-all" *ngIf="!checkResource(lang.code)">
+          <h4 class="error-message">{{'MESSAGES.DONT_HAVE_DATA' | translate}}</h4>
+        </div>
+        <div class="access-tree">
+          <!--Categories-->
+          <div *ngFor="let category of categories | filter:'parent_id':'1' | filter:'lang': lang.code">
+            <div class="row list">
+              <!--Category check-->
+              <input type="checkbox" class="pull-left list-checkbox" *ngIf="category.visibility == 'private'"
+                     (change)="$event.preventDefault(); checkItem(category, 'category')"
+                     [indeterminate]="isIndeterminate(category)"
+                     [checked]="category.checked"><!--END: Category check-->
+
+              <!--Category title-->
+              <div class="title pull-left"
+                   (click)="category.expanded = !category.expanded">
+
+                <i class="tree-icon-folder fa {{'fa-folder' + (category.expanded ? '-open':'')}}"
+                   aria-hidden="true"></i>
+                {{category.title}}
+
+              </div><!--END: Category title-->
+            </div>
+            <!--Category subcategories-->
+            <div *ngIf="category.expanded">
+
+              <div *ngFor="let subcategory of categories | filter:'parent_id':category.id">
+                <div class="row list list-sub">
+                  <!--subCategory check-->
+                  <input type="checkbox" class="pull-left list-checkbox" *ngIf="subcategory.visibility == 'private'"
+                         (change)="$event.preventDefault(); checkItem(subcategory, 'subcategory')"
+                         [indeterminate]="isIndeterminate(subcategory)"
+                         [checked]="subcategory.checked">
+                  <!--END: subCategory check-->
+
+                  <!--subCategory title-->
+                  <div class="title pull-left"
+                       (click)="subcategory.expanded = !subcategory.expanded">
+
+                    <i class="tree-icon-folder fa {{'fa-folder' + (subcategory.expanded ? '-open':'')}}"
+                       aria-hidden="true"></i>
+                    {{subcategory.title}}
+
+                  </div><!--END: subCategory title-->
+                </div>
+                <!--subCategory faqs-->
+                <div *ngIf="subcategory.expanded">
+
+                  <div class="list row list-faq" *ngFor="let faq of faqs | filter:'parent_id':subcategory.id">
+                    <!--faq check-->
+                    <input type="checkbox" class="pull-left list-checkbox"
+                           (change)="$event.preventDefault(); checkItem(faq, 'faq')"
+                           [checked]="faq.checked"><!--END: faq check-->
+
+                    <!--faq title-->
+                    <div class="title pull-left">
+                      <i class="tree-icon-folder fa fa-question-circle" aria-hidden="true"></i>
+                      {{faq.title}}
+                    </div><!--END: faq title-->
+                  </div>
+                </div><!--END: subCategory faqs-->
+              </div>
+
+              <!--Category faqs-->
+              <div class="list row list-faq" *ngFor="let faq of faqs | filter:'parent_id':category.id">
+                <!--faq check-->
+                <input type="checkbox" class="pull-left list-checkbox"
+                       (change)="$event.preventDefault(); checkItem(faq, 'faq')"
+                       [checked]="faq.checked"><!--END: faq check-->
+
+                <!--faq title-->
+                <div class="title pull-left">
+                  <i class="tree-icon-folder fa fa-question-circle" aria-hidden="true"></i>
+                  {{faq.title}}
+                </div><!--END: faq title-->
+              </div><!--END: Category faqs-->
+
+            </div><!--END: Category subcategories-->
+          </div>
+
+          <!--home faqs-->
+          <div class="list row" *ngFor="let faq of faqs | filter:'parent_id':'1' | filter:'lang': lang.code">
+            <!--faq check-->
+            <input type="checkbox" class="pull-left list-checkbox"
+                   (change)="$event.preventDefault(); checkItem(faq, 'faq')"
+                   [checked]="faq.checked"><!--END: faq check-->
+
+            <!--faq title-->
+            <div class="title pull-left">
+
+              <i class="tree-icon-folder fa fa-question-circle" aria-hidden="true"></i>
+              {{faq.title}}
+
+            </div><!--END: faq title-->
+          </div><!--END: home faqs-->
+        </div>
+      </div>
+      <!--END: Body-->
+
+      <div class="modal-body" *ngIf="isKBNotPrivate" [hidden]="isKBNotShared">
+        <h4 class="error-message">{{'MESSAGES.KB_DONT_HAVE_DATA' | translate}}</h4>
+      </div>
+      <div class="modal-body" *ngIf="isKBNotShared">
+        <h4 class="error-message">{{'MESSAGES.KB_ISNT_SHARED' | translate}}</h4>
+      </div>
+      <!--actions-->
+      <span class="visibility">{{'CONTROL_ACCESS.VISIBILITY' | translate}}</span>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
+<div class="modal-footer">
+  <button class="button"
+          (click)="$Modal.dismiss()">
+    {{'BUTTON.CANCEL' | translate}}
+  </button>
+
+  <button class="button button-primary"
+          (click)="submit()"
+          [disabled]="(!categories?.length && !faqs?.length) || isKBNotShared">
+    {{'BUTTON.SAVE' | translate}}
+  </button>
+</div><!--END: actions-->

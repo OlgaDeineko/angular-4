@@ -1,0 +1,9 @@
+@import '../../../_variables.scss';
+
+.login {
+  &-actions {
+    button, a {
+      margin-top: 15px;
+    }
+  }
+}

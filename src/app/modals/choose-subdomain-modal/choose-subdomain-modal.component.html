@@ -1,0 +1,27 @@
+<div *ngIf="subdomains">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-title">{{'SUBDOMAIN.TITLE' | translate}}</h3>
+  </div>
+
+  <div class="modal-body choose-subdomain-modal" id="modal-body">
+    <div class="container-fluid">
+      <div class="col-md-6 offset-md-3">
+        <div class="row" *ngFor="let item of subdomains">
+          <div class="col-md-9 title">{{item.name}}</div>
+          <div class="col-md-3">
+            <button class="icon-button pull-right"
+                    (click)="choose(item.code)">
+              <i class="fa fa-share"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button class="button" (click)="$Modal.dismiss()">
+      {{'BUTTON.CANCEL' | translate}}
+    </button>
+  </div>
+</div>

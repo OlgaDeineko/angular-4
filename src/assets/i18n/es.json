@@ -1,0 +1,66 @@
+{
+  "Click to copy":"Haga clic para copiar",
+  "Copied":"Copiado",
+
+  "BUTTON": {
+    "SIGNIN": "Iniciar sesión",
+    "CANCEL": "Cancelar",
+    "SEND": "Enviar",
+    "CONTACT_US": "Contáctenos",
+    "LOG_IN": "Iniciar sesión",
+    "LOG_OUT": "Cerrar sesión",
+    "EDIT_FAQ": "Editar FAQ"
+  },
+  "FAQ": {
+    "WORD": "palabra",
+    "WORDS": "palabras",
+    "CHARACTER": "caractere",
+    "CHARACTERS": "caracteres",
+    "READING_TIME": "tiempo de lectura",
+    "INTERNAL_COMMENT": "Comentario interno",
+    "ATTACHMENTS": "Archivos adjuntos:",
+    "ARTICLES": "artículos",
+    "ARTICLE_HELPFUL": "¿Fue útil este artículo?",
+    "POSTED_ON": "Publicado en",
+    "UPDATED_ON": "Actualizado en",
+    "IMPROVE_PAGE": "¿Cómo podemos mejorar esta página?",
+    "CONTENTS":"Contenido"
+  },
+  "REGISTRATION": {
+    "FORGOT_MY_PASSWORD": "Olvidé mi contraseña",
+    "LOGIN": "Iniciar sesión",
+    "SIGN_IN_TO_KB": "Iniciar sesión en",
+    "STAY_SIGNED_IN": "permanecer conectado",
+    "CREDENTIALS": "Sus credenciales se enviarán a través de una conexión segura"
+  },
+  "LANGUAGES": {
+    "TITLE": "Idioma",
+    "ENGLISH": "Inglés",
+    "DUTCH": "Neerlandés",
+    "FRENCH": "Francés",
+    "GERMAN": "Alemán",
+    "SPANISH":"Español",
+    "ITALIAN":"Italiano",
+    "POLISH":"Polaco",
+    "SWEDISH":"Sueco",
+    "DANISH":"Danés",
+    "FINNISH":"Finés",
+    "English": "Inglés",
+    "Dutch": "Neerlandés",
+    "French": "Francés",
+    "German": "Alemán",
+    "Spanish":"Español",
+    "Italian":"Italiano",
+    "Polish":"Polaco",
+    "Swedish":"Sueco",
+    "Danish":"Danés",
+    "Finnish":"Finés"
+  },
+  "FORMS": {
+    "LOGIN_FORM": {
+      "EMAIL": "Dirección de correo electrónico",
+      "PASSWORD": "Contraseña",
+      "REMEMBER": "Recuérdame"
+    }
+  }
+}

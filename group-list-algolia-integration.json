@@ -1,0 +1,70 @@
+{
+  "1": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > LiveChat Pro\"]]",
+    "lang": ""
+  },
+  "5": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > Nooteboom Trailers\"]]",
+    "lang": "en"
+  },
+  "6": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > Nooteboom Trailers\"]]",
+    "lang": "nl"
+  },
+  "7": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > Nooteboom Trailers\"]]",
+    "lang": "de"
+  },
+  "8": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > Nooteboom Trailers\"]]",
+    "lang": "fr"
+  },
+  "29": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > Kroftman\"]]",
+    "lang": "nl"
+  },
+  "30": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > Kroftman\"]]",
+    "lang": "de"
+  },
+  "36": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > Kroftman\"]]",
+    "lang": "en"
+  },
+  "48": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > To Tuscany\"]]",
+    "lang": "nl"
+  },
+  "49": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > To Tuscany\"]]",
+    "lang": "de"
+  },
+  "50": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > To Tuscany\"]]",
+    "lang": "en"
+  },
+  "51": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > To Tuscany\"]]",
+    "lang": "fr"
+  },
+  "64": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > HAN\"]]",
+    "lang": ""
+  },
+  "59": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > Nooteboomshop\"]]",
+    "lang": "nl"
+  },
+  "60": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > Nooteboomshop\"]]",
+    "lang": "en"
+  },
+  "61": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > Nooteboomshop\"]]",
+    "lang": "de"
+  },
+  "62": {
+    "group_facet_filter": "[[\"hierarchicalCategories.lvl1:Home > Nooteboomshop\"]]",
+    "lang": "fr"
+  }
+}

@@ -1,0 +1,9 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+.idea
+node_modules
+myanswers.pem
+
+# build files
+dist
+

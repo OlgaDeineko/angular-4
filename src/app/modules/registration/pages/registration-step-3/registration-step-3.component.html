@@ -1,0 +1,93 @@
+<div class="container-fluid new-registration">
+  <img class="logo">
+  <div class="row"><!--Titles-->
+    <div class="col-md-12">
+      <div>
+        <div class="registr-title text-center">{{'REGISTRATION.CUSTOMIZE_YOUR_KB' | translate }}</div>
+        <p class="registr-subtitle text-center">{{'REGISTRATION.ACCESS_YOUR_KB' | translate}}
+          <br> {{'REGISTRATION.ACCESS_YOUR_KB_2' | translate}} </p>
+      </div>
+    </div>
+  </div><!--Titles-->
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="row">
+        <div class="col-md-6 offset-md-3" >
+
+          <!--user-subdomain-->
+          <div  class="user-subdomain">
+            <div class="form-group">
+              <form name="registrSubdomain"
+                    [formGroup]="registrSubdomainForm"
+                    #registrSubdomainFormElement="ngForm"
+                    novalidate>
+
+                <ma-form-input
+                  [formElement]="registrSubdomainFormElement"
+                  [form]="registrSubdomainForm"
+                  [name]="'subdomain'"
+                  [placeholder]="'FORMS.REGISTRATION.SUBDOMAIN'"
+                  [addon]="'.myanswers.io'">
+                </ma-form-input>
+
+                <!-- TODO: uncomment in next phases -->
+                <!--<div class="row">-->
+                <!--<div class="col-md-8">-->
+                <!--<p class="lang-title">{{'REGISTRATION.KB_HOSTED_IN' | translate}}</p>-->
+                <!--</div>-->
+                <!--<div class="col-md-4">-->
+                <!--<ma-form-select-->
+                <!--[formElement]="registrSubdomainFormElement"-->
+                <!--[form]="registrSubdomainForm"-->
+                <!--[name]="'language'"-->
+                <!--[options]="languages"-->
+                <!--&gt;</ma-form-select>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!-- TODO: uncomment in next phases -->
+              </form>
+
+              <div class="form-group">
+                <p class="text-bold">{{'REGISTRATION.USE_KB' | translate}}</p>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="choice" id="private"
+                           value="private"
+                           [(ngModel)]="choice" [checked]="choice == 'private'">
+                    {{'REGISTRATION.PRIVATE_KB' | translate}}
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="choice" id="public"
+                           value="public"
+                           [(ngModel)]="choice" [checked]="choice == 'public'">
+                    {{'REGISTRATION.PUBLIC_KB' | translate}}
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit"
+                      class="button button-primary button-full"
+                      [disabled]="registrSubdomainForm.invalid"
+                      (click)="registerSubdomain()">
+                {{'BUTTON.NEXT' | translate}}
+              </button>
+              <p class="text-bold agree">{{'REGISTRATION.BY_CLICKING_NEXT' | translate}}
+                <a href="https://www.myanswers.io/terms-conditions" target="_blank">{{'REGISTRATION.TERMS_OF_USE'
+                  | translate}}</a></p>
+            </div>
+          </div>
+          <!--user-subdomain-->
+        </div>
+      </div>
+
+      <p class="copyright text-center">&copy; Myanswers 2017
+        <a href="https://www.myanswers.io/terms-conditions" target="_blank">
+          {{'REGISTRATION.TERMS_CONDITIONS' | translate}}</a>
+      </p>
+    </div>
+  </div>
+</div>

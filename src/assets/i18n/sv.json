@@ -1,0 +1,66 @@
+{
+  "Click to copy":"Klicka för att kopiera",
+  "Copied":"Kopierat",
+
+  "BUTTON": {
+    "SIGNIN": "Logga in",
+    "CANCEL": "Avbryt",
+    "SEND": "Skicka",
+    "CONTACT_US": "Kontakta oss",
+    "LOG_IN": "Logga in",
+    "LOG_OUT": "Logga ut",
+    "EDIT_FAQ": "Redigera FAQ"
+  },
+  "FAQ": {
+    "WORD": "ord",
+    "WORDS": "orden",
+    "CHARACTER": "symbol",
+    "CHARACTERS": "symboler",
+    "READING_TIME": "läsningstid",
+    "INTERNAL_COMMENT": "Intern kommentar",
+    "ATTACHMENTS": "Attachments:",
+    "ARTICLES": "artiklar",
+    "ARTICLE_HELPFUL": "Var den här artikeln hjälpsam?",
+    "POSTED_ON": "Publicerad den",
+    "UPDATED_ON": "Uppdaterad den",
+    "IMPROVE_PAGE": "Hur kan vi förbättra den här sidan?",
+    "CONTENTS":"Innehåll"
+  },
+  "REGISTRATION": {
+    "FORGOT_MY_PASSWORD": "Glömt mitt lösenord",
+    "LOGIN": "Logga in",
+    "SIGN_IN_TO_KB": "Logga in",
+    "STAY_SIGNED_IN": "Stanna inloggad",
+    "CREDENTIALS": "Dina referenser skickas över en säker anslutning"
+  },
+  "LANGUAGES": {
+    "TITLE": "Språk",
+    "ENGLISH": "Engelsk",
+    "DUTCH": "Holländska",
+    "FRENCH": "Franska",
+    "GERMAN": "Tysk",
+    "SPANISH":"Spansk",
+    "ITALIAN":"Italienska",
+    "POLISH":"Putsa",
+    "SWEDISH":"Svenska",
+    "DANISH":"Danska",
+    "FINNISH":"Finsk",
+    "English": "Engelsk",
+    "Dutch": "Holländska",
+    "French": "Franska",
+    "German": "Tysk",
+    "Spanish":"Spansk",
+    "Italian":"Italienska",
+    "Polish":"Putsa",
+    "Swedish":"Svenska",
+    "Danish":"Danska",
+    "Finnish":"Finsk"
+  },
+  "FORMS": {
+    "LOGIN_FORM": {
+      "EMAIL": "E-postadress",
+      "PASSWORD": "Lösenord",
+      "REMEMBER": "Kom ihåg mig"
+    }
+  }
+}

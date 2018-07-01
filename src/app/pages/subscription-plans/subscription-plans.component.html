@@ -1,0 +1,54 @@
+<div class="subscription-plans">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let plan of plans">
+          <div class="content">
+            <div class="title text-center">
+              <h4>{{plan.name}}</h4>
+            </div>
+            <div class="price">
+              <p class="text-center text-price-small">from...</p>
+              <div class="row text-price">
+                <div class="col-md-6 text-right text-price-lg">{{plan.price}}</div>
+                <div class="col-md-6">
+                  <div class="row">per agent</div>
+                  <div class="row">per month</div>
+                </div>
+              </div>
+            </div>
+            <div class="advantage">
+              <p>{{plan.advantagestitle}}</p>
+              <ul>
+                <li *ngFor="let adv of plan.advantages">{{adv}}</li>
+              </ul>
+              <div class="setplan">
+                <button *ngIf="planId != plan.id" class="btn btn-secondary btn-lg btn-plan" (click)="setPlan(plan.id)">
+                  Set this plan
+                </button>
+                <button *ngIf="planId == plan.id" class="btn btn-secondary btn-lg btn-plan">Active plan</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="account-owner" *ngIf="user">
+            <h3>Account owner info:</h3>
+            <p>email: {{user.email}}</p>
+            <p *ngIf="user.phone">phone: {{user.phone}}</p>
+            <p>First name: {{user.first_name}}</p>
+            <p>Last name: {{user.last_name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <button class="icon-button"
+              (click)="choose()">
+        <i class="fa fa-share"></i>
+      </button>
+    </div>
+  </div>
+</div>

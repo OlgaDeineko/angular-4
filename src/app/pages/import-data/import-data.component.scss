@@ -1,0 +1,113 @@
+@import "../../../_variables.scss";
+.importData {
+  padding: 0 20px;
+  .content{
+    margin: 4% 0 !important;
+    font-size: 16px;
+  }
+  .import{
+    padding: 30px 0;
+    border-bottom: 1px solid $lightGreyTextColor;
+    .import-title{
+      font-size: $fontSize;
+      font-weight: bold;
+    }
+    .import-description{
+      font-size: $fontSm;
+      color: $lightGreyTextColor;
+    }
+    img{
+      padding-left: 20px;
+    }
+  }
+  .btn-transparent {
+    line-height: normal;
+    padding: 8px 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    border: 1px solid #4aa3df;
+    color: #4aa3df;
+    float: right;
+  }
+  .compare {
+    margin: 20px 0;
+  }
+  ul{
+    list-style-type: none!important;
+  }
+
+  .import-list{
+    margin-left: -3em;
+  }
+
+  .import-dropdown{
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .import_type{
+    color: $lightGreyTextColor;
+  }
+
+  .arrow-btn{
+    color: $lightGreyTextColor;
+    font-size: 20px;
+  }
+  h4{
+    color: #4aa3df;
+    margin: 10px;
+    text-decoration: underline;
+  }
+  .button-primary{
+    margin-top: 20px;
+  }
+  .splitby{
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  ul {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    max-height: 300px;
+    overflow: auto;
+
+    position: absolute;
+    z-index: 1000;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+
+    li {
+      padding: 5px 12px;
+      span, i {
+        margin-right: 5px;
+      }
+
+      &:hover {
+        background-color: rgba(#000, 0.1);
+      }
+    }
+  }
+
+  .ma-select-arrow {
+    position: absolute;
+    transform: scale(1.5);
+    right: 10px;
+    top: 10px;
+  }
+  .tip{
+    font-size: 13px;
+    color: $lightGreyTextColor;
+  }
+}
+

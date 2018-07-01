@@ -1,0 +1,16 @@
+@import "../../../_variables.scss";
+
+.myltiple-languages {
+  padding: 0 20px;
+  .lang-group {
+    margin: 10px 0;
+  }
+
+  .lang-tooltip{
+    font-weight: bold;
+  }
+
+  form[name=personal] {
+   margin-top: 3%;
+  }
+}

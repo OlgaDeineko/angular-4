@@ -1,0 +1,64 @@
+@import "~ngx-chips/dist/modules/core/styles/core/_core.scss";
+
+$ma-tag-primary: #ddd;
+
+// this is the container's theme
+$ma-tag-theme: (
+  container-border-bottom: 1px solid $ma-tag-primary
+);
+
+// this is the tag's theme
+$ma-tag-tag-theme: (
+  background: $ma-tag-primary,
+  background-focused: $ma-tag-primary,
+  background-active: $ma-tag-primary,
+  background-hover: $ma-tag-primary,
+  color: inherit,
+  color-hover: inherit,
+  border-radius: 3px,
+  margin: 2px,
+  padding: 0 5px,
+  height: 25px,
+  line-height: 25px,
+);
+
+// this is the delete icon's theme
+$ma-tag-icon-theme: (
+  fill: inherit,
+  fill-focus: inherit,
+  transition: all 0.35s,
+);
+
+// apply theme to the container
+.ng2-tag-input.ma-tag-theme {
+  @include tag-input-theme($ma-tag-theme);
+}
+
+// apply theme to the tags
+.ng2-tag-input.ma-tag-theme tag {
+  @include tag-theme($ma-tag-tag-theme);
+}
+
+// apply theme to the delete icon
+.ng2-tag-input.ma-tag-theme tag delete-icon {
+  @include icon-theme($ma-tag-icon-theme);
+}
+
+.ng2-tag-input.ma-tag-theme tag delete-icon svg {
+  height: 25px;
+}
+
+.ng2-tag-input.ma-tag-theme tag:not(.readonly):not(.tag--editing):active {
+  color: inherit;
+}
+
+.ng2-tag-input.ma-tag-theme tag delete-icon:hover {
+  transform: none;
+}
+
+.ng2-tag-input.ma-tag-theme .ng2-tag-input__text-input {
+  width: 100%;
+}
+.ng2-tag-input.ma-tag-theme form {
+  width: 300px;
+}

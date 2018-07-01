@@ -1,0 +1,20 @@
+@import "../../../_variables.scss";
+
+.appearance {
+  height: 100%;
+  margin: 0px -15px;
+  #appearance-section-body, #appearance-section-header, #appearance-section-home-banner, #appearance-section-other,
+  #appearance-section-footer {
+    margin: 40px 0px;
+  }
+  .header, .footer {
+    margin: 0 20px;
+  }
+  .appearance-section-title {
+    border-bottom: 1px solid #4aa3df;
+    color: #4aa3df;
+    padding-left: 15px;
+    margin-bottom: 30px;
+  }
+}
+

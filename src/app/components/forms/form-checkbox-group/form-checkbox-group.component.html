@@ -1,0 +1,21 @@
+<div class="form-group"
+     [formGroup]="form">
+
+  <!--checkBox label-->
+  <label *ngIf="label"
+         class="form-control-label"
+         [for]="name">
+    {{label | translate}}
+  </label>
+  <!--END: checkBox label-->
+
+  <div *ngFor="let item of (data | async)">
+    <label>
+    <input type="checkbox"
+           [checked]="form.controls[name].value.indexOf(item.value) > -1"
+           [disabled]="item.disabled"
+           (click)="check(item.value)">
+      {{(translatePrefix + item.label + translateSuffix) | translate}}
+    </label>
+  </div>
+</div>

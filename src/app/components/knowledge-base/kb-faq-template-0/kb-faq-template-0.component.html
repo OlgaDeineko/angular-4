@@ -1,0 +1,211 @@
+<div class="visitor-article-new" *ngIf="ctrl.faq">
+
+  <div class="kb-container">
+    <header>
+      <div class="kb-menu-background"></div>
+      <div class="kb-logo">
+        <a *ngIf="ctrl.appearance.logo"
+           [href]="ctrl.LogoUrl"
+           target="_blank">
+          <img [src]="ctrl.appearance.logo">
+        </a>
+      </div>
+      <div class="kb-actions pull-right">
+        <div class="action-btn">
+          <button (click)="ctrl.login()"
+                  class="kb-login-btn"
+                  *ngIf="!ctrl.$Auth.isLogin()">
+            {{'BUTTON.LOG_IN' | translate}}
+          </button>
+          <button (click)="ctrl.logout()"
+                  class="kb-login-btn"
+                  *ngIf="ctrl.$Auth.isLogin()">
+            {{'BUTTON.LOG_OUT' | translate}}
+          </button>
+        </div>
+        <div class="action-btn" *ngIf="ctrl.languages && ctrl.languages.length > 1">
+          <div ngbDropdown class="ma-select lang-drop-down">
+            <div class="form-control ma-select-button lang-drop-down-color text-center"
+                 id="faqLanguageDropdown"
+                 ngbDropdownToggle>
+              <i class="fa fa-angle-down dropdown-angle pull-right"></i>
+
+              <i class="{{ctrl.kblang.code | iconClass:'flag'}}"></i>
+
+              {{('LANGUAGES.'+((ctrl.languages | find:'code':ctrl.kblang.code).name) | uppercase) | translate}}
+            </div>
+            <ul class="dropdown-menu lang-drop-down-menu">
+              <li *ngFor="let item of ctrl.languages"
+                  (click)="ctrl.onChangeLanguage(item)">
+                <i class="{{item.code | iconClass:'flag'}}"></i>
+                {{('LANGUAGES.'+item.name | uppercase )| translate}}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="action-btn">
+          <a class="kb-contact-us"
+             [href]="ctrl.ContactUsUrl"
+             target="_blank">
+            {{'BUTTON.CONTACT_US' | translate}}
+          </a>
+        </div>
+        <div class="action-btn">
+          <a class="kb-editFAQ-btn"
+             maRoleAccess
+             [visibleFor]="['admin', 'superAdmin', 'editor']"
+             [routerLink]="['/admin/editFAQ', ctrl.faq.slug]"
+             *ngIf="ctrl.$Auth.isLogin()">
+            {{'BUTTON.EDIT_FAQ' | translate}}
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-11">
+          <div class="kb-heading-on-category">
+            <div class="kb-row kb-faq-content">
+              <div class="kb-breadcrumbs">
+                <ma-breadcrumbs [translates]="true"></ma-breadcrumbs>
+              </div>
+
+              <div class="kb-search-bar">
+                <i class="fa fa-search"></i>
+                <input [focus]="true" [placeholder]="ctrl.searchText"
+                       [(ngModel)]="ctrl.searchModel">
+              </div>
+
+              <div class="kb-row">
+                <div class="kb-faq-content">
+                  <ma-algolia-search
+                    *ngIf="ctrl.searchModel.length"
+                    [searchModel]="ctrl.searchModel"
+                    [category]="'Home'"
+                  ></ma-algolia-search>
+                  <div class="kb-current-faq-title" *ngIf="!ctrl.searchModel.length">
+                    {{ctrl.faq.question}}
+                  </div>
+
+                  <div class="kb-article" *ngIf="!ctrl.searchModel.length">
+                    <div class="faq-counts">
+                      <p>
+                        {{ctrl.faq | countFaqWords | async}}
+                      </p>
+                    </div><!--END: Counts word-->
+
+                    <div class="kb-faq-answer" maCopySentences [innerHTML]="ctrl.faq.answer | convertHtml"></div>
+
+                    <!--faq-attachment-->
+                    <div class="faq-attachment" *ngIf="ctrl.faq.attachments.length">
+                      <h4>{{'FAQ.ATTACHMENTS' | translate}}</h4>
+
+                      <div class="files" *ngFor="let item of ctrl.faq.attachments">
+                        <a [href]="item.attachment_url"
+                           target="_blank"
+                           class="files-name">
+                          <i class="fa fa-file-{{item.type == 'pdf'? 'pdf': 'word'}}-o"></i>
+                          <span>{{item.name}}</span>
+                        </a>
+                      </div>
+                    </div><!--END: Attachments-->
+
+                    <div class="faq-remarks" *ngIf="!!ctrl.faq.remarks && ctrl.faq.remarks.length && ctrl.$Auth.isLogin()"
+                         maRoleAccess
+                         [visibleFor]="['superAdmin', 'admin', 'editor', 'contributor']">
+                      <h4>{{'FAQ.INTERNAL_COMMENT' | translate}}</h4>
+                      <div class="one-remark">
+                        {{ctrl.faq.remarks}}
+                      </div>
+                    </div>
+
+                    <div class="faq-author">
+                      <span>{{ctrl.faq.author}}</span><br>
+                      {{'FAQ.POSTED_ON' | translate}} {{ctrl.faq.created_at * 1000 | date : "dd/MM/yy"}}<br>
+                      {{'FAQ.UPDATED_ON' | translate}} {{ctrl.faq.updated_at * 1000 | date : "dd/MM/yy"}}
+
+                    </div>
+                  </div>
+
+                  <div class="faq-marks" *ngIf="!ctrl.searchModel.length">
+                    <p>{{'FAQ.ARTICLE_HELPFUL' | translate}}
+                      <button class="mark" [ngClass]="{'mark-thumbsUp': ctrl.thumbsUp}"
+                              (click)="ctrl.feedbackThumbsUp(ctrl.faq.id)">
+                        <i class="fa fa-thumbs-o-up"></i>
+                      </button>
+                      <button class="mark" [ngClass]="{'mark-thumbsDown': ctrl.thumbsDown}"
+                              (click)="ctrl.feedbackThumbsDown()">
+                        <i class="fa fa-thumbs-o-down"></i>
+                      </button>
+                    </p>
+                    <div class="feedback" *ngIf="ctrl.openFeedback == true">
+                      <p class="text-feedback">{{'FAQ.IMPROVE_PAGE' | translate}}</p>
+                      <textarea class="form-control" [(ngModel)]="ctrl.message" rows="2"></textarea>
+                      <button class="btn-lg btn-feedback" (click)="ctrl.sendMessage(ctrl.faq.id,ctrl.message)">
+                        {{'BUTTON.SEND' | translate}}
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1 position-relative" *ngIf="ctrl.categoryTree === 'true' && ctrl.tree.categories.length >0">
+          <div class="kb-category-tree" >
+            <h3>{{'FAQ.CONTENTS' | translate}}</h3>
+            <div class="kb-category" *ngIf="ctrl.tree">
+              <div *ngFor="let category of ctrl.tree.categories | bigList | async; let i = index">
+                <div class="tree-item-title tree-item-type-category">
+                  <a class="tree-item-icon">
+                    <span>{{i+1}}</span>
+                  </a>
+                  <a [routerLink]="ctrl.generateLink(category)">
+                    {{category.name}}
+                  </a>
+                </div><!--END:title-->
+                <div>
+                  <div class="tree-row tree-sub"
+                       *ngFor="let subcat of category.categories; let j = index">
+                    <div class="tree-item-title tree-item-type-category">
+                      <a class="tree-item-icon">
+                        <span>{{i+1}}.{{j+1}}</span>
+                      </a>
+
+                      <a [routerLink]="ctrl.generateLink(subcat)">
+                        {{subcat.name}}
+                      </a>
+
+                    </div><!--END:title-->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="category-divider"></div>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="main-footer">
+    <div class="kb-footer">
+      <div class="kb-footer-background"></div>
+      <div class="kb-footer-content">
+        <div class="kb-footer-title">
+          {{ctrl.footerTitle | translate}}
+        </div>
+        <a class="btn-lg btn-contact-us"
+           [href]="ctrl.ContactUsUrl"
+           target="_blank">
+          {{'BUTTON.CONTACT_US' | translate}}
+        </a>
+      </div>
+    </div>
+
+    <footer class="powered-by" *ngIf="ctrl.powered_by">
+      Powered by <a href="https://www.myanswers.io/" target="_blank">MyAnswers.io</a>
+    </footer>
+  </div>
+</div>

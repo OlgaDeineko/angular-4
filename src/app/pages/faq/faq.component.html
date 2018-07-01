@@ -1,0 +1,112 @@
+<ma-sidebar-menu></ma-sidebar-menu>
+
+<div class="content-wrapper faq faq-view" *ngIf="faq">
+  <div class="col-md-2">
+    <button class="button button-primary"
+            ngbTooltip="{{'BUTTON.ADD_FAQ' | translate}}"
+            placement="bottom"
+            [routerLink]="['/admin/createFAQ']"
+            [queryParams]="{categoryId: faq.categoryId}">
+      <i class="fa fa-plus"></i>
+      {{'BUTTON.ADD' | translate}}
+    </button>
+  </div>
+
+  <!--Content article-->
+  <div class="col-md-7 faq-content">
+    <!--Tags-->
+    <div class="faq-tags">
+      <div class="faq-tag" *ngFor="let item of faq.tags">
+        {{item.name}}
+      </div>
+    </div><!--END: Tags-->
+
+    <!--Counts word-->
+    <div class="text-right faq-counts">
+      <p>
+        {{faq | countFaqWords | async}}
+      </p>
+    </div><!--END: Counts word-->
+
+    <!--Question-->
+    <div class="faq-question">
+      <h2>{{faq.question}}</h2>
+    </div><!--END: Question-->
+
+    <!--Answer-->
+    <div class="faq-answer" [innerHTML]="faq.answer | convertHtml">
+    </div><!--END: Answer-->
+
+    <!--Remarks-->
+    <div class="faq-remarks" *ngIf="faq.remarks">
+      <h4>{{'FAQ.INTERNAL_COMMENT' | translate}}</h4>
+      <div class="one-remark">{{faq.remarks}}</div>
+    </div><!--END: Remarks-->
+
+  </div><!--END: Content article-->
+
+  <!--left right article-->
+  <div class="col-md-3 faq-right-sidebar">
+
+    <!--Action buttons-->
+    <div class="row faq-actions">
+      <div class="col-md-12">
+        <img class="myanswers-logo" src="../../../assets/images/logo.png" alt="">
+      </div>
+      <div class="col-md-6">
+        <button class="button button-full"
+                [ngbTooltip]="'BUTTON.BACK_TOOLTIP' | translate"
+                maCancelButton>
+          <i class="fa fa-long-arrow-left"></i>
+        </button>
+      </div>
+      <div class="col-md-6" [class.disabledBtn]="disabled">
+        <button class="button button-primary button-full"
+                maRoleAccess
+                [disableFor]="['contributor']"
+                [disableIf]="faq.status != 'draft' || !faq.isOwner"
+                [routerLink]="['/admin/editFAQ', faq.slug]">
+          {{'BUTTON.EDIT' | translate}}
+        </button>
+      </div>
+    </div><!--END: Action buttons-->
+
+    <!--Categories-->
+    <div class="faq-category">
+      <h4>{{'FAQ.CATEGORIES' | translate}}</h4>
+      <div>{{faq.fullCategoryName}}</div>
+    </div><!--END: Categories-->
+
+    <!--Visibility-->
+    <div class="faq-visibility" *ngIf="faq.visibility">
+      <h4>{{'FAQ.VISIBILITY' | translate}}</h4>
+      <div class="text-capitalize">{{faq.visibility}}</div>
+    </div><!--END: Visibility-->
+
+    <!--Author-->
+    <div class="faq-author" *ngIf="faq.author">
+      <h4>{{'FAQ.AUTHOR' | translate}}</h4>
+      <div>{{faq.author}}</div>
+    </div><!--END: Author-->
+
+    <!--Language-->
+    <div class="faq-language" *ngIf="faq.lang">
+      <h4>{{'FAQ.LANGUAGE' | translate}}</h4>
+      <div>{{('LANGUAGES.'+faq.lang.name | uppercase) | translate}}</div>
+    </div><!--END: Language-->
+
+    <!--faq-attachment-->
+    <div class="faq-attachment" *ngIf="faq.attachments.length">
+      <h4>{{'FAQ.ATTACHMENTS' | translate}}</h4>
+
+      <div class="files" *ngFor="let item of faq.attachments">
+        <a [href]="item.attachment_url"
+           target="_blank"
+           class="files-name">
+          {{item.name}}
+        </a>
+      </div>
+    </div><!--END: Attachments-->
+
+  </div><!--END: right sidebar article-->
+</div>

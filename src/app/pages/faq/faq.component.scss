@@ -1,0 +1,276 @@
+@import "../../../_variables.scss";
+@import "../../components/forms/form-select/form-select.component.scss";
+
+.faq {
+  display: flex;
+
+  .mce-panel,
+  .mce-btn {
+    background: none;
+  }
+  .mce-tinymce.mce-container.mce-panel {
+    border: none !important;
+  }
+
+  tags-input {
+    .tags {
+      background: none;
+      border: none;
+      box-shadow: none;
+      -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+      -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+      transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+      &.focused {
+        border: none;
+        box-shadow: none;
+      }
+
+      input.input {
+        float: none;
+        display: block;
+        width: 100% !important;
+        margin: 0;
+        color: #555;
+        padding: 6px 12px;
+        background-color: #fff;
+        background-image: none;
+        //border: 1px solid #ccc;
+        border-radius: 4px;
+        //-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        //box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        //-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        //-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        //transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        height: 34px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border: none;
+      }
+
+      .tag-item {
+        background: $tagsBgColor;
+      }
+    }
+
+    .host {
+      outline: none;
+    }
+  }
+
+  & &-content {
+    padding-top: 20px;
+    min-height: 100%;
+    padding-left: 100px;
+
+    &:after {
+      content: " ";
+      border-right: 1px solid $dividerDarkColor;
+      position: absolute;
+      height: 100%;
+      right: 0;
+      top: 0;
+    }
+
+    .faq {
+      &-counts {
+        color: rgba($darkTextColor, 0.5);
+        margin: 0 0 10px;
+      }
+
+      &-question,
+      &-answer,
+      &-remarks,
+      &-tags {
+        position: relative;
+
+        &:hover {
+          label {
+            left: -215px;
+            opacity: 1;
+          }
+
+        }
+        label {
+          position: absolute;
+          left: -300px;
+          white-space: nowrap;
+          top: 0;
+          width: 200px;
+          text-align: right;
+          font-size: 1.6rem;
+          color: #808080;
+          opacity: 0;
+          font-weight: normal;
+          transition: all 0.3s ease;
+
+          &:after {
+            content: "";
+            border-right: 3px solid black;
+            height: 100%;
+            opacity: 0.4;
+            margin-left: 10px;
+          }
+        }
+      }
+
+      &-question {
+        label {
+          top: 40%;
+        }
+        .form-control,
+        h2 {
+          border: none;
+          font-size: 4rem;
+          height: auto;
+          box-shadow: none;
+          padding: 0;
+          font-weight: bold;
+        }
+      }
+
+      &-tag {
+        display: inline-block;
+        margin: 0 5px;
+        background: $tagsBgColor;
+        padding: 5px 10px;
+        border-radius: 4px;
+      }
+
+      &-remarks {
+        textarea {
+          border: none;
+          box-shadow: none;
+        }
+        .one-remark {
+          white-space: pre;
+          white-space: pre-wrap;
+          padding: 20px 10px;
+          background: $lightTextColor;
+          border-radius: 4px;
+        }
+      }
+
+      &-copy {
+        i {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  & &-right-sidebar {
+    padding-bottom: 20px;
+    .myanswers-logo {
+      width: 30%;
+      height: auto;
+      float: right;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+    h4 {
+      font-size: $fontSize;
+      font-weight: bold;
+    }
+
+    .faq {
+      &-visibility,
+      &-category,
+      &-open-comments,
+      &-author,
+      &-language,
+      &-analytics,
+      &-attachment,
+      &-user-visibility {
+        margin-bottom: 40px;
+      }
+
+      &-uploader,
+      &-attachment {
+        .files {
+          position: relative;
+          margin: 10px 0;
+          color: inherit;
+          overflow: hidden;
+
+          .files-name {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            margin-right: 20px;
+            display: block;
+            //color: $primaryColor;
+          }
+
+          i {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 2px;
+            cursor: pointer;
+          }
+        }
+        .upload-button {
+          border: none;
+          background: none;
+          box-shadow: none;
+          outline: none;
+          padding: 0;
+          a {
+            cursor: pointer;
+            color: #0275d8;
+          }
+          a:hover {
+            text-decoration: underline;
+            color: #244669;
+          }
+        }
+      }
+    }
+
+    &.edit .faq-visibility {
+      background: none;
+    }
+  }
+
+  & &-left-sidebar {
+    padding-bottom: 20px;
+    //padding-top: 20px;
+  }
+
+  &.faq-view {
+    padding-top: 20px;
+    .faq-remarks {
+      margin-top: 40px;
+    }
+
+    .faq-answer {
+      overflow: hidden;
+      img{
+        width: 100%;
+      }
+    }
+  }
+
+  textarea {
+    resize: none;
+  }
+  h4 {
+    color: $darkTextColor;
+  }
+
+  .form-control[ngbDropdownToggle] {
+    height: 43px;
+    padding: 11px 12px;
+  }
+
+  .disabledBtn button {
+    cursor: not-allowed;
+    pointer-events: none;
+    border: none!important;
+  }
+  .disabledBtn button:after {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}

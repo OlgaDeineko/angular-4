@@ -1,0 +1,130 @@
+@import '../../../../../_variables.scss';
+
+.new-registration {
+  padding-top: 2%;
+  .registr-title {
+    font-size: 41px;
+    margin-bottom: 45px;
+  }
+  .registr-meet-kb-title {
+    font-size: 41px;
+    margin-bottom: 20px;
+  }
+  .lang-title {
+    line-height: 3;
+  }
+  .registr-subtitle {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .registr-meet-kb-subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+  }
+
+  .copyright {
+    color: $lightGreyTextColor;
+    font-weight: 600;
+    margin-top: 40px;
+  }
+
+  .next {
+    margin-top: 10px;
+  }
+
+  a {
+    color: $lightGreyTextColor;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: $darkGreyTextColor;
+  }
+  .nopadding {
+    padding: 0 !important;
+  }
+
+  .padding-right {
+    padding-right: 5px !important;
+  }
+  .padding-left {
+    padding-left: 5px !important;
+  }
+
+  .text-bold {
+    font-weight: 600;
+  }
+  .agree {
+    color: $darkGreyTextColor;
+    margin-top: 5px;
+  }
+  .agree a {
+    color: $darkGreyTextColor;
+  }
+  .agree a:hover {
+    color: $lightGreyTextColor;
+  }
+  .input-lg {
+    font-size: 16px !important;
+  }
+  .form-control:focus {
+    border-color: $lightGreyTextColor !important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 10px rgba(200, 200, 200, 1) !important;
+  }
+}
+
+.message{
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 999999;
+  width: 350px;
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 0 0 12px #999999;
+  color: #ffffff;
+  background-color: #51a351;
+  height: auto;
+  padding: 10px;
+  .title{
+    font-weight: bold;
+    font-size: $fontSize;
+  }
+  .close {
+    position: relative;
+    top: -0.3em;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    -webkit-text-shadow: 0 1px 0 #ffffff;
+    text-shadow: 0 1px 0 #ffffff;
+    opacity: 0.8;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+    filter: alpha(opacity=80);
+    z-index: 999;
+  }
+  .close:hover,
+  .close:focus {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.4;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+    filter: alpha(opacity=40);
+  }
+  a{
+    color: #110ee0;
+  }
+}
+.message:hover {
+  -moz-box-shadow: 0 0 12px #000000;
+  -webkit-box-shadow: 0 0 12px #000000;
+  box-shadow: 0 0 12px #000000;
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: alpha(opacity=100);
+  cursor: pointer;
+}

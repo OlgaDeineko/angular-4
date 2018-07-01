@@ -1,0 +1,69 @@
+<div class="container-fluid personalInfo" *ngIf="personalInfoForm">
+  <img class="myanswers-logo" src="../../../assets/images/logo.png" alt="">
+  <div class="row">
+    <div class="col-md-6">
+      <!--Header-->
+      <div class="header">
+        <h3 class="settings-title-active">{{'PERSONAL_INFO.TITLE' | translate}}</h3>
+        <p class="setting-description">{{'PERSONAL_INFO.DESCRIPTION' | translate}}</p>
+      </div><!--END: Header-->
+
+      <!--Content-->
+      <div class="content">
+        <form name="personal"
+              [formGroup]="personalInfoForm"
+              (submit)="personalInfoForm.valid && submit()"
+              #personalInfoFormElement="ngForm"
+              novalidate>
+
+          <!--first name-->
+          <ma-form-input
+            [formElement]="personalInfoFormElement"
+            [form]="personalInfoForm"
+            [label]="'FORMS.PERSONAL_INFO_FORM.FIRST_NAME'"
+            [name]="'first_name'"
+          ></ma-form-input><!--END: first name-->
+
+          <!--last name-->
+          <ma-form-input
+            [formElement]="personalInfoFormElement"
+            [form]="personalInfoForm"
+            [label]="'FORMS.PERSONAL_INFO_FORM.LAST_NAME'"
+            [name]="'last_name'"
+          ></ma-form-input><!--END: last name-->
+
+          <!--email-->
+          <ma-form-input
+            [formElement]="personalInfoFormElement"
+            [form]="personalInfoForm"
+            [label]="'FORMS.PERSONAL_INFO_FORM.EMAIL'"
+            [name]="'email'"
+            [messages]="{pattern: 'FORMS.VALIDATIONS.EMAIL_INVALID'}"
+            (change)="confirmpassword()"
+          ></ma-form-input><!--END: email-->
+
+          <!--department-->
+          <ma-form-select
+            [formElement]="personalInfoFormElement"
+            [form]="personalInfoForm"
+            [label]="'FORMS.PERSONAL_INFO_FORM.DEPARTMENT'"
+            [name]="'department'"
+            [placeholder]="'PERSONAL_INFO.CHOOSE_A_ROLE'"
+            [options]="departments | toFormOptions: 'code': 'name'"
+          ></ma-form-select><!--END: department-->
+
+
+          <!--actions-->
+          <div class="footer">
+            <button type="submit"
+                    class="button button-primary"
+                    [disabled]="personalInfoForm.invalid || disablebtn">
+              {{"BUTTON.SAVE" | translate}}
+            </button>
+          </div><!--END: actions-->
+        </form>
+      </div><!--END: Content-->
+
+    </div>
+  </div>
+</div>

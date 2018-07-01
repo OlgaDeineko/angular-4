@@ -1,0 +1,130 @@
+@import '../../../_variables.scss';
+
+.content-wrapper {
+  width: calc(100% - #{$navbar-width});
+  right: 0;
+  position: absolute;
+  height: 100%;
+  padding: $contentPadding;
+}
+
+.users {
+  &-subtitle {
+    font-size: $fontSm;
+    font-weight: normal;
+    background: none;
+    color: $lightGreyTextColor;
+    margin-top: 20px;
+  }
+  &-title {
+    color: #4aa3df;
+    margin-top: 0;
+  }
+
+  & &-list {
+    position: relative;
+
+    .owner {
+      color: $lightGreyTextColor;
+      margin-left: 10px;
+      font-size: $fontSm;
+      font-weight: normal;
+    }
+
+    &,
+    &-header {
+      &-name,
+      &-email,
+      &-role,
+      &-actions {
+        display: table-cell;
+        vertical-align: middle;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      &-email {
+        width: $usersListEmail;
+        max-width: $usersListEmail;
+      }
+      &-role {
+        width: $usersListRole;
+        max-width: $usersListRole;
+      }
+      &-actions {
+        width: $usersListActions;
+        max-width: $usersListActions;
+      }
+    }
+
+    &-header {
+      &-name {
+        overflow: visible;
+      }
+    }
+
+    &-actions {
+      visibility: hidden;
+      text-align: right;
+    }
+    &-name {
+      font-weight: bold;
+    }
+
+    &-row,
+    &-header {
+      padding: 5px 15px;
+      display: table;
+      width: 100%;
+      border-bottom: 1px solid $dividerColor;
+    }
+    &-header {
+      border-bottom: 3px solid $dividerColor;
+      color: $greyTextColor;
+    }
+
+    &-row:hover {
+      background-color: $lightTextColor;
+      .users-list-actions {
+        visibility: visible;
+      }
+    }
+
+    .select {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      padding: 10px 5px;
+      i {
+        margin-top: 2px;
+        margin-right: 5px;
+      }
+
+      &:hover {
+        background-color: rgba(#000, 0.1);
+      }
+    }
+
+    .dropdown-menu {
+      width: 100%;
+      min-width: initial;
+      margin: 0;
+      border-radius: 0;
+      li {
+        padding: 5px;
+
+        &:hover {
+          background-color: rgba(#000, 0.1);
+        }
+      }
+    }
+  }
+  .admin-myanswers-logo{
+    width: 7% !important;
+    height: auto;
+    position: absolute;
+    right: 0;
+    margin-top: 5px;
+    margin-right: 20px;
+  }
+}
+

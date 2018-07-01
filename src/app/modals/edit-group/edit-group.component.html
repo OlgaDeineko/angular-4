@@ -1,0 +1,52 @@
+<div class="modal-header">
+  <h3 class="modal-title" id="modal-title">{{'USERS.UPDATE_GROUP' | uppercase | translate}}</h3>
+</div>
+
+<form name="creategroup"
+      [formGroup]="editGroupForm"
+      #editGroupFormElement="ngForm"
+      novalidate>
+
+  <div class="modal-body" id="modal-body">
+    <!--name-->
+    <ma-form-input
+      [formElement]="editGroupFormElement"
+      [form]="editGroupForm"
+      [label]="'FORMS.USER.GROUP_NAME'"
+      [name]="'name'"
+    ></ma-form-input><!--END: name-->
+    <label><b>{{'USERS.TITLE' | translate}}</b></label>
+
+    <ng-select
+      [multiple]="true"
+      [allowClear]="true"
+      [options]="users"
+      [(ngModel)]="usersInGroup "
+      [formControlName]="'user_ids'">
+    </ng-select>
+
+    <ma-form-checkbox-group class="kb-access"
+                            *ngIf="(subdomains | async).length > 1"
+                            [formElement]="editGroupFormElement"
+                            [form]="editGroupForm"
+                            [label]="'FORMS.USER.KB_ACCESS'"
+                            [name]="'shared_subdomains_indexes'"
+                            [checkAll]="false"
+                            [data]="subdomains | toFormOptions:'db_index':'subdomain'"
+    ></ma-form-checkbox-group><!--END: KB-->
+  </div>
+  <!--actions-->
+  <div class="modal-footer">
+    <button class="button"
+            type="button"
+            (click)="$Modal.dismiss()">
+      {{'BUTTON.CANCEL' | translate}}
+    </button>
+
+    <button class="button button-primary"
+            type="button" (click)="save()">
+      {{'BUTTON.SAVE' | translate}}
+    </button>
+  </div><!--END: actions-->
+</form>
+

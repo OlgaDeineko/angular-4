@@ -1,0 +1,161 @@
+<div class="container-fluid importData">
+  <div class="row">
+    <div class="col-md-12">
+      <!--Header-->
+      <div class="header">
+        <div class="row">
+          <div class="col-md-9">
+            <h3 class="settings-title-active">{{'IMPORT_DATA.TITLE' | translate}}</h3>
+            <p class="setting-description">{{'IMPORT_DATA.DESCRIPTION_PAGE' | translate}}</p>
+          </div>
+          <div class="col-md-3">
+            <div class="row">
+              <div class="col-md-12">
+                <img class="myanswers-logo" src="../../../assets/images/logo.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--END: Header-->
+      <!--Content-->
+      <div class="content">
+        <div *ngIf="!csv_structure">
+          <div class="import">
+            <div class="row">
+              <div class="col-md-2">
+                <img src="../../../assets/images/CSV.png" alt="">
+              </div>
+              <div class="col-md-6">
+                <p class="import-title">{{'IMPORT_DATA.FILE_IMPORT' | translate}}</p>
+                <span class="import-description">{{'IMPORT_DATA.IMPORT_XLS_CSV' | translate}}</span>
+              </div>
+              <div class="col-md-4">
+                <button class="btn-transparent" (click)="open()">{{'BUTTON.IMPORT' | translate}}
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="import">
+            <div class="row">
+              <div class="col-md-2">
+                <img src="../../../assets/images/Robot.png" alt="">
+              </div>
+              <div class="col-md-6">
+                <p class="import-title">{{'IMPORT_DATA.IMPORT_ONLINE_FAQS' | translate}}<span
+                  class="coming-soon"></span></p>
+                <span class="import-description">{{'IMPORT_DATA.EXISTING_KB' | translate}}</span>
+              </div>
+              <div class="col-md-4">
+                <button class="btn-transparent">{{'BUTTON.IMPORT' | translate}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--MAPPING-->
+        <div *ngIf="csv_structure">
+          <div class="row">
+            <div class="col-md-9">
+              <div class="row">
+                <div class="col-md-4"><h4>{{'IMPORT_DATA.YOUR_STR' | translate}}</h4></div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4"><h4>{{'IMPORT_DATA.OUR_STR' | translate}}</h4></div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <form name="importStructure"
+                        [formGroup]="importStructureForm"
+                        (submit)="importStructureForm.valid"
+                        #importStructureFormElement="ngForm"
+                        novalidate>
+                    <div *ngFor="let t_str of target_structure; let i = index">
+                      <div class="row">
+                        <div class="col-md-4 compare">
+                          <ma-form-select
+                            class="emptyLi"
+                            (click)="checked(i, importStructureForm.controls[t_str.key].value)"
+                            [formElement]="importStructureFormElement"
+                            [form]="importStructureForm"
+                            [name]="t_str.key"
+                            [options]="customer_structure | toFormOptions: 'key':'title'"
+                          ></ma-form-select>
+                          <div class="splitby"
+                               *ngIf="t_str.type === 'array' && importStructureForm.controls[t_str.key].value !== ''">
+                                                        <span>{{'IMPORT_DATA.SPLIT_BY' |
+                                                            translate}}</span>
+                            <ma-form-input
+                              (change)="addPattern(importStructureForm.controls['split_by'].value, i)"
+                              [formElement]="importStructureFormElement"
+                              [form]="importStructureForm"
+                              [name]="'split_by'"
+                              placeholder='":", ",", "|"'
+                            ></ma-form-input>
+                          </div>
+                        </div>
+                        <div class="col-md-1 text-center">
+                          <div class="compare arrow-btn" id="arrow{{i}}">
+                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 compare">
+                          <div class="row">
+                            <div class="col-md-6">{{t_str.title | translate}}</div>
+                            <div class="col-md-6"><span
+                              class="import_type">{{t_str.type}}</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="row"><h4>{{'IMPORT_DATA.DEFAULT_VALUES' | translate}}</h4></div>
+                  <form name="import"
+                        [formGroup]="importForm"
+                        (submit)="importForm.valid"
+                        #importFormElement="ngForm"
+                        novalidate>
+                    <div *ngFor="let d_str of default_values; let d = index">
+                      <div class="row">
+                        <div class="col-md-6 compare">
+                          {{d_str.title | translate}}
+                          <p class="tip" *ngIf="d_str.key === 'lang'">
+                            {{'IMPORT_DATA.DEFAULT_LANGUAGE' | translate}}
+                          </p>
+                        </div>
+                        <div class="col-md-6 compare">
+                          <ma-form-select
+                            *ngIf="d_str.enum"
+                            [formElement]="importFormElement"
+                            [form]="importForm"
+                            [name]="d_str.key"
+                            [options]="d_str.enum | toFormOptions"
+                          ></ma-form-select>
+
+                          <ma-form-input
+                            *ngIf="!d_str.enum"
+                            [formElement]="importFormElement"
+                            [form]="importForm"
+                            [name]="d_str.key"
+                          ></ma-form-input>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="button button-primary"
+                  type="button" (click)="submit()">
+            {{'BUTTON.SAVE' | translate}}
+          </button>
+        </div>
+        <!--MAPPING-->
+      </div>
+      <!--END: Content-->
+    </div>
+  </div>
+</div>

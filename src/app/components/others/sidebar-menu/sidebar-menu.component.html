@@ -1,0 +1,90 @@
+<nav class="ma-navbar">
+
+  <div class="ma-navbar-item" >
+    <a (click)="viewKB()"
+       placement="right"
+       [class.disabled] = "disableBtn"
+       ngbTooltip="{{'LEFT_SIDEBAR_NAV.VIEW' | translate}}">
+      <i class="fa fa-eye" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <div class="ma-navbar-item"
+       ngbDropdown>
+    <a [routerLink]="['/admin']"
+       [class.active]="router.isActive('/admin', true)"
+       placement="right"
+       ngbTooltip="{{'LEFT_SIDEBAR_NAV.DASHBOARD' | translate}}"
+       ngbDropdownToggle>
+      <i class="fa fa-tachometer" aria-hidden="true"></i>
+    </a>
+    <ma-my-kb-list (onChangeKB)="goToSubdomain($event)"></ma-my-kb-list>
+  </div>
+
+  <div class="ma-navbar-item"
+       maRoleAccess
+       [visibleFor]="['admin','superAdmin']">
+    <a [routerLink]="['/admin/users']"
+       routerLinkActive="active"
+       placement="right"
+       ngbTooltip="{{'LEFT_SIDEBAR_NAV.USERS' | translate}}">
+      <i class="fa fa-users" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <div class="ma-navbar-item"
+       maRoleAccess
+       [visibleFor]="['superAdmin']">
+    <a [routerLink]="['/admin/choosesubdomain']"
+       routerLinkActive="active"
+       placement="right"
+       ngbTooltip="{{'LEFT_SIDEBAR_NAV.CHOOSE_SUBDOMAIN' | translate}}">
+      <i class="fa fa-key" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <div class="ma-navbar-item">
+    <a [routerLink]="['/admin/settings']"
+       routerLinkActive="active"
+       placement="right"
+       ngbTooltip="{{'LEFT_SIDEBAR_NAV.SETTINGS' | translate}}">
+      <i class="fa fa-cog" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <!--TODO: for quick check current user  remove on production-->
+  <div class="ma-navbar-item onlyforlocal" *ngIf="isLocal">
+    <a ><i class="fa fa-address-book-o" aria-hidden="true"></i>
+    </a>
+    <div class="onlyforlocal-block">
+      {{$Auth.getFullName()}}, {{$Auth.getRole()}}, {{$Auth.getEmail()}}, {{$Auth.getId()}}
+    </div>
+  </div><!--END: quick check-->
+
+  <!--<div class="ma-navbar-item logout">-->
+    <!--<a href="#"-->
+       <!--(click)="$event.preventDefault(); logout()"-->
+       <!--placement="right"-->
+       <!--ngbTooltip="{{'LEFT_SIDEBAR_NAV.LOG_OUT' | translate}}">-->
+      <!--<i class="fa fa-sign-out" aria-hidden="true"></i>-->
+    <!--</a>-->
+  <!--</div>-->
+  <div class="ma-navbar-item logout" *ngIf="!$Session.fileStructure.data || !router.url.match('/admin/settings/importData')">
+    <a href="#"
+       (click)="$event.preventDefault(); logout()"
+       placement="right"
+       ngbTooltip="{{'LEFT_SIDEBAR_NAV.LOG_OUT' | translate}}">
+      <i class="fa fa-sign-out" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <div class="ma-navbar-item logout forImport" *ngIf="$Session.fileStructure.data && router.url.match('/admin/settings/importData')"
+       maConfirmWindow
+       (onConfirmOk)="logout()"
+       [confirmMessage]="'MESSAGES.LOGOUT'"
+       placement="right"
+       ngbTooltip="{{'LEFT_SIDEBAR_NAV.LOG_OUT' | translate}}">
+      <i class="fa fa-sign-out" aria-hidden="true"></i>
+  </div>
+
+</nav>

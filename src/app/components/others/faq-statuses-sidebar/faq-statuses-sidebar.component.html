@@ -1,0 +1,16 @@
+<div class="faq-statuses-sidebar" *ngIf="untranslatedFaq && untranslatedCat && faqCounts">
+  <ul class="list-group">
+    <li class="list-group-item  justify-content-between"
+        [routerLink]="['/admin/faq', item.code]"
+        *ngFor="let item of faqCounts">
+      {{'FAQ.STATUSES.'+item.name | translate}}
+      <span class="badge">{{item.counts}}</span>
+    </li>
+  </ul>
+  <div class="untranslated justify-content-between" *ngIf="untranslatedCounter > 0"
+       maRoleAccess
+       [visibleFor]="['superAdmin', 'admin']"
+       [routerLink]="['/admin/untranslated']" routerLinkActive="active">
+    {{'DASHBOARD.UNTRANSLATED' | translate}}
+    <span class="badge pull-right">{{untranslatedCounter}}</span></div>
+</div>

@@ -1,0 +1,20 @@
+<div class="modal-body activate-user-modal">
+  <div class="text-center title">
+    {{'REGISTRATION_MODAL.REGISTRATION_ACTIVATION_LINK_SENT' | translate}}
+  </div>
+  <div>
+    <p>{{'REGISTRATION_MODAL.FOLLOW_INSTRUCTIONS' | translate}} {{email}}
+      {{'REGISTRATION_MODAL.CHECK_SPAM' | translate}}</p>
+
+    <p>{{'REGISTRATION_MODAL.HAVE_ISSUES' | translate}}
+      <a href="https://myanswers.io/support" target="_blank">{{'REGISTRATION_MODAL.CONTACT_US' | translate}}</a>
+    </p>
+  </div>
+
+</div>
+
+<div class="modal-footer">
+  <button class="button" (click)="cancel()">
+    {{'BUTTON.CANCEL' | translate}}
+  </button>
+</div>

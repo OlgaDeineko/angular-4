@@ -1,0 +1,46 @@
+<div class="modal-header">
+  <h3 class="modal-title" id="modal-title">{{'CATEGORY.CATEGORY_TRANSLATION' | translate}}</h3>
+</div>
+
+<form name="categoryTranslation"
+      [formGroup]="categoryTranslationForm"
+      (submit)="categoryTranslationForm.valid && send()"
+      #categoryTranslationFormElement="ngForm"
+      novalidate>
+
+  <div class="modal-body" id="modal-body">
+
+  <p>{{'CATEGORY.CATEGORY_TITLE' | translate}}</p>
+    <ma-form-input
+      [formElement]="categoryTranslationFormElement"
+      [form]="categoryTranslationForm.controls['category']"
+      [label]="''"
+      [name]="'name'"
+      [disabled]="parentCategories.translation[0].translated != null"
+      [placeholder]="''">
+    </ma-form-input>
+  <p *ngIf="parentCategories.translation.length > 1">{{'CATEGORY.SUBCATEGORY_TITLE' | translate}}</p>
+  <ma-form-input *ngIf="parentCategories.translation.length > 1"
+    [formElement]="categoryTranslationFormElement"
+    [form]="categoryTranslationForm.controls['subcategory']"
+    [label]="''"
+    [name]="'name'"
+    [disabled]="parentCategories.translation[1].translated != null"
+    [placeholder]="''">
+  </ma-form-input>
+
+  </div>
+
+  <div class="modal-footer">
+    <button class="button"
+            type="button"
+            (click)="$Modal.dismiss()">
+      {{'BUTTON.CANCEL' | translate}}
+    </button>
+
+    <button class="button button-primary"
+            type="submit">
+      {{'BUTTON.SEND' | translate}}
+    </button>
+  </div>
+</form>

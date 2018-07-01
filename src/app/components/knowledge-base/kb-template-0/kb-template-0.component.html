@@ -1,0 +1,190 @@
+<div class="visitor-new" *ngIf="ctrl.tree">
+  <div class="kb-container">
+
+    <header>
+      <div class="kb-menu-background"></div>
+      <div class="kb-logo">
+        <a *ngIf="ctrl.appearance.logo"
+           [href]="ctrl.LogoUrl"
+           target="_blank">
+          <img [src]="ctrl.appearance.logo">
+        </a>
+      </div>
+      <div class="kb-actions pull-right">
+        <div class="action-btn">
+          <button (click)="ctrl.login()"
+                  class="kb-login-btn"
+                  *ngIf="!ctrl.$Auth.isLogin()">
+            {{'BUTTON.LOG_IN' | translate}}
+          </button>
+          <button (click)="ctrl.logout()"
+                  class="kb-login-btn"
+                  *ngIf="ctrl.$Auth.isLogin()">
+            {{'BUTTON.LOG_OUT' | translate}}
+          </button>
+        </div>
+        <div class="action-btn" *ngIf="ctrl.languages && ctrl.languages.length > 1">
+          <div ngbDropdown class="ma-select lang-drop-down" *ngIf="ctrl.languages && ctrl.languages.length > 1">
+            <div class="form-control ma-select-button lang-drop-down-color text-center"
+                 id="faqLanguageDropdown"
+                 ngbDropdownToggle>
+              <i class="fa fa-angle-down dropdown-angle pull-right"></i>
+
+              <i class="{{ctrl.kblang.code | iconClass:'flag'}}"></i>
+
+              {{('LANGUAGES.'+((ctrl.languages | find:'code':ctrl.kblang.code).name) | uppercase) | translate}}
+            </div>
+            <ul class="dropdown-menu lang-drop-down-menu">
+              <li *ngFor="let item of ctrl.languages"
+                  (click)="ctrl.onChangeLanguage(item)">
+                <i class="{{item.code | iconClass:'flag'}}"></i>
+                {{('LANGUAGES.'+item.name | uppercase )| translate}}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="action-btn">
+          <a class="kb-contact-us"
+             [href]="ctrl.ContactUsUrl"
+             target="_blank">
+            {{'BUTTON.CONTACT_US' | translate}}
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="kb-heading" *ngIf="ctrl.currentCategory == ctrl.homeSlug">
+      <div class="kb-heading-background"
+           [style.background-color]="ctrl.appearance.styles.headColor"
+           [style.background-image]="'url('+ctrl.appearance.header_image+')'">
+      </div>
+      <div class="kb-heading-content">
+        <div class="kb-heading-title">
+          {{ctrl.KBName}}
+        </div>
+        <div class="kb-heading-subtitle">
+          {{ctrl.kbSubtitle}}
+        </div>
+        <div class="kb-search-bar">
+          <i class="fa fa-search"></i>
+          <input [focus]="true" [placeholder]="ctrl.searchText || ctrl.search"
+                 [(ngModel)]="ctrl.searchModel">
+        </div>
+      </div>
+    </div>
+
+    <div class="kb-heading-on-category" *ngIf="ctrl.currentCategory != ctrl.homeSlug">
+      <div class="kb-row">
+        <div class="kb-breadcrumbs">
+          <ma-breadcrumbs [translates]="true"></ma-breadcrumbs>
+        </div>
+
+        <div class="kb-search-bar">
+          <i class="fa fa-search"></i>
+          <input [placeholder]="ctrl.searchText"
+                 [(ngModel)]="ctrl.searchModel">
+        </div>
+      </div>
+
+      <div class="kb-current-category-title">
+        {{ctrl.tree.name}}
+      </div>
+    </div>
+
+    <div class="kb-categories" *ngIf="!ctrl.searchModel.length">
+      <div [class.kb-subcategories]="cat.type == 'subcategory'"
+           *ngFor="let cat of ctrl.tree.categories | orderBy: ctrl.order.cat">
+        <div *ngIf="ctrl.currentCategory == ctrl.homeSlug">
+          <div class="kb-category-title" [routerLink]="ctrl.generateLink(cat)">
+            {{cat.name}}
+          </div>
+          <div class="kb-category-faq" *ngIf="cat.faqs.length>0">
+            <div *ngFor="let faq of cat.faqs | slice:0:cat.showFaq">
+              <a
+                 [routerLink]="ctrl.generateLink(faq)">
+                {{faq.question}}
+              </a>
+            </div>
+            <a class="display-all" href="#"
+               *ngIf="cat.showFaq < cat.faqs.length"
+               (click)="$event.preventDefault();cat.showFaq = cat.faqs.length">
+              {{'FAQ.DISPLAY_ALL' | translate}} {{cat.faqs.length}} {{'FAQ.ARTICLES' | translate}}
+            </a>
+          </div>
+          <div class="kb-subcategories"
+               *ngFor="let sub of cat.categories | orderBy: ctrl.order.cat">
+            <div class="kb-sub-category-title"
+                 [routerLink]="ctrl.generateLink(sub)">
+              {{sub.name}}
+            </div>
+
+            <a *ngFor="let faq of sub.faqs | slice:0:sub.showFaq"
+               [routerLink]="ctrl.generateLink(faq)">
+              {{faq.question}}
+            </a>
+
+            <a class="display-all" href="#"
+               *ngIf="sub.showFaq < sub.faqs.length"
+               (click)="$event.preventDefault();sub.showFaq = sub.faqs.length">
+              {{'FAQ.DISPLAY_ALL' | translate}} {{sub.faqs.length}} {{'FAQ.ARTICLES' | translate}}
+            </a>
+          </div>
+        </div>
+
+        <div *ngIf="ctrl.currentCategory != ctrl.homeSlug">
+
+          <a class="kb-sub-category-title"
+             [routerLink]="ctrl.generateLink(cat)">
+            {{cat.name}}
+          </a>
+
+          <a *ngFor="let faq of cat.faqs | slice:0:cat.showFaq"
+             [routerLink]="ctrl.generateLink(faq)">
+            {{faq.question}}
+          </a>
+
+          <a class="display-all" href="#"
+             *ngIf="cat.showFaq < cat.faqs.length"
+             (click)="$event.preventDefault();cat.showFaq = cat.faqs.length">
+            {{'FAQ.DISPLAY_ALL' | translate}} {{cat.faqs.length}} {{'FAQ.ARTICLES' | translate}}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="kb-articles" *ngIf="!ctrl.searchModel.length">
+      <div [class.item-colum]="ctrl.currentCategory == ctrl.homeSlug"
+           *ngFor="let faq of ctrl.tree.faqs | orderBy: ctrl.order.faq">
+        <a [routerLink]="ctrl.generateLink(faq)">
+          {{faq.question}}
+        </a>
+      </div>
+    </div>
+
+    <!--search result from algolia-->
+    <ma-algolia-search
+      *ngIf="ctrl.searchModel.length"
+      [searchModel]="ctrl.searchModel"
+      [category]="ctrl.tree.hierarchical.lvl2 || ctrl.tree.hierarchical.lvl1 || ctrl.tree.hierarchical.lvl0"
+    ></ma-algolia-search><!--END:search result from algolia-->
+  </div>
+  <div class="main-footer">
+    <div class="kb-footer">
+      <div class="kb-footer-background"></div>
+      <div class="kb-footer-content">
+        <div class="kb-footer-title">
+          {{ctrl.footerTitle | translate}}
+        </div>
+        <a class="btn-lg btn-contact-us"
+           [href]="ctrl.ContactUsUrl"
+           target="_blank">
+          {{'BUTTON.CONTACT_US' | translate}}
+        </a>
+      </div>
+    </div>
+
+    <footer class="powered-by" *ngIf="ctrl.powered_by">
+      Powered by <a href="https://www.myanswers.io/" target="_blank">MyAnswers.io</a>
+    </footer>
+  </div>
+</div>

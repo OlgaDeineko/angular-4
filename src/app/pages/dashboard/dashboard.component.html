@@ -1,0 +1,68 @@
+<ma-sidebar-menu></ma-sidebar-menu>
+
+<div class="content-wrapper row dashboard">
+  <img class="admin-myanswers-logo" src="../../../assets/images/logo.png" alt="">
+  <div class="col-md-2 dashboard-left-sidebar">
+
+    <div class="dashboard-actions" *ngIf="currentCategory">
+      <div ngbDropdown class="d-inline-block">
+        <button class="button button-primary" id="dropdownBasic1" ngbDropdownToggle>
+          <i class="fa fa-plus"></i>
+          {{'BUTTON.ADD' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a [routerLink]="['/admin/createFAQ']"
+               [queryParams]="{categoryId: currentCategory.id}">
+              {{'FAQ.CREATE' | translate}}
+            </a>
+          </li>
+          <li *ngIf="currentCategory.type && currentCategory.type != 'subcategory'">
+            <a
+               (click)="$event.preventDefault(); createCategory()"
+               maRoleAccess
+               [invisibleFor]="['contributor']">
+              {{(currentCategory.type == 'home' ? 'CATEGORY.CREATE_CATEGORY': 'CATEGORY.CREATE_SUBCATEGORY') |
+              translate}}
+            </a>
+          </li>
+          <li *ngIf="currentCategory.type == 'home'">
+            <a
+               (click)="createKB()"
+               maRoleAccess
+               [visibleFor]="['admin', 'superAdmin']">
+              {{'BUTTON.CREATE_KB' | translate}}
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <ma-faq-statuses-sidebar></ma-faq-statuses-sidebar>
+  </div>
+
+  <div class="col-md-10 dashboard-content">
+    <div class="container-fluid">
+
+      <div class="row dashboard-title" *ngIf="currentCategory">
+        <div class="col-md-12">
+
+          <h1 *ngIf="currentCategory.type && currentCategory.type != 'home'">
+            {{currentCategory.name}}
+          </h1>
+          <h1 *ngIf="!currentCategory.type || currentCategory.type == 'home'">
+            {{'DASHBOARD.TITLE' | translate}}
+          </h1>
+
+          <ma-breadcrumbs></ma-breadcrumbs>
+
+        </div>
+      </div>
+
+      <ma-tree></ma-tree>
+
+    </div>
+  </div>
+
+</div>

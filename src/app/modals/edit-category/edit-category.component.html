@@ -1,0 +1,100 @@
+<div *ngIf="languages && newCategory && parentCategory && categories">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-title">{{'CATEGORY.UPDATE'+'_'+type | uppercase | translate}}</h3>
+  </div>
+
+  <div class="modal-body" id="modal-body">
+
+    <form name="category"
+          [formGroup]="categoryForm"
+          (submit)="categoryForm.valid && submit()"
+          #categoryFormElement="ngForm"
+          novalidate>
+
+      <!--name-->
+      <ma-form-input
+        [formElement]="categoryFormElement"
+        [form]="categoryForm"
+        [label]="'FORMS.CATEGORY.LABEL_TITLE'"
+        [name]="'name'"
+      ></ma-form-input><!--END: name-->
+
+      <!--author-->
+      <ma-form-input
+        [formElement]="categoryFormElement"
+        [form]="categoryForm"
+        [disabled]="true"
+        [label]="'FORMS.CATEGORY.AUTHOR'"
+        [name]="'author'"
+      ></ma-form-input><!--END: author-->
+
+      <!--Parent category-->
+      <ma-form-select
+        class="parent-category"
+        [formElement]="categoryFormElement"
+        [form]="categoryForm"
+        [label]="'FORMS.CATEGORY.PARENT_CATEGORY'"
+        [name]="'parent_id'"
+        [disabled]="langCode"
+        [options]="categories | toFormOptions:'id':'name'"
+        (onChangeCallback)="changeParentId($event)"
+      ></ma-form-select><!--END: Parent category-->
+
+      <!--Language-->
+      <ma-form-select
+        [formElement]="categoryFormElement"
+        [form]="categoryForm"
+        [label]="'FORMS.CATEGORY.LANGUAGE'"
+        [name]="'lang'"
+        [options]="languages | toFormOptions: 'code': 'name'"
+        [translatePrefix]="'LANGUAGES.'"
+        [icon]="'flag'"
+        [disabled]="true"
+        [confirmMessage] = "true"
+        [confirmMessageText] = "'MESSAGES.LOSE_CHANGES'"
+        [withActionButton]="true"
+        [actionButtonLabel]="'BUTTON.CLICK_TO_CREATE'"
+        [isShowActionButton]="isShowActionButton"
+        (onClickActionButton)="goToCreateTranslation($event)"
+      ></ma-form-select><!--END: Language-->
+
+      <!--Visibility-->
+      <ma-form-select
+        maRoleAccess
+        [invisibleFor]="['contributor']"
+
+        [formElement]="categoryFormElement"
+        [form]="categoryForm"
+        [label]="'FORMS.CATEGORY.VISIBILITY'"
+        [name]="'visibility'"
+        [options]="newCategory.allowed_visibilities | toFormOptions: 'code': 'name'"
+        [icon]="'visibility'"
+      ></ma-form-select><!--END: Visibility-->
+
+      <!--spec users visibility-->
+      <div class="form-group"
+           *ngIf="categoryForm.controls['visibility'].value == 'private'"
+           maRoleAccess
+           [invisibleFor]="['contributor']">
+        <label class="form-control-label">{{'FORMS.CATEGORY.VISIBILITY_USER' | translate}}</label>
+        <ma-check-users
+          [item]="newCategory"
+          [updateMode]="true"
+          [parent]="parentCategory"
+        ></ma-check-users><!--END:spec users visibility-->
+      </div>
+
+
+      <div class="modal-footer">
+        <button class="button" (click)="$Modal.dismiss()">
+          {{'BUTTON.CANCEL' | translate}}
+        </button>
+
+        <button class="button button-primary" type="submit">
+          {{'BUTTON.SAVE' | translate}}
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

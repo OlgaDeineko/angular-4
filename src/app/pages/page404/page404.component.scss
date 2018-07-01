@@ -1,0 +1,39 @@
+@import "../../../_variables.scss";
+
+.page404{
+  max-width: 941px;
+  margin: 0 auto;
+  padding-top: 100px;
+  &-code{
+    width: 100%;
+    font-size: 10rem;
+    text-align: center;
+    color: $primaryColor;
+  }
+
+  &-text {
+    width: 100%;
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  &-return {
+    width: 100%;
+    font-size: 3rem;
+    text-align: center;
+
+    button {
+      margin: 0 10px;
+    }
+  }
+
+  footer.powered-by{
+    width: 100%;
+    padding-right: 40px;
+    padding-left: 40px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

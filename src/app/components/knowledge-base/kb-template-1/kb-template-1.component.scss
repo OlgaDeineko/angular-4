@@ -1,0 +1,137 @@
+@import "../../../../_variables.scss";
+.visitor {
+  height: 100%;
+
+    &-bg-heading {
+      padding: 20px 0 50px;
+      background-color: #efefef;
+    }
+
+    &-title {
+      margin: 20px 0;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    &-actions {
+      position: absolute;
+      right: 0;
+      margin-right: 15px;
+      z-index: 1000;
+      .icon-button {
+        vertical-align: middle;
+      }
+    }
+
+    &-tree {
+      padding: 20px 10px;
+
+      a,
+      a:hover {
+        color: $darkTextColor;
+      }
+
+      &-prev {
+        padding: 10px;
+        margin: 0;
+        background-color: $primaryColor;
+        color: #fff;
+        display: block;
+        font-size: 22px;
+      }
+
+      &-item {
+        padding: 15px;
+        cursor: pointer;
+        font-size: 22px;
+        a {
+          display: block;
+        }
+
+        &:hover {
+          background-color: rgba($primaryColor, 0.6);
+          color: white;
+        }
+        &.item-colum {
+          float: left;
+          width: 50%;
+        }
+      }
+
+    }
+
+    &-last-created {
+      h2 {
+        padding: 10px;
+        margin: 0;
+        color: $primaryColor;
+        font-size: 2rem;
+      }
+      padding: 20px 10px;
+
+      &-item {
+        padding: 5px;
+        cursor: pointer;
+        font-size: 1.8rem;
+        a {
+          display: block;
+        }
+
+        &:hover {
+          background-color: rgba(#000, 0.1);
+        }
+      }
+    }
+    footer{
+      height: 60px;
+      background-color: white;
+    }
+}
+.lang-drop-down {
+  text-align: center;
+  padding: 0;
+  color: white;
+  background: #4aa3df;
+  border: 1px solid #4aa3df;
+  border-radius: 4px;
+  font-size: 1.9rem;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  text-transform: capitalize;
+  width: 165px;
+  white-space: nowrap;
+}
+.visitor-lang-drop-down-color{
+  padding: 6.9px 17px;
+  background: transparent;
+  border: none!important;
+  color: white;
+  font-size: 1.6rem;
+}
+.lang-drop-down-menu{
+  width: 100%;
+  font-size: 1.6rem;
+  li{
+    padding: 3px 4px;
+  }
+}
+
+.algolia-search-input {
+  margin: 0;
+  .form-control {
+    font-size: 20px;
+    height: auto;
+    padding: 15px;
+    border-radius: 50px;
+    padding-left: 60px;
+  }
+  i {
+    position: absolute;
+    top: 14px;
+    left: 31px;
+    font-size: 30px;
+    opacity: 0.4;
+  }
+}
+

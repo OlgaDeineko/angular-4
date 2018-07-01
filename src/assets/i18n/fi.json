@@ -1,0 +1,66 @@
+{
+  "Click to copy":"Kopioi napsauttamalla",
+  "Copied":"Kopioitu",
+
+  "BUTTON": {
+    "SIGNIN": "Kirjaudu sisään",
+    "CANCEL": "Peruuta",
+    "SEND": "Lähetä",
+    "CONTACT_US": "Ota meihin yhteyttä",
+    "LOG_IN": "Kirjaudu sisään",
+    "LOG_OUT": "Kirjautua ulos",
+    "EDIT_FAQ": "Muokkaa FAQ"
+  },
+  "FAQ": {
+    "WORD": "sana",
+    "WORDS": "sanat",
+    "CHARACTER": "merkki",
+    "CHARACTERS": "merkkien",
+    "READING_TIME": "käsittelyaika",
+    "INTERNAL_COMMENT": "Sisäinen kommentti",
+    "ATTACHMENTS": "Liitteet:",
+    "ARTICLES": "artikkelit",
+    "ARTICLE_HELPFUL": "Oliko tämä artikkeli hyödyllinen?",
+    "POSTED_ON": "Lähetetty",
+    "UPDATED_ON": "Päivitetty",
+    "IMPROVE_PAGE": "Kuinka voimme parantaa tätä sivua?",
+    "CONTENTS":"Sisällys"
+  },
+  "REGISTRATION": {
+    "FORGOT_MY_PASSWORD": "Unohdit salasanani",
+    "LOGIN": "Kirjautuminen",
+    "SIGN_IN_TO_KB": "Kirjaudu sisään",
+    "STAY_SIGNED_IN": "Pysy kirjautuneena sisään",
+    "CREDENTIALS": "Valtakirjasi lähetetään suojatun yhteyden kautta"
+  },
+  "LANGUAGES": {
+    "TITLE": "Kieli",
+    "ENGLISH": "Englanti",
+    "DUTCH": "Hollannin",
+    "FRENCH": "Ranska",
+    "GERMAN": "Saksa",
+    "SPANISH":"Espanja",
+    "ITALIAN":"Italialainen",
+    "POLISH":"Kiillottaa",
+    "SWEDISH":"Ruotsi",
+    "DANISH":"Tanska",
+    "FINNISH":"Suomalainen",
+    "English": "Englanti",
+    "Dutch": "Hollannin ",
+    "French": "Ranska",
+    "German": "Saksa",
+    "Spanish":"Espanja",
+    "Italian":"Italialainen",
+    "Polish":"Kiillottaa",
+    "Swedish":"Ruotsi",
+    "Danish":"Tanska",
+    "Finnish":"Suomi "
+  },
+  "FORMS": {
+    "LOGIN_FORM": {
+      "EMAIL": "Sähköpostiosoite",
+      "PASSWORD": "Salasana",
+      "REMEMBER": "Muista minut"
+    }
+  }
+}

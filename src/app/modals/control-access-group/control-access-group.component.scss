@@ -1,0 +1,52 @@
+@import "../../components/forms/form-select/form-select.component.scss";
+@import "../../../_variables.scss";
+
+.domains-dropdown {
+  .ma-select-button {
+    min-width: 150px;
+    padding: 12px;
+  }
+}
+
+.modal-body{
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.check-all {
+  margin-left: 5px;
+}
+.access-tree{
+  margin-left: 10px;
+}
+
+.title {
+  cursor: pointer;
+}
+
+.list {
+  padding: 10px;
+}
+
+.list-checkbox {
+  margin-right: 10px;
+  margin-top: 3px;
+}
+
+.list-sub {
+  margin-left: 0;
+}
+
+.list-faq {
+  margin-left: 15px;
+}
+
+.visibility {
+  position: absolute;
+  font-size: 14px;
+  color: #bfbfbf;
+  padding-left: 15px;
+  padding-top: 25px;
+}
+
+

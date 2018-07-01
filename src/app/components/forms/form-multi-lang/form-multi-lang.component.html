@@ -1,0 +1,41 @@
+<div class="row lang-group" #myltilangFormElement>
+  <div class="col-md-12 form-group">
+    <div class="row">
+      <div class="col-md-2">
+        <label class="form-control-label lang-tooltip">
+          {{'LANGUAGES.' + title | translate}}</label>
+      </div>
+      <div class="col-md-2">
+          <ma-form-switch
+            [form]="form.controls[name]"
+            [label]="false"
+            [name]="'allowLang'"
+            [values]="{on: 'true', off: 'false'}"
+            [status]="(form.controls[name].value.allowLang === 'true')"
+            [disabled]="isDefault"
+            [confirmMessage]="true"
+            [confirmMessageText]="'MULTIPLE_LANGUAGES.CONFIRM_MESSAGE'"
+            [confirmMessageOnValue]="'off'"
+            placement="top"
+            #t="ngbTooltip"
+            (click)="t.close(); t.open()"
+            ngbTooltip="{{'MULTIPLE_LANGUAGES.SET_LANGUAGE_'+(form.controls[name].value.allowLang == 'true' ? 'FALSE' : 'TRUE') | translate}}"
+          ></ma-form-switch>
+      </div>
+        <div class="col-md-2">
+          <ma-form-switch
+            [form]="form.controls[name]"
+            [label]="false"
+            [name]="'is_allowed_for_frontend'"
+            [values]="{on: 1, off: 0}"
+            [status]="(form.controls[name].value.is_allowed_for_frontend === 1) && (form.controls[name].value.allowLang === 'true')"
+            [disabled]="isDefault || form.controls[name].value.allowLang == 'false'"
+            placement="top"
+            #t1="ngbTooltip"
+            (click)="t1.close(); t1.open()"
+            ngbTooltip="{{'MULTIPLE_LANGUAGES.'+( form.controls[name].value.is_allowed_for_frontend == 1 ? 'INVISIBLE' : 'VISIBLE') | translate}}"
+          ></ma-form-switch>
+        </div>
+    </div>
+  </div>
+</div>

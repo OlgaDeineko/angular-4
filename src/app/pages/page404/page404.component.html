@@ -1,0 +1,33 @@
+<div class="page404">
+  <div class="page404-code">404</div>
+  <div class="page404-text" *ngIf="checkKb">
+    {{'NOT_FOUND_PAGE.PAGE_NOT_FOUND' | translate}}
+  </div>
+  <div class="page404-text" *ngIf="!checkKb">
+    {{'NOT_FOUND_PAGE.KB_NOT_FOUND' | translate}}
+  </div>
+
+  <!--TODO: roleAccess? -->
+  <!-- I not sure maybe correctly need use roleAccessDirective but if we
+       will move this page out of our angular application it's will be broken -->
+  <div class="page404-return">
+    <button class="button button-primary"
+            *ngIf="checkKb && $Auth.userIsLoaded() && $Auth.getRole() !== 'visitor'"
+            [routerLink]="['/admin']">
+      {{'NOT_FOUND_PAGE.GO_TO_ADMIN' | translate}}
+    </button>
+    <button class="button button-primary"
+            *ngIf="checkKb"
+            [routerLink]="['/']">
+      {{'NOT_FOUND_PAGE.GO_TO_KB' | translate}}
+    </button>
+    <a class="button button-primary"
+       *ngIf="!checkKb"
+       href="https://login.myanswers.io/">
+      {{'NOT_FOUND_PAGE.CHOOSE_SUBDOMAIN' | translate}}
+    </a>
+  </div>
+  <footer class="powered-by" *ngIf="powered_by == true">
+    Powered by <a href="https://www.myanswers.io/" target="_blank">MyAnswers.io</a>
+  </footer>
+</div>

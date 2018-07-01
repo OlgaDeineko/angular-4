@@ -1,0 +1,17 @@
+@import "../../../../_variables.scss";
+
+:root {
+  max-height: 250px;
+  display: block;
+  overflow: auto;
+  .checkbox {
+    margin-top: 0;
+  }
+}
+
+.member-to-group{
+  margin-left: 10px;
+  padding-top: 10px;
+  color: gray;
+  font-size: $fontSm;
+}

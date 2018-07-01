@@ -1,0 +1,33 @@
+<div class="form-group has-feedback"
+     [class.has-danger]="(form.controls[name].dirty || formElement.submitted) && form.controls[name].invalid"
+     [class.has-success]="(form.controls[name].dirty || formElement.submitted) && form.controls[name].valid"
+     [formGroup]="form">
+
+  <label *ngIf="label"
+         class="form-control-label"
+         [for]="name">
+    {{label | translate}}
+  </label>
+
+  <div class="input-group">
+    <input [type]="type"
+           class="form-control form-control-lg"
+           [class.form-control-danger]="(form.controls[name].dirty || formElement.submitted) && form.controls[name].invalid"
+           [class.form-control-success]="(form.controls[name].dirty || formElement.submitted) && form.controls[name].valid"
+           [name]="name"
+           [id]="id"
+           [placeholder]="placeholder | translate"
+           [attr.disabled]="disabled"
+           [formControlName]="name">
+    <span class="input-group-addon" *ngIf="addon"><b>{{addon}}</b></span>
+  </div>
+  <div class="errors form-control-feedback"
+       *ngIf="form.controls[name].errors && (form.controls[name].dirty || formElement.submitted)">
+
+    <span translate>
+      <!--{{showError(form.controls[name].errors)}}-->
+      {{(form.controls[name].errors | formValidationErrors:(label || name): messages) | async}}
+    </span>
+
+  </div>
+</div>

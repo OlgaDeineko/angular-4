@@ -1,0 +1,232 @@
+<ma-sidebar-menu></ma-sidebar-menu>
+<div class="untranslated" >
+  <div class="content-wrapper row dashboard">
+    <img class="admin-myanswers-logo" src="../../../assets/images/logo.png" alt="">
+    <div class="col-md-2 dashboard-left-sidebar">
+
+      <div class="dashboard-actions">
+        <button class="button button-primary" id="dropdownBasic2" disabled>
+          <i class="fa fa-plus"></i>
+          {{'BUTTON.ADD' | translate}}
+        </button>
+      </div>
+
+      <ma-faq-statuses-sidebar></ma-faq-statuses-sidebar>
+    </div>
+
+    <div class="col-md-10 dashboard-content" *ngIf="categories && faqs">
+      <div class="container-fluid">
+
+        <div class="row dashboard-title">
+          <div class="col-md-12">
+            <h1>
+              {{'DASHBOARD.UNTRANSLATED' | translate}}
+            </h1>
+
+          </div>
+        </div>
+
+        <!--search-->
+        <div class="form-group">
+          <input type="text"
+                 class="form-control"
+                 [(ngModel)]="searchModel"
+                 (input)="search()"
+                 placeholder="{{'SEARCH' | translate}}">
+        </div><!--END: search-->
+
+        <!-- tree header -->
+        <div class="tree-header" >
+          <div class="tree-header-title">
+            <span class="title" *ngIf="!searchModel.length">
+              {{categories.length + faqs.length}}
+              {{((categories.length + faqs.length)>1 ? 'RESULTS' : 'RESULT') | translate}}
+            </span>
+                    <span class="title" *ngIf="searchModel.length">
+              {{categoryResults.length + faqResults.length}}
+              {{((categoryResults.length + faqResults.length)>1 ? 'RESULTS' : 'RESULT') | translate}}
+            </span>
+          </div>
+
+          <div class="tree-header-update">
+            {{'CATEGORY.CREATED' | translate}}
+          </div>
+
+          <div class="tree-header-lang">
+            <i class="{{lang.code | iconClass:'flag'}}"
+               placement="top"
+               ngbTooltip="{{('LANGUAGES.'+lang.name | uppercase )| translate}}">
+            </i>
+          </div>
+
+          <div class="tree-header-author">
+            {{'CATEGORY.AUTHOR' | translate}}
+          </div>
+
+          <div class="tree-header-lang">
+            {{'CATEGORY.LANGUAGE' | translate}}
+          </div>
+          <div class="tree-header-actions"></div>
+
+        </div> <!--END: tree header-->
+
+        <div *ngIf="!searchModel.length">
+          <!--tree-->
+          <div class="tree" *ngFor="let item of items | bigList | async">
+            <div *ngIf="item.status != 'trash'">
+              <div class="tree-item" *ngIf="item.id != 1">
+
+                <!--drag icon-->
+                <div class="tree-item-drag">
+                </div><!--END:drag icon-->
+                <!--title-->
+
+                <div class="tree-item-title tree-item-type-category">
+                  <span *ngIf="item.type == 'faq'" class="tree-item-icon"> <i
+                  class="tree-icon-folder fa fa-question-circle "
+                  aria-hidden="true"></i></span>
+                  <span *ngIf="item.type != 'faq'" class="tree-item-icon"> <i class="tree-icon-folder fa fa-folder"
+                                                                              aria-hidden="true"></i></span>
+                  <a *ngIf="item.type == 'faq'" [routerLink]="generateLink(item)">
+                  <span
+                    *ngIf="item.status && item.status == 'draft'">{{'FAQ.STATUSES.DRAFT' | translate | uppercase}}
+                  </span>
+                    {{item.question}}
+                  </a>
+                  <a *ngIf="item.type != 'faq'">
+                    {{item.name }}
+                  </a>
+                </div><!--END:title-->
+
+                <!--created-->
+                <div class="tree-item-update"
+                     placement="top"
+                     ngbTooltip="{{item.created_at * 1000 | date : 'dd/MM/yy HH:mm:ss'}}">
+                  <span>{{item.created_at * 1000 | date : "dd/MM/yy"}}</span>
+                </div><!--END: created-->
+
+                <!--lang-->
+                <div class="tree-item-lang">
+                  <!--lang-->
+                  <button class="icon-button-little"
+                          maRoleAccess
+                          [disableFor]="['contributor']"
+                          (click)="createTranslation(item, item.type, lang.code)"
+                          placement="top"
+                          ngbTooltip="{{'BUTTON.ADD_TRANSLATION' | translate}}">
+                    <i class="fa fa-plus" aria-hidden="true"
+                       [class.disabled]="item.status == 'trash'"></i>
+                  </button>
+                </div><!--END:lang-->
+
+                <!--author-->
+                <div class="tree-item-author">
+                  {{item.author}}
+                </div><!--END: author-->
+
+                <!--lang-->
+                <div class="tree-item-lang">
+                  <i class="{{item.lang.code | iconClass:'flag'}}"
+                     placement="top"
+                     ngbTooltip="{{('LANGUAGES.'+item.lang.name | uppercase )| translate}}">
+                  </i>
+                </div><!--END:lang-->
+
+                <div class="tree-item-actions">
+                  <button class="icon-button"
+                          maConfirmWindow
+                          (onConfirmOk)="remove(item.type, item.id)"
+                          [confirmMessage]="item.type == 'faq' ? 'FAQ.CONFIRM' : 'CATEGORY.CONFIRM_'+item.type"
+                          placement="top"
+                          ngbTooltip="{{item.type == 'faq' ? ('FAQ.REMOVE' | translate) : ('CATEGORY.REMOVE_'+item.type | uppercase) | translate}}">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div><!--END: actions-->
+
+              </div>
+            </div>
+
+            <div class="tree-item-divider"></div>
+
+          </div><!--END:tree-->
+        </div>
+
+        <!--tree search result-->
+        <div class="tree" *ngIf="searchModel.length">
+          <!--categories-->
+          <div>
+            <div class="tree" *ngFor="let item of itemResults | bigList | async">
+              <div class="tree-item">
+
+                <div class="tree-item-drag">
+                </div><!--END:drag icon-->
+
+                <!--title-->
+                <div class="tree-item-title tree-item-type-category">
+                  <span *ngIf="item.type == 'faq'" class="tree-item-icon"> <i
+                    class="tree-icon-folder fa fa-question-circle "
+                    aria-hidden="true"></i></span>
+                  <span *ngIf="item.type != 'faq'" class="tree-item-icon"> <i class="tree-icon-folder fa fa-folder"
+                                                                              aria-hidden="true"></i></span>
+                  <a [routerLink]="generateLink(item)">
+                    {{item.name || item.question}}
+                  </a>
+                </div><!--END:title-->
+
+                <!--created-->
+                <div class="tree-item-update"
+                     placement="top"
+                     ngbTooltip="{{item.created_at * 1000 | date : 'dd/MM/yy HH:mm:ss'}}">
+                  <span>{{item.created_at * 1000 | date : "dd/MM/yy"}}</span>
+                </div><!--END: created-->
+
+                <!--lang-->
+                <div class="tree-item-lang">
+                  <!--lang-->
+                  <button class="icon-button-little"
+                          maRoleAccess
+                          [disableFor]="['contributor']"
+                          (click)="createTranslation(item, item.type, lang.code)"
+                          placement="top"
+                          ngbTooltip="{{'BUTTON.ADD_TRANSLATION' | translate}}">
+                    <i class="fa fa-plus" aria-hidden="true"
+                       [class.disabled]="item.status == 'trash'"></i>
+                  </button>
+                </div><!--END:lang-->
+
+                <!--author-->
+                <div class="tree-item-author">
+                  {{item.author}}
+                </div><!--END: author-->
+
+                <div class="tree-item-lang">
+                  <i class="{{item.lang.code | iconClass:'flag'}}"
+                     placement="top"
+                     ngbTooltip="{{('LANGUAGES.'+item.lang.name | uppercase )| translate}}">
+                  </i>
+                </div>
+
+                <div class="tree-item-actions">
+                  <button class="icon-button"
+                          maConfirmWindow
+                          (onConfirmOk)="remove(item.type, item.id)"
+                          [confirmMessage]="item.type == 'faq' ? 'FAQ.CONFIRM' : 'CATEGORY.CONFIRM_'+item.type"
+                          placement="top"
+                          ngbTooltip="{{item.type == 'faq' ? ('FAQ.REMOVE' | translate) : ('CATEGORY.REMOVE_'+item.type | uppercase) | translate}}">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div><!--END: actions-->
+
+              </div>
+
+              <div class="tree-item-divider"></div>
+
+            </div><!--END:tree-->
+          </div><!--END: categories-->
+
+        </div><!--END:tree search result-->
+
+      </div>
+    </div>
+  </div>
+</div>

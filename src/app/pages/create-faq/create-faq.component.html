@@ -1,0 +1,239 @@
+<ma-sidebar-menu></ma-sidebar-menu>
+
+<div class="content-wrapper faq edit-faq" *ngIf="faq && parentCategory && oneExists">
+  <div class="col-md-12">
+    <div class="row">
+      <!--left sidebar article-->
+      <div class="col-md-2 faq-left-sidebar">
+      </div><!--END: left sidebar article-->
+
+      <!--Content article-->
+      <div class="col-md-7 faq-content">
+
+        <!--Counts word-->
+        <div class="text-right faq-counts">
+        </div><!--END: Counts word-->
+
+        <!--Status-->
+        <div class="row faq-status">
+          <div class="col-md-3 offset-md-9">
+
+            <div ngbDropdown class="ma-select"
+                 *ngIf="faqStatuses"
+                 maRoleAccess
+                 [disableFor]="['contributor']">
+              <div class="form-control ma-select-button"
+                   id="faqStatusesDropdown"
+                   ngbDropdownToggle>
+                <i class="fa fa-angle-down dropdown-angle"></i>
+                {{ 'FAQ.STATUSES.'+((faqStatuses | find:'code':faq.status).name | uppercase) | translate}}
+              </div>
+              <ul class="dropdown-menu">
+                <li *ngFor="let item of faqStatuses"
+                    (click)="faq.status = item.code">
+                  {{('FAQ.STATUSES.'+item.name | uppercase)| translate}}
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div><!--END: Status-->
+
+        <!--Question-->
+        <div class="faq-question">
+          <label>{{'FAQ.LABEL_TITLE' | translate}}</label>
+          <input class="form-control"
+                 [placeholder]="('FAQ.TITLE' | translate) +' '+ ('FAQ.LABEL_TITLE_SM' | translate)"
+                 [(ngModel)]="faq.question">
+        </div><!--END: Question-->
+
+        <!--Answer-->
+        <div class="faq-answer">
+          <label>{{'FAQ.CONTENT' | translate}}</label>
+          <ma-tiny-mce [(model)]="faq.answer" [options]="tinymceOptions"></ma-tiny-mce>
+        </div><!--END:Answer-->
+
+        <!--Tags-->
+        <div class="faq-tags"
+             maRoleAccess
+             [visibleFor]="['superAdmin', 'admin', 'editor']">
+          <label>{{'FAQ.KEYWORDS' | translate}}</label>
+          <tag-input
+                  [(ngModel)]='faq.tags'
+                  [identifyBy]="'name'"
+                  [displayBy]="'name'"
+                  [separatorKeys]="[',']"
+                  [ripple]="false"
+                  [placeholder]="'FAQ.KEYWORDS_PLACEHOLDER' | translate"
+                  [theme]="'ma-tag-theme'"
+                  [secondaryPlaceholder]="'FAQ.ENTER_TAG' | translate"
+          ></tag-input>
+        </div>
+
+        <!--Remarks-->
+        <div class="faq-remarks"
+             maRoleAccess
+             [visibleFor]="['superAdmin', 'admin', 'editor']">
+          <label>{{'FAQ.INTERNAL_COMMENT' | translate}}</label>
+          <textarea class="form-control remarks"
+                    [(ngModel)]="faq.remarks"
+                    rows="4"
+                    [placeholder]="'FAQ.INTERNAL_COMMENT_PLACEHOLDER' | translate">
+      </textarea>
+        </div><!--END: Remarks-->
+
+      </div><!--END: Content article-->
+
+      <!--right sidebar article-->
+      <div class="col-md-3 faq-right-sidebar edit">
+        <!--Action buttons-->
+        <div class="row faq-actions">
+          <div class="col-md-12">
+            <img class="myanswers-logo" src="../../../assets/images/logo.png" alt="">
+          </div>
+          <div class="col-md-6">
+            <button class="button button-full"
+                    maCancelButton>
+              {{'BUTTON.CANCEL' | translate}}
+            </button>
+          </div>
+          <div class="col-md-6">
+            <button *ngIf="!isFaq" class="button button-primary button-full"
+                    (click)="save();">
+              {{'BUTTON.CREATE' | translate}}
+            </button>
+            <button *ngIf="isFaq" class="button button-primary button-full"
+                    (click)="saveTranslation();">
+              {{'BUTTON.CREATE' | translate}}
+            </button>
+          </div>
+        </div><!--END: Action buttons-->
+
+        <!--Visibility-->
+        <div class="faq-visibility"
+             maRoleAccess
+             [invisibleFor]="['contributor']">
+          <h4>{{'FAQ.VISIBILITY' | translate}}</h4>
+
+          <div ngbDropdown class="ma-select">
+            <div class="form-control ma-select-button"
+                 id="faqVisibilityDropdown"
+                 [attr.disabled]="isFaq == true ? true : null"
+                 ngbDropdownToggle>
+              <i class="fa fa-angle-down dropdown-angle"></i>
+
+              <i class="{{faq.visibility | iconClass:'visibility'}}"></i>
+              {{(faq.allowed_visibilities | find:'code':faq.visibility).name | translate}}
+            </div>
+            <ul class="dropdown-menu" *ngIf="!isFaq">
+              <li *ngFor="let item of faq.allowed_visibilities"
+                  (click)="faq.visibility = item.code">
+                <i class="{{item.code | iconClass:'visibility'}}"></i>
+                {{item.name | translate}}
+              </li>
+            </ul>
+          </div>
+        </div><!--END: Visibility-->
+
+        <!--Visibility-->
+        <div class="faq-user-visibility"
+             *ngIf="faq.visibility == 'private'"
+             maRoleAccess
+             [invisibleFor]="['contributor']">
+          <h4>{{'FAQ.VISIBILITY_USER' | translate}}</h4>
+          <ma-check-users
+                  [item]="faq"
+                  [parent]="parentCategory"
+                  [updateMode]="true"
+                  [disabledAll] = "isFaq"
+          ></ma-check-users>
+        </div><!--END: Visibility-->
+
+        <!--Categories-->
+        <div class="faq-category">
+          <h4>{{'FAQ.PUBLISH' | translate}}</h4>
+          <div ngbDropdown class="ma-select" [attr.disabled]="isFaq == true ? true : null" *ngIf="categories && categories.length > 0">
+            <div class="form-control ma-select-button"
+                 id="faqCategoriesDropdown"
+                 ngbDropdownToggle>
+              <i class="fa fa-angle-down dropdown-angle"></i>
+
+              {{(categories | find:'id':faq.categoryId).name}}
+            </div>
+            <ul class="dropdown-menu">
+              <li *ngFor="let item of categories"
+                  (click)="changeParentId(item)">
+                {{item.name}}
+              </li>
+            </ul>
+          </div>
+        </div><!--END: Categories-->
+
+        <!--Author-->
+        <div class="faq-author">
+          <h4>{{'FAQ.AUTHOR' | translate}}</h4>
+          <div ngbDropdown
+               class="ma-select"
+               [attr.disabled]="true">
+            <div class="form-control ma-select-button"
+                 id="faqAuthorDropdown"
+                 ngbDropdownToggle>
+              <i class="fa fa-angle-down dropdown-angle"></i>
+
+              {{faq.author}}
+            </div>
+          </div>
+        </div><!--END: Author-->
+
+        <!--Language-->
+        <div class="faq-language" *ngIf="languages.length > 0 && faq.lang">
+          <h4>{{'FAQ.LANGUAGE' | translate}}</h4>
+          <div ngbDropdown class="ma-select"
+               [attr.disabled]="true">
+            <div class="form-control ma-select-button"
+                 id="faqLanguageDropdown"
+                 ngbDropdownToggle>
+              <i class="fa fa-angle-down dropdown-angle pull-right"></i>
+
+              <i class="{{faq.lang.code | iconClass:'flag'}}"></i>
+
+              {{('LANGUAGES.'+((languages | find:'code':faq.lang.code).name) | uppercase) | translate}}
+            </div>
+            <ul class="dropdown-menu">
+              <li *ngFor="let item of languages"
+                  (click)="faq.lang = item">
+                <i class="{{item.code | iconClass:'flag'}}"></i>
+                {{('LANGUAGES.'+item.name | uppercase )| translate}}
+              </li>
+            </ul>
+          </div>
+        </div><!--END: Language-->
+
+        <!--Attachments-->
+        <div class="faq-attachment" *ngIf="!isFaq">
+          <h4>{{'FAQ.ATTACHMENTS' | translate}}</h4>
+
+          <div class="faq-uploader">
+            <ma-upload-file
+              #fileDialog
+              [checkError]="checkFile"
+              (onFileUploaded)="addFile($event)"
+            ></ma-upload-file>
+
+            <button class="upload-button">
+              <a (click)="fileDialog.open()">
+                {{'BUTTON.UPLOAD_ATTACHMENT' | translate}}
+              </a>
+            </button>
+
+            <div class="files" *ngFor="let item of filesBase64; let $index = index">
+              <div class="files-name">{{item.name}}</div>
+              <i class="fa fa-remove" (click)="removeFile($index)"></i>
+            </div>
+          </div>
+        </div><!--END:Attachments-->
+
+      </div><!--END: right sidebar article-->
+    </div>
+  </div>
+</div>

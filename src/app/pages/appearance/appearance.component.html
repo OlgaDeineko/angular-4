@@ -1,0 +1,367 @@
+<div class="container-fluid appearance">
+
+  <div class="row">
+    <div class="col-md-12">
+      <!--Header-->
+      <div class="header">
+        <div class="row">
+          <div class="col-md-9">
+            <h3 class="settings-title-active">{{'APPEARANCE.TITLE' | translate}}</h3>
+            <p class="setting-description pull-left">{{'APPEARANCE.DESCRIPTION' | translate}}</p>
+          </div>
+          <!--KB dropdown-->
+          <div class="col-md-3">
+            <div class="row">
+              <div class="col-md-12">
+                <img class="myanswers-logo" src="../../../assets/images/logo.png" alt="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group"
+                     ngbDropdown>
+                  <ma-my-kb-list (onChangeKB)="switchKB($event)" [withButton]="true"></ma-my-kb-list>
+                </div>
+              </div>
+            </div>
+          </div><!--End: KB dropdown-->
+        </div>
+      </div><!--End: Header-->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form name="appearance"
+            [formGroup]="appearanceForm"
+            #appearanceFormElement="ngForm"
+            novalidate>
+        <ngb-tabset type="pills">
+
+          <ngb-tab>
+            <ng-template ngbTabTitle>{{'APPEARANCE.TITLE_HEADER' | translate}}</ng-template>
+            <ng-template ngbTabContent>
+              <div class="row">
+                <!--Add company logo-->
+                <div class="col-md-6" *ngIf="appearanceImageForm">
+                  <ma-form-single-image
+                    [form]="appearanceImageForm"
+                    [name]="'logo'"
+                    [label]="'FORMS.APPEARANCE.LOGO'"
+                    [maxSize]="100000"
+                    (onFileRemove)="removeImage($event)"
+                  ></ma-form-single-image>
+                </div><!--End: Add company logo-->
+                <div class="col-md-6">
+                  <!--URL for Logo-->
+                  <ma-form-input
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.LOGO_URL'"
+                    [placeholder]="'FORMS.APPEARANCE.FE_LOGO_URL'"
+                    [name]="'logoURL'"
+                    [messages]="{pattern: 'APPEARANCE.INVALID_URL'}"
+                  ></ma-form-input><!--END: URL for Logo-->
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <!--Name of knowledge base-->
+                  <ma-form-input
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.KNOWLEDGE_BASE_NAME'"
+                    [placeholder]="'FORMS.APPEARANCE.KNOWLEDGE_BASE_NAME'"
+                    [name]="'kbName'"
+                    [messages]="{pattern: 'APPEARANCE.INVALID_URL'}"
+                  ></ma-form-input>
+                  <!--END: Name of knowledge base-->
+                </div>
+                <div class="col-md-6">
+                  <!--Contact us URL-->
+                  <ma-form-input
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.CONTACT_US_URL'"
+                    [placeholder]="'FORMS.APPEARANCE.FE_CONTACT_US_URL'"
+                    [name]="'contactURL'"
+                  ></ma-form-input>
+                  <!--END: Contact us URL-->
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <!--Subtitle-->
+                  <ma-form-input
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.KNOWLEDGE_BASE_SUBTITLE'"
+                    [placeholder]="'FORMS.APPEARANCE.KNOWLEDGE_BASE_SUBTITLE'"
+                    [name]="'kbSubtitle'"
+                  ></ma-form-input>
+                  <!--END: Subtitle-->
+
+                    <!--Menu Bar Color-->
+                    <ma-form-color-picker
+                      [formElement]="appearanceFormElement"
+                      [form]="appearanceForm"
+                      [label]="'FORMS.APPEARANCE.MENU_BAR_COLOR'"
+                      [name]="'menuBarColor'"
+                    ></ma-form-color-picker>
+                  <!--END: Menu Bar Color-->
+                </div>
+                <div class="col-md-6" *ngIf="appearanceImageForm">
+                  <ma-form-single-image
+                    [form]="appearanceImageForm"
+                    [name]="'favicon'"
+                    [label]="'FORMS.APPEARANCE.FAVICON'"
+                    [maxSize]="100000"
+                    (onFileRemove)="removeImage($event)"
+                  ></ma-form-single-image>
+                </div><!--End: Add favicon-->
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>{{'APPEARANCE.TITLE_HOME_BANNER' | translate}}</ng-template>
+            <ng-template ngbTabContent>
+              <div class="row">
+                <!--Add color for header-->
+                <div class="col-md-6">
+                  <ma-form-color-picker
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.HEADER_COLOR'"
+                    [name]="'headColor'"
+                  ></ma-form-color-picker>
+                  <!--End: Add color for header-->
+
+                  <!--KB title color-->
+                  <ma-form-color-picker
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.KB_TITLE_COLOR'"
+                    [name]="'kbTitleColor'"
+                  ></ma-form-color-picker><!--END: KB title color-->
+                </div>
+                <!--Add header image-->
+                <div class="col-md-6" *ngIf="appearanceImageForm">
+                  <ma-form-single-image
+                    [form]="appearanceImageForm"
+                    [name]="'header_image'"
+                    [label]="'FORMS.APPEARANCE.HEADER_IMAGE'"
+                    (onFileRemove)="removeImage($event)"
+                  ></ma-form-single-image>
+                </div><!--End: Add header image-->
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <!--Title Font-->
+                  <ma-form-select
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.FONT_TITLE'"
+                    [name]="'titleFont'"
+                    [options]="fontBase | toFormOptions"
+                  ></ma-form-select><!--END: Title Font-->
+                </div>
+                <div class="col-md-6">
+                  <ma-form-input
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.SEARCH_BAR_TEXT'"
+                    [placeholder]="'FORMS.APPEARANCE.SEARCHING'"
+                    [name]="'searchText'"
+                  ></ma-form-input>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>{{'APPEARANCE.TITLE_BODY' | translate}}</ng-template>
+            <ng-template ngbTabContent>
+              <div class="row">
+                <div class="col-md-6">
+                  <!--Font-->
+                  <ma-form-select
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.FONT'"
+                    [name]="'bodyFont'"
+                    [options]="fontBase | toFormOptions"
+                  ></ma-form-select><!--END: Font-->
+                </div>
+                <div class="col-md-6">
+                  <!--link color-->
+                  <ma-form-color-picker
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.LINK_COLOR'"
+                    [name]="'linkColor'"
+                  ></ma-form-color-picker><!--END: link color-->
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>{{'APPEARANCE.TITLE_FOOTER' | translate}}</ng-template>
+            <ng-template ngbTabContent>
+              <div class="row">
+                <!--footer background-->
+                <div class="col-md-6">
+                  <ma-form-color-picker
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.FOOTER_COLOR'"
+                    [name]="'footerColor'"
+                  ></ma-form-color-picker>
+                </div><!--END: footer background-->
+                <!--footer title color-->
+                <div class="col-md-6">
+                  <ma-form-color-picker
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.FOOTER_TITLE_COLOR'"
+                    [name]="'footerTitleColor'"
+                  ></ma-form-color-picker>
+                </div><!--END: footer title color-->
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <!--Font-->
+                  <ma-form-select
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.FOOTER_FONT'"
+                    [name]="'footerFont'"
+                    [options]="fontBase | toFormOptions"
+                  ></ma-form-select><!--END: Font-->
+                </div>
+                <div class="col-md-6">
+                  <ma-form-input
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.FOOTER_TITLE'"
+                    [placeholder]="'FORMS.APPEARANCE.FOOTER_TITLE_DEFAULT'"
+                    [name]="'footerTitle'"
+                  ></ma-form-input>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>{{'APPEARANCE.TITLE_OTHER' | translate}}</ng-template>
+            <ng-template ngbTabContent>
+
+              <div class="row">
+                <!--Button color-->
+                <div class="col-md-6">
+                  <ma-form-color-picker
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.BUTTON_COLOR'"
+                    [name]="'buttonColor'"
+                  ></ma-form-color-picker>
+                </div><!--END: Button color-->
+                <div class="col-md-6">
+                  <div class="row">
+                    <label class="form-control-label">
+                      {{'FORMS.APPEARANCE.CATEGORY_TREE'| translate}}
+                    </label>
+                  </div>
+                  <ma-form-switch
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="false"
+                    [name]="'categoryTree'"
+                    [values]="{on: 'true', off: 'false'}"
+                    [status]="(appearanceForm.controls['categoryTree'].value == 'true')"
+                    placement="top"
+                    #t="ngbTooltip"
+                    (click)="t.close(); t.open()"
+                    ngbTooltip="{{'FORMS.APPEARANCE.CATEGORY_TREE_'+(appearanceForm.controls['categoryTree'].value == 'true' ? 'HIDE' : 'SHOW') | translate}}"
+                  ></ma-form-switch>
+                </div>
+              </div>
+              <div class="row">
+                <!--Button Text Color-->
+                <div class="col-md-6">
+                  <ma-form-color-picker
+                    [formElement]="appearanceFormElement"
+                    [form]="appearanceForm"
+                    [label]="'FORMS.APPEARANCE.BUTTON_TEXT_COLOR'"
+                    [name]="'buttonTextColor'"
+                  ></ma-form-color-picker>
+                </div><!--END: Button Text Color-->
+              </div>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>{{'APPEARANCE.TITLE_TRANSLATIONS_OF_ELEMENTS' | translate}}</ng-template>
+            <ng-template ngbTabContent>
+              <form name="personal"
+                    [formGroup]="translateLabelsForm"
+                    #translateLabelsFormFormElement="ngForm"
+                    novalidate>
+                <!--Content-->
+                <div class="content">
+                  <div *ngFor="let lang of languages">
+                    <p class="appearance-section-title">{{('LANGUAGES.'+lang.name | uppercase) | translate}}</p>
+                    <div class="col-md-12 form-group">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <ma-form-input
+                            [formElement]="translateLabelsFormFormElement"
+                            [form]="translateLabelsForm.controls[lang.code]"
+                            [label]="'FORMS.MULTIPLE_LANGUAGES.KNOWLEDGE_BASE_NAME'"
+                            [disabled]="lang.code === 'nl'"
+                            [name]="'kbName'"
+                          ></ma-form-input>
+                          <ma-form-input
+                            [formElement]="translateLabelsFormFormElement"
+                            [form]="translateLabelsForm.controls[lang.code]"
+                            [label]="'FORMS.MULTIPLE_LANGUAGES.KNOWLEDGE_BASE_SUBTITLE'"
+                            [disabled]="lang.code === 'nl'"
+                            [name]="'kbSubtitle'"
+                          ></ma-form-input>
+                        </div>
+                        <div class="col-md-6">
+                          <ma-form-input
+                            [formElement]="translateLabelsFormFormElement"
+                            [form]="translateLabelsForm.controls[lang.code]"
+                            [label]="'FORMS.MULTIPLE_LANGUAGES.FOOTER_TITLE'"
+                            [disabled]="lang.code === 'nl'"
+                            [name]="'footerTitle'"
+                          ></ma-form-input>
+                          <ma-form-input
+                            [formElement]="translateLabelsFormFormElement"
+                            [form]="translateLabelsForm.controls[lang.code]"
+                            [label]="'FORMS.MULTIPLE_LANGUAGES.SEARCH_BAR_TEXT'"
+                            [disabled]="lang.code === 'nl'"
+                            [name]="'searchText'"
+                          ></ma-form-input>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <!--End: Content-->
+              </form>
+            </ng-template>
+          </ngb-tab>
+
+        </ngb-tabset>
+        <div class="footer">
+          <button class="button button-primary"
+                  type="button" (click)="submit()">
+            {{'BUTTON.SAVE' | translate}}
+          </button>
+        </div><!--End: Footer-->
+      </form>
+
+    </div>
+  </div>
+</div>
+

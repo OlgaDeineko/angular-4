@@ -1,0 +1,39 @@
+<div>
+  <div *ngIf="searchModel">
+    <div class="algolia col-md-10 offset-md-1"
+         *ngFor="let item of algoliaResults">
+      <div class="algolia-question">
+        <h3>
+          <a href="#"
+             (click)="$event.preventDefault(); goToFaq(item.objectID)"
+             [innerHTML]="item._highlightResult.question.value"></a>
+        </h3>
+        in <span class="algolia-category"
+                 [innerHTML]="item.hierarchicalCategories.lvl2 ?
+      item.hierarchicalCategories.lvl2 :
+      item.hierarchicalCategories.lvl1 ?
+      item.hierarchicalCategories.lvl1 :
+      item.hierarchicalCategories.lvl0"
+      ></span>
+      </div>
+
+      <div class="algolia-tags">
+        <div class="one-tag"
+             *ngFor="let tag of item._highlightResult.tags"
+             [innerHTML]="tag.value"
+        ></div>
+      </div>
+
+      <div class="algolia-answer line-clamp"
+           [innerHTML]="item._highlightResult.answer.value"
+      ></div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="searchModel && algoliaResults.length == 0">
+  <h3 class="text-center">
+    Not found
+  </h3>
+</div>

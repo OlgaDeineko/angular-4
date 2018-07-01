@@ -1,0 +1,98 @@
+<ma-sidebar-menu></ma-sidebar-menu>
+
+<div class="content-wrapper row dashboard">
+  <img class="admin-myanswers-logo" src="../../../assets/images/logo.png" alt="">
+  <div class="col-md-2 dashboard-left-sidebar">
+
+    <div class="dashboard-actions">
+      <div ngbDropdown class="d-inline-block">
+        <button class="button button-primary" id="dropdownBasic" ngbDropdownToggle>
+          <i class="fa fa-plus"></i>
+          {{'BUTTON.ADD' | translate}}
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a [routerLink]="['/admin/createFAQ']"
+               [queryParams]="{categoryId: 1}">
+              {{'FAQ.CREATE' | translate}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <ma-faq-statuses-sidebar></ma-faq-statuses-sidebar>
+  </div>
+
+  <div class="col-md-10 dashboard-content" *ngIf="faqs">
+    <div class="container-fluid">
+
+      <div class="row dashboard-title">
+        <div class="col-md-12">
+          <h1>{{title | translate}}</h1>
+          <ma-breadcrumbs></ma-breadcrumbs>
+        </div>
+      </div>
+
+      <!--search-->
+      <div class="form-group">
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="searchModel"
+               (input)="search()"
+               placeholder="{{'SEARCH' | translate}}">
+      </div><!--END: search-->
+
+      <!-- tree header -->
+      <div class="tree-header">
+        <div class="tree-header-title">
+          <span class="title">
+            {{faqs.length}} {{((faqs.length>1) ? 'RESULTS' : 'RESULT') | translate}}
+          </span>
+        </div>
+
+        <div class="tree-header-update">
+          {{'CATEGORY.CREATED' | translate}}
+        </div>
+
+        <div class="tree-header-lang" *ngFor=" let lang of transLang">
+          <i class="{{lang.code | iconClass:'flag'}}"></i>
+        </div>
+        <div class="tree-header-author">
+          {{'CATEGORY.AUTHOR' | translate}}
+        </div>
+        <div class="tree-header-actions">
+          <div ngbDropdown
+               class="pull-right select d-inline-block"
+               maRoleAccess
+               [invisibleFor]="['contributor']">
+            <div id="dropdownBasic1" ngbDropdownToggle>
+              <i class="fa fa-angle-down pull-right"></i>
+              {{'CATEGORY.SORT_BY' | translate}}
+              <span class="sort">{{'CATEGORY.SORT_FILTER.'+order.name | translate}}</span>
+            </div>
+
+            <ul class="dropdown-menu">
+              <li *ngFor="let item of orderList" (click)="changeOrder(item)">
+                {{'CATEGORY.SORT_FILTER.'+item.name | translate}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div> <!--END: tree header-->
+
+      <div class="tree">
+        <!--faqs-->
+        <div *ngFor="let faq of faqs | orderBy: order.faq | bigList | async">
+          <div>
+            <ma-tree-item [item]="faq"
+                          [type]="'faq'">
+            </ma-tree-item>
+          </div>
+        </div><!--END: faqs-->
+      </div>
+
+    </div>
+  </div>
+
+</div>
